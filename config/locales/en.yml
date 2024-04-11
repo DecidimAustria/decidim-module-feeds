@@ -6,9 +6,10 @@ en:
         name: Feeds
         filter:
           title: Filter
+          menuAriaLabel: Filter feeds
           posts: Posts
           marketplace: Marketplace
           HV: PM
           calendar: Calendar
-          poll: Poll
+          survey: Survey
           help: Help
