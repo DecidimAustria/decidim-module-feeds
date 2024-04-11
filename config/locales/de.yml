@@ -1,0 +1,14 @@
+---
+de:
+  decidim:
+    components:
+      feeds:
+        name: Feeds
+        filter:
+          title: Filter
+          posts: Beiträge
+          marketplace: Marktplatz
+          HV: HV
+          calendar: Kalender
+          poll: Umfrage
+          help: Hilfe

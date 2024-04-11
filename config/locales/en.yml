@@ -4,3 +4,11 @@ en:
     components:
       feeds:
         name: Feeds
+        filter:
+          title: Filter
+          posts: Posts
+          marketplace: Marketplace
+          HV: PM
+          calendar: Calendar
+          poll: Poll
+          help: Help
