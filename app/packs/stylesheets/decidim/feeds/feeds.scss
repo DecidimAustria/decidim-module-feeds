@@ -1,1 +1,26 @@
 /* css for decidim_feeds */
+.feeds__container {
+	display: flex;
+	gap: 0;
+	justify-content: space-between;
+	wrap: nowrap;
+	.feeds__body {
+		flex: 1;
+		background-color: yellow;
+	}
+	.feeds__aside {
+		background-color: red;
+		max-width: fit-content;
+		ul {
+			display: flex;
+			flex-direction: column;
+			gap: 16px;
+			a {
+				display: flex;
+				flex-direction: column;
+				align-items: flex-end;
+				@apply font-medium text-xs md:text-md;
+			}
+		}
+	}
+}

@@ -1,0 +1,22 @@
+---
+it:
+  decidim:
+    feeds:
+      content_blocks:
+        feeds:
+          title: Feed
+          name: Feed
+          description: Un feed di post, eventi e altri contenuti.
+      components:
+        feeds:
+          name: Feeds
+          filter:
+            all: Tutti
+            title: Filter
+            menuAriaLabel: Filter feeds
+            posts: Posts
+            marketplace: Marketplace
+            hv: HV
+            calendar: Calendar
+            survey: Survey
+            help: Help

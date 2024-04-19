@@ -1,15 +1,22 @@
 ---
 en:
   decidim:
-    components:
-      feeds:
-        name: Feeds
-        filter:
-          title: Filter
-          menuAriaLabel: Filter feeds
-          posts: Posts
-          marketplace: Marketplace
-          HV: PM
-          calendar: Calendar
-          survey: Survey
-          help: Help
+    feeds:
+      content_blocks:
+        feed:
+          title: Feed
+          name: Feed
+          description: A feed of posts, events, and other content.
+        components:
+          feeds:
+            name: Feeds
+            filter:
+              all: All
+              title: Filter
+              menuAriaLabel: Filter feeds
+              posts: Posts
+              marketplace: Marketplace
+              hv: HV
+              calendar: Calendar
+              survey: Survey
+              help: Help
