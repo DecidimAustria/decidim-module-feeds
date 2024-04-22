@@ -3,50 +3,7 @@
 
   </style>
   <div class="feeds__container">
-    <div class="feeds__body">
-      <div class="card__grid-home">
-        <div class="card__grid-metadata">
-          <div class="author" data-author="">
-            <span>
-              <div class="author__container">
-                <span class="author__avatar-container">
-                  <img alt="Avatar: Sint est." class="author__avatar" src="/decidim-packs/media/images/decidim_meetings-f1cb40f132fbc2fa9a00.svg">
-                </span>
-                <span class="author__name">Sint est.</span>
-              </div>
-            </span>
-            <span data-endorsements-count="">
-              <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-heart-add-line"></use></svg>
-              Support (13)
-            </span>
-            <span data-comments-count="">
-              <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-wechat-line"></use></svg>
-              Kommentare (8) 
-            </span>
-          </div>
-        </div>
-        <div class="card__grid-img">
-            <img alt="Media picture: Deserunt ratione facere debitis quis." src="">
-        </div>
-        <div class="card__grid-text">
-          <h2 class="h4 text-secondary">Deserunt ratione facere debitis quis.</h2>
-            <div class="card__grid-metadata">
-              <span>
-                  <span class="card__grid-loader" style="--value:1.0;"></span>2 months remaining
-              </span>
-              <span>
-                <svg width="1em" height="1em" role="img" aria-hidden="true"><use href="/decidim-packs/media/images/remixicon.symbol-e643e553623ffcd49f94.svg#ri-direction-line"></use></svg>
-                  Corporis deserunt.
-              </span>
-            </div>
-        </div>
-        <div>
-          <form>
-            <input type="text" placeholder="Kommentieren">
-          </form>
-        </div>
-      </div>
-    </div>
+    <%= render :body %>
     <%= render :sidebar %>
   </div>
 </section>

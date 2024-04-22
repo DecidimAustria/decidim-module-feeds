@@ -1,25 +1,27 @@
 /* css for decidim_feeds */
+
 .feeds__container {
-	display: flex;
-	gap: 0;
-	justify-content: space-between;
-	wrap: nowrap;
+	@apply flex space-x-0 justify-between flex-nowrap;
 	.feeds__body {
-		flex: 1;
 		background-color: yellow;
+		@apply flex-grow flex flex-wrap gap-4;
+		.feed__actions {
+			@apply flex flex-grow flex-col items-end;
+			li {
+				@apply flex flex-nowrap items-center;
+				span {
+					@apply flex gap-x-1 items-center;
+				}
+			}
+		}
 	}
 	.feeds__aside {
 		background-color: red;
-		max-width: fit-content;
+		@apply max-w-max;
 		ul {
-			display: flex;
-			flex-direction: column;
-			gap: 16px;
+			@apply flex flex-col space-y-4;
 			a {
-				display: flex;
-				flex-direction: column;
-				align-items: flex-end;
-				@apply font-medium text-xs md:text-md;
+				@apply flex flex-col items-end font-medium text-xs md:text-md;
 			}
 		}
 	}

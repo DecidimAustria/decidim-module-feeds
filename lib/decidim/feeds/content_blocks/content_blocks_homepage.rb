@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 def initialize_homepage_content_blocks
-  initializer "decidim_feeds.content_blocks" do
+  initializer "Feeds.content_blocks" do
     Decidim.content_blocks.register(:homepage, :feeds) do |content_block|
       content_block.cell = "decidim/feeds/content_blocks/feeds"
-      content_block.settings_form_cell = "decidim/feeds/content_blocks/feeds_cell_settings_form"
+      content_block.settings_form_cell = "decidim/feeds/content_blocks/feeds_settings_form"
       content_block.public_name_key = "decidim.feeds.content_blocks.feeds.name"
 
       content_block.settings do |settings|
