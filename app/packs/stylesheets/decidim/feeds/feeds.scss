@@ -52,6 +52,15 @@
 					}
 				}
 			}
+			.feeds__feed_comment {
+				@apply rounded-md px-3 pb-1.5 pt-2.5 shadow-sm focus-within:ring-2 focus-within:ring-2 bg-white;
+				label {
+					@apply block text-md font-medium;
+				}
+				textarea {
+					@apply block w-full border-0 p-0 focus:ring-0 sm:text-sm sm:leading-6 bg-transparent;
+				}
+			}
 		}
 	}
 	.feeds__aside {
