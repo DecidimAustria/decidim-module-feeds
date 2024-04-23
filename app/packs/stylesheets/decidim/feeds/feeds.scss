@@ -30,7 +30,7 @@
 				--tw-ring-color: rgb(var(--dg-color-help) / var(--tw-ring-opacity));
 			}
 			.card__grid-metadata {
-				@apply gap-2;
+				@apply gap-2 items-start flex-nowrap;
 				.author {
 					@apply mr-auto;
 				}
