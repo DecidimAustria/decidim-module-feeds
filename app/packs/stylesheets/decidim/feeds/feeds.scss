@@ -1,16 +1,55 @@
 /* css for decidim_feeds */
 
+@import '_variables.scss';
+
 .feeds__container {
 	@apply flex space-x-0 justify-between flex-nowrap;
 	.feeds__body {
 		background-color: yellow;
 		@apply flex-grow flex flex-wrap gap-4;
-		.feed__actions {
-			@apply flex flex-grow flex-col items-end;
-			li {
-				@apply flex flex-nowrap items-center;
-				span {
-					@apply flex gap-x-1 items-center;
+		.feeds__feed {
+			@apply p-2 gap-2 ring-1;
+			&[data-content='post'] {
+				--tw-ring-color: rgb(var(--dg-color-post) / var(--tw-ring-opacity));
+			}
+			&[data-content='marketplace'] {
+				--tw-ring-color: rgb(
+					var(--dg-color-marketplace) / var(--tw-ring-opacity)
+				);
+			}
+			&[data-content='hv'] {
+				--tw-ring-color: rgb(var(--dg-color-hv) / var(--tw-ring-opacity));
+			}
+			&[data-content='poll'] {
+				--tw-ring-color: rgb(var(--dg-color-poll) / var(--tw-ring-opacity));
+			}
+			&[data-content='calendar'] {
+				--tw-ring-color: rgb(var(--dg-color-calendar) / var(--tw-ring-opacity));
+			}
+			&[data-content='help'] {
+				--tw-ring-color: rgb(var(--dg-color-help) / var(--tw-ring-opacity));
+			}
+			.card__grid-metadata {
+				@apply gap-2;
+				.author {
+					@apply mr-auto;
+				}
+				.feed__actions {
+					@apply flex flex-col items-end;
+					li {
+						@apply flex flex-nowrap items-center hidden motion-safe:transition-all motion-safe:ease-in-out motion-safe:duration-300;
+						span {
+							@apply flex gap-x-1 items-center;
+						}
+						&:first-child {
+							@apply flex;
+						}
+					}
+					&.expanded {
+						li {
+							@apply flex;
+						}
+					}
 				}
 			}
 		}
