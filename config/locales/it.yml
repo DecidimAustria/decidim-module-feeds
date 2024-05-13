@@ -1,17 +1,17 @@
 ---
-en:
+it:
   decidim:
     feeds:
       content_blocks:
         feeds:
           title: Feed
           name: Feed
-          description: A feed of posts, events, and other content.
+          description: Un feed di post, eventi e altri contenuti.
       components:
         feeds:
           name: Feeds
           filter:
-            all: All
+            all: Tutti
             title: Filter
             menuAriaLabel: Filter feeds
             posts: Posts

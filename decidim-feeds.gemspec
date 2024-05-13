@@ -6,8 +6,8 @@ require "decidim/feeds/version"
 
 Gem::Specification.new do |s|
   s.version = Decidim::Feeds.version
-  s.authors = ["Alexander Rusa"]
-  s.email = ["alex@rusa.at"]
+  s.authors = ["Alexander Rusa", "Piero Chiussi"]
+  s.email = ["alex@rusa.at", "info@webchroma.de"]
   s.license = "AGPL-3.0"
   s.homepage = "https://decidim.org"
   s.metadata = {

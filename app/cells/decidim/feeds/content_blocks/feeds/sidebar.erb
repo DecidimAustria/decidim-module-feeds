@@ -1,0 +1,48 @@
+<aside class="feeds__aside">
+  <nav aria-label="<%= t("decidim.feeds.components.feeds.filter.menuAriaLabel") %>">
+    <ul>
+      <li> 
+        <%= link_to "#", class: "", data: { filter: 'all'} do %>
+          <%= icon "function-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.all") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'beitrag'} do %>
+          <%= icon "home-5-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.posts") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'marktplatz'} do %>
+          <%= icon "recycle-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.marketplace") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'hv'} do %>
+          <%= icon "home-gear-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.hv") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'kalender'} do %>
+          <%= icon "calendar-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.calendar") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'hilfe'} do %>
+          <%= icon "shake-hands-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.help") %></span>
+        <% end %>
+      </li>
+      <li>
+        <%= link_to "#", class: "", data: { filter: 'umfrage'} do %>
+          <%= icon "draft-line" %>
+          <span><%= t("decidim.feeds.components.feeds.filter.survey") %></span>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</aside>
