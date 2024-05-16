@@ -1,7 +1,7 @@
 <section id="feeds" class="home__section feeds">
   <div class="feeds__container">
-    <%= render :body %>
-    <%= render :sidebar %>
+    <%= render partial: "decidim/feeds/content_blocks/feeds/body" %>
+    <%= render partial: "decidim/feeds/content_blocks/feeds/sidebar", locals:{ zone:'' } %>
   </div>
 </section>
 <%= append_javascript_pack_tag "decidim_feeds" %>
