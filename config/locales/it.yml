@@ -12,11 +12,11 @@ it:
           name: Feeds
           filter:
             all: Tutti
-            title: Filter
+            title: Filtro
             menuAriaLabel: Filter feeds
             posts: Posts
-            sharecare: Marketplace
+            sharecare: Share&Care
             hv: HV
-            calendar: Calendar
-            survey: Survey
-            help: Help
+            calendar: Calendario
+            survey: Poll
+            help: Aiuto

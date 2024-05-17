@@ -6,30 +6,35 @@
 	@apply flex gap-4 justify-between flex-nowrap;
 	.feeds__body {
 		@apply flex-grow flex flex-wrap gap-4;
+		.feeds__newElement {
+			@media (min-width: 480px) {
+				@apply col-start-2 col-end-3;
+			}
+		}
 		.feeds__feed {
-			@apply p-2 gap-2 ring-1;
+			@apply p-2 gap-2 ring-1 hover:cursor-default;
+			@media (min-width: 480px) {
+				@apply col-start-2 col-end-3;
+			}
 			&[data-content='post'] {
 				--tw-ring-color: rgb(var(--dg-color-post) / var(--tw-ring-opacity));
 			}
-			&[data-content='marketplace'] {
+			&[data-content='sharecare'] {
 				--tw-ring-color: rgb(
-					var(--dg-color-marketplace) / var(--tw-ring-opacity)
+					var(--dg-color-sharecare) / var(--tw-ring-opacity)
 				);
 			}
 			&[data-content='hv'] {
 				--tw-ring-color: rgb(var(--dg-color-hv) / var(--tw-ring-opacity));
 			}
-			&[data-content='poll'] {
-				--tw-ring-color: rgb(var(--dg-color-poll) / var(--tw-ring-opacity));
+			&[data-content='survey'] {
+				--tw-ring-color: rgb(var(--dg-color-survey) / var(--tw-ring-opacity));
 			}
 			&[data-content='calendar'] {
 				--tw-ring-color: rgb(var(--dg-color-calendar) / var(--tw-ring-opacity));
 			}
-			&[data-content='sharecare'] {
-				--tw-ring-color: rgb(var(--dg-color-help) / var(--tw-ring-opacity));
-			}
 			.card__grid-metadata {
-				@apply gap-2 items-start flex-nowrap;
+				@apply gap-2 items-start flex-nowrap text-black;
 				.author {
 					@apply mr-auto;
 				}

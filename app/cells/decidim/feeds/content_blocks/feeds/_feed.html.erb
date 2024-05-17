@@ -1,0 +1,3 @@
+<% ["post", "sharecare", "hv", "calendar", "survey"].each do |category| %>
+  <%= render partial: 'decidim/feeds/content_blocks/feeds/singlecell.html', locals: { category: category } %>
+<% end %>

@@ -1,7 +1,17 @@
 <section id="feeds" class="home__section feeds">
   <div class="feeds__container">
-    <%= render partial: "decidim/feeds/content_blocks/feeds/body" %>
-    <%= render partial: "decidim/feeds/content_blocks/feeds/sidebar", locals:{ zone:'' } %>
+    <div class="feeds__body">
+      <div class="feeds__newElement">
+        <button class="btn" aria-haspopup="true" aria-expanded="false">
+          <%= icon "shake-hands-line" %>
+          <span class="sr-only">Button</span>
+        </button>
+      </div>
+      <div class="card__grid-home">
+        <%= render partial: "decidim/feeds/content_blocks/feeds/feed.html", locals:{ categories: all_categories } %>
+      </div>
+    </div>
+    <%= render partial: "decidim/feeds/content_blocks/feeds/sidebar.html", locals:{ categories: all_categories } %>
   </div>
 </section>
 <%= append_javascript_pack_tag "decidim_feeds" %>
