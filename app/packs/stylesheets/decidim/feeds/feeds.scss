@@ -6,9 +6,33 @@
 	@apply flex gap-4 justify-between flex-nowrap;
 	.feeds__body {
 		@apply flex-grow flex flex-wrap gap-4;
-		.feeds__newElement {
-			@media (min-width: 480px) {
-				@apply col-start-2 col-end-3;
+		.feeds__feed_newElement {
+			--tw-ring-color: rgb(var(--dg-color-white) / var(--tw-ring-opacity));
+			&.open {
+				--tw-ring-color: rgb(var(--dg-color-black) / var(--tw-ring-opacity));
+				.circle {
+					svg {
+						@apply rotate-0;
+					}
+				}
+				form {
+					@apply flex flex-col gap-4;
+				}
+			}
+			.circle {
+				@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow justify-center items-center inline-flex text-black;
+				svg {
+					@apply w-[36px] h-[36px] fill-gray rotate-45;
+				}
+			}
+			form {
+				@apply hidden;
+				.beitragTyp {
+					@apply flex gap-2 flex-wrap justify-center;
+				}
+				.sndBtn {
+					@apply self-end;
+				}
 			}
 		}
 		.feeds__feed {
@@ -26,9 +50,45 @@
 			}
 			&[data-content='hv'] {
 				--tw-ring-color: rgb(var(--dg-color-hv) / var(--tw-ring-opacity));
+				&.hv-highlight {
+					@apply bg-alert text-white font-medium;
+					* {
+						@apply text-white;
+					}
+				}
+				&.feeds__feed_hv-handling {
+					@apply border-t-8 border-warning;
+				}
+				&.feeds__feed_hv-complete {
+					@apply border-t-8 border-success;
+				}
+				.hv-icon {
+					@apply absolute -right-2 -top-2 bg-white fill-alert;
+				}
 			}
 			&[data-content='survey'] {
 				--tw-ring-color: rgb(var(--dg-color-survey) / var(--tw-ring-opacity));
+				.feeds__feed_survey {
+					@apply flex flex-col gap-1 text-sm font-bold;
+					.feeds__feed_survey-questions {
+						@apply flex flex-col gap-4 text-md;
+						.feeds__feed_survey-question {
+							@apply flex flex-col p-2 gap-2 rounded-md bg-background;
+							.feeds__feed_survey-question-answer {
+								@apply font-medium flex flex-col px-2;
+								.feeds__feed_survey-question-answerInput {
+									@apply flex py-1 justify-between gap-2;
+									span {
+										@apply text-sm shrink-0;
+									}
+								}
+								.feeds__feed_survey-question-answerProgressbar {
+									@apply bg-success rounded-lg h-1;
+								}
+							}
+						}
+					}
+				}
 			}
 			&[data-content='calendar'] {
 				--tw-ring-color: rgb(var(--dg-color-calendar) / var(--tw-ring-opacity));

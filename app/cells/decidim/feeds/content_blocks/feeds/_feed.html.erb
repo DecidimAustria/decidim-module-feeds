@@ -1,3 +1,7 @@
 <% ["post", "sharecare", "hv", "calendar", "survey"].each do |category| %>
-  <%= render partial: 'decidim/feeds/content_blocks/feeds/singlecell.html', locals: { category: category } %>
+<% if category == 'hv' %>
+<%= render partial: 'decidim/feeds/content_blocks/feeds/singlecell-HV.html', locals: { category: category } %>
+<% else %>
+<%= render partial: 'decidim/feeds/content_blocks/feeds/singlecell.html', locals: { category: category } %>
+<% end %>
 <% end %>

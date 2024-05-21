@@ -39,8 +39,7 @@ module Decidim
         Decidim.icons.register(name: "recycle-line", icon: "recycle-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "shake-hands-line", icon: "shake-hands-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "gallery-fill", icon: "gallery-fill", category: "system", description: "", engine: :feeds)
-        Decidim.icons.register(name: "chat-3-line", icon: "gallery-fill", category: "system", description: "", engine: :feeds)
-        Decidim.icons.register(name: "flag-2-line", icon: "gallery-fill", category: "system", description: "", engine: :feeds)
+        Decidim.icons.register(name: "send-plane-line", icon: "send-plane-line", category: "system", description: "", engine: :feeds)
       end
 
     end

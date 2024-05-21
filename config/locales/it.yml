@@ -10,6 +10,7 @@ it:
       components:
         feeds:
           name: Feeds
+          newFeed: Nuovo feed
           filter:
             all: Tutti
             title: Filtro

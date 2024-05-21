@@ -10,6 +10,7 @@ de:
       components:
         feeds:
           name: Feeds
+          newFeed: Neues Beitrag
           filter:
             all: Alle
             title: Filter

@@ -10,6 +10,7 @@ en:
       components:
         feeds:
           name: Feeds
+          newFeed: New Feed
           filter:
             all: All
             title: Filter
