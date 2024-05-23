@@ -9,6 +9,16 @@ module Decidim
   module Feeds
     # This is the engine that runs on the public interface of feeds.
     class Engine < ::Rails::Engine
+      routes do
+        # Add admin engine routes here
+        # resources :feeds do
+        #   collection do
+        #     resources :exports, only: [:create]
+        #   end
+        # end
+        # root to: "feeds#index"
+        resources :posts, only: [:index]
+      end
       
       isolate_namespace Decidim::Feeds
 

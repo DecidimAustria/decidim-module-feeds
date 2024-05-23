@@ -1,18 +1,3 @@
 <section id="feeds" class="home__section feeds">
-  <div class="feeds__container">
-    <div class="feeds__body">
-      <div class="card__grid-home">
-        <div class="card__grid feeds__feed feeds__feed_newElement">
-          <button class="btn circle feeds__feed_newElement-opener" aria-expanded="false" aria-controls="newElementForm">
-            <%= icon "close-circle-line" %>
-            <span class="sr-only"><%= t("decidim.feeds.components.feeds.newFeed") %></span>
-          </button>
-          <%= render partial: "decidim/feeds/content_blocks/feeds/newElement.html", locals:{ categories: all_categories } %>
-        </div>
-        <%= render partial: "decidim/feeds/content_blocks/feeds/feed.html", locals:{ categories: all_categories } %>
-      </div>
-    </div>
-    <%= render partial: "decidim/feeds/content_blocks/feeds/sidebar.html", locals:{ categories: all_categories } %>
-  </div>
+  <%= render partial: "decidim/feeds/posts/index.html" %>
 </section>
-<%= append_javascript_pack_tag "decidim_feeds" %>

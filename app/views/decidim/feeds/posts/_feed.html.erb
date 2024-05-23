@@ -1,0 +1,7 @@
+<% ["post", "sharecare", "hv", "calendar", "survey"].each do |category| %>
+  <% if category == 'hv' %>
+    <%= cell("decidim/feeds/post_hv", category: category) %>
+  <% else %>
+    <%= cell("decidim/feeds/post", category: category) %>
+  <% end %>
+<% end %>
