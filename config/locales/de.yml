@@ -11,6 +11,8 @@ de:
         feeds:
           name: Feeds
           newFeed: Neues Beitrag
+          newSurvey:
+            newQuestion: Neue Frage
           filter:
             all: Alle
             title: Filter

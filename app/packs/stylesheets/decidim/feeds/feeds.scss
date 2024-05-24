@@ -6,50 +6,19 @@
 	@apply flex gap-4 justify-between flex-nowrap;
 	.feeds__body {
 		@apply flex-grow flex flex-wrap gap-4;
-		.feeds__feed_newElement {
-			--tw-ring-color: rgb(var(--dg-color-white) / var(--tw-ring-opacity));
-			&.open {
-				--tw-ring-color: rgb(var(--dg-color-black) / var(--tw-ring-opacity));
-				.circle {
-					svg {
-						@apply rotate-0;
-					}
-				}
-				form {
-					@apply flex flex-col gap-4;
-				}
-			}
-			.circle {
-				@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow justify-center items-center inline-flex text-black;
-				svg {
-					@apply w-[36px] h-[36px] fill-gray rotate-45;
-				}
-			}
-			form {
-				@apply hidden;
-				.beitragTyp {
-					@apply flex gap-2 flex-wrap justify-center;
-				}
-				.sndBtn {
-					@apply self-end;
-				}
-			}
-		}
 		.feeds__feed {
 			@apply p-2 gap-2 ring-1 hover:cursor-default;
 			@media (min-width: 480px) {
 				@apply col-start-2 col-end-3;
 			}
 			&[data-content='post'] {
-				--tw-ring-color: rgb(var(--dg-color-post) / var(--tw-ring-opacity));
+				--tw-ring-color: theme('colors.feeds.post');
 			}
 			&[data-content='sharecare'] {
-				--tw-ring-color: rgb(
-					var(--dg-color-sharecare) / var(--tw-ring-opacity)
-				);
+				--tw-ring-color: theme('colors.feeds.sharecare');
 			}
 			&[data-content='hv'] {
-				--tw-ring-color: rgb(var(--dg-color-hv) / var(--tw-ring-opacity));
+				--tw-ring-color: theme('colors.feeds.hv');
 				&.hv-highlight {
 					@apply bg-alert text-white font-medium;
 					* {
@@ -67,13 +36,13 @@
 				}
 			}
 			&[data-content='survey'] {
-				--tw-ring-color: rgb(var(--dg-color-survey) / var(--tw-ring-opacity));
+				--tw-ring-color: theme('colors.feeds.survey');
 				.feeds__feed_survey {
 					@apply flex flex-col gap-1 text-sm font-bold;
 					.feeds__feed_survey-questions {
 						@apply flex flex-col gap-4 text-md;
 						.feeds__feed_survey-question {
-							@apply flex flex-col p-2 gap-2 rounded-md bg-background;
+							@apply flex flex-col p-2 gap-2 rounded-md bg-feeds-bg;
 							.feeds__feed_survey-question-answer {
 								@apply font-medium flex flex-col px-2;
 								.feeds__feed_survey-question-answerInput {
@@ -91,7 +60,7 @@
 				}
 			}
 			&[data-content='calendar'] {
-				--tw-ring-color: rgb(var(--dg-color-calendar) / var(--tw-ring-opacity));
+				--tw-ring-color: theme('colors.feeds.calendar');
 			}
 			.card__grid-metadata {
 				@apply gap-2 items-start flex-nowrap text-black;
@@ -120,6 +89,58 @@
 					}
 				}
 			}
+			&.feeds__feed_newElement {
+				--tw-ring-color: theme('colors.white');
+				@apply gap-4;
+				&.open {
+					--tw-ring-color: theme('colors.feeds.sidebar');
+					.circle {
+						svg {
+							@apply rotate-0 motion-safe:transition-transform;
+						}
+					}
+					form {
+						@apply flex flex-col gap-4 opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+					}
+				}
+				.circle {
+					@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow justify-center items-center inline-flex text-black;
+					svg {
+						@apply w-[36px] h-[36px] fill-feeds-sidebar rotate-45 motion-safe:transition-transform;
+					}
+				}
+				form {
+					@apply hidden opacity-0 scale-0 motion-safe:transition-transform motion-safe:transition-opacity;
+					.feeds__feed_newElement_Body {
+						@apply border-0 bg-feeds-formBody;
+					}
+					.postType {
+						@apply flex gap-2 flex-wrap justify-center;
+
+						input[type='radio']:checked + label {
+							@apply bg-primary text-white focus:outline-primary;
+						}
+					}
+					.feeds__feed_newElement_Xtra {
+						@apply relative hidden opacity-0 scale-0 motion-safe:transition-transform motion-safe:transition-opacity;
+						&.open {
+							@apply block opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+						}
+						&.feeds__feed_newSurvey {
+							.feeds__feed_newSurvey-btn {
+								@apply flex justify-center items-center gap-2 text-black font-medium p-4 bg-feeds-bg w-full rounded-md;
+							}
+							#newQuestion {
+								--tw-ring-color: theme('colors.feeds.sidebar');
+								@apply top-0 left-0 w-full h-full bg-white p-4 ring-1 rounded-md;
+							}
+						}
+					}
+					.sndBtn {
+						@apply self-end;
+					}
+				}
+			}
 		}
 	}
 	.feeds__aside {
@@ -127,7 +148,7 @@
 		ul {
 			@apply flex flex-col space-y-4;
 			a {
-				@apply flex flex-col items-center font-medium text-xs md:text-md;
+				@apply flex flex-col items-center font-medium text-xs md:text-md text-feeds-sidebar;
 			}
 		}
 	}
