@@ -8,8 +8,12 @@ module Decidim
         render :show
       end
       
+      def post
+        model
+      end
+
       def category
-        model[:category]
+        model.category
       end
 
       def commentable

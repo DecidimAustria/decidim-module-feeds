@@ -1,10 +1,10 @@
-<div class="card__grid feeds__feed" data-content="<%=category%>">
+<div class="card__grid feeds__feed" data-content="<%= category %>">
   <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post.body %>
   </div>
   <% if category == 'survey' %>
     <%= render partial: "decidim/feeds/content_blocks/feeds/survey.html" %>

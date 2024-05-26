@@ -24,6 +24,8 @@ module Decidim
       # include Decidim::NewsletterParticipant
       # include Decidim::FilterableResource
 
+      belongs_to :organization, class_name: "Decidim::Organization"
+
       translatable_fields :body
 
       fingerprint fields: [:body]
