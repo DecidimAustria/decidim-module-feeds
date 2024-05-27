@@ -1,42 +1,42 @@
-<div class="card__grid feeds__feed" data-content="<%=category%>">
+<div class="card__grid feeds__feed" data-content="<%=post_category%>">
   <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post_body %>
   </div>
   <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
 </div>
 
-<div class="card__grid feeds__feed" data-content="<%=category%>">
+<div class="card__grid feeds__feed" data-content="<%=post_category%>">
   <%= icon "home-gear-line", class: 'hv-icon' %>
   <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post_body %>
   </div>
   <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
 </div>
 
-<div class="card__grid feeds__feed hv-highlight" data-content="<%=category%>">
+<div class="card__grid feeds__feed hv-highlight" data-content="<%=post_category%>">
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post_body %>
   </div>
 </div>
 
-<div class="card__grid feeds__feed feeds__feed_hv-handling" data-content="<%=category%>">
+<div class="card__grid feeds__feed feeds__feed_hv-handling" data-content="<%=post_category%>">
 <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post_body %>
   </div>
   <div class="bg-white rounded-2xl border-4 border-warning flex-col justify-between items-center inline-flex">
     <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
@@ -50,13 +50,13 @@
 </div>
 
 
-<div class="card__grid feeds__feed feeds__feed_hv-complete" data-content="<%=category%>">
+<div class="card__grid feeds__feed feeds__feed_hv-complete" data-content="<%=post_category%>">
   <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
-    Jemand musste Josef K. verleumdet haben, denn ohne dass er etwas Böses getan hätte, wurde er eines Morgens verhaftet. »Wie ein Hund!« sagte er, es war, als sollte die Scham ihn überleben. 
+    <%= post_body %>
   </div>
   <div class="bg-white rounded-2xl border-4 border-success flex-col justify-between items-center inline-flex">
     <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">

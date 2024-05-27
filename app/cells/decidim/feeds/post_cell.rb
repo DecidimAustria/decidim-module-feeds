@@ -12,11 +12,16 @@ module Decidim
         model
       end
 
-      def category
+      def post_body
+        translated_attribute model.body
+      end
+
+      def post_category
         model.category
       end
 
-      def commentable
+      def post_commentable
+        model.enable_comments?
       end
     end
   end

@@ -1,3 +1,7 @@
 <% @posts.each do |post| %>
-  <%= cell("decidim/feeds/post", post) %>
+  <% if post.category == 'hv' %>
+    <%= cell("decidim/feeds/post_hv", post) %>
+  <% else %>
+    <%= cell("decidim/feeds/post", post) %>
+  <% end %>
 <% end %>

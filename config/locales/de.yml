@@ -10,9 +10,18 @@ de:
       components:
         feeds:
           name: Feeds
-          newFeed: Neues Beitrag
+          newFeed:
+            title: Neues Beitrag
+            text: Bitte füge einen Beitrag ein
+            category: Wähle eine Kategorie
+            action: Senden
           newSurvey:
             newQuestion: Neue Frage
+            questionTitle: Frage eingeben
+            answerType: Antworttyp
+            multipleChoice: Mehrfachauswahl
+            singleChoice: Einzelwahl
+            newAnswer: Neue Antwort
           filter:
             all: Alle
             title: Filter

@@ -10,9 +10,18 @@ it:
       components:
         feeds:
           name: Feeds
-          newFeed: Nuovo feed
+          newFeed:
+            title: Nuovo feed
+            text: Inserisci un post
+            category: Scegli una categoria
+            action: Spedisci
           newSurvey:
             newQuestion: Nuova domanda
+            questionTitle: Inserisci la domanda
+            answerType: Tipo di risposta
+            multipleChoice: Scelta multipla
+            singleChoice: Scelta singola
+            newAnswer: Nuova risposta
           filter:
             all: Tutti
             title: Filtro

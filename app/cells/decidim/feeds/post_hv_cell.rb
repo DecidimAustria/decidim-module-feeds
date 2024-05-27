@@ -7,9 +7,21 @@ module Decidim
       def show
         render :show
       end
+      
+      def post
+        model
+      end
 
-      def category
-        model[:category]
+      def post_body
+        translated_attribute model.body
+      end
+
+      def post_category
+        model.category
+      end
+
+      def post_commentable
+        model.enable_comments?
       end
     end
   end
