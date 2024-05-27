@@ -31,6 +31,17 @@ module Decidim
       fingerprint fields: [:body]
 
       validates :body, presence: true
+
+      searchable_fields(
+        {
+          # participatory_space: { component: :participatory_space },
+          organization_id: :organization_id,
+          A: :body,
+          datetime: :created_at
+        },
+        index_on_create: true,
+        index_on_update: true
+      )
     end
   end
 end
