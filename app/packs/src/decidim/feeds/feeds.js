@@ -1,6 +1,6 @@
-document.addEventListener('DOMContentLoaded', function () {
-	console.log('feed JS really loaded');
+import { initSurvey } from './survey.js';
 
+document.addEventListener('DOMContentLoaded', function () {
 	const newFeed = document.querySelector('.feeds__feed_newElement');
 	const newFeedOpener = document.querySelector(
 		'.feeds__feed_newElement-opener'
@@ -21,17 +21,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	const newFeedSurveyForm = document.getElementById('extraFieldsForSurvey');
 
 	newFeedFormPostType.forEach(function (radio) {
-    radio.addEventListener('change', function () {
-        // Hide all forms
-        newFeedCalendarForm.classList.remove('open');
-        newFeedSurveyForm.classList.remove('open');
+		radio.addEventListener('change', function () {
+			// Hide all forms
+			newFeedCalendarForm.classList.remove('open');
+			newFeedSurveyForm.classList.remove('open');
 
-        // Display the extra fields for the selected radio button
-        if (this.value === 'calendar') {
-            newFeedCalendarForm.classList.add('open');
-        } else if (this.value === 'survey') {
-            newFeedSurveyForm.classList.add('open');
-        }
-    });
-});
+			// Display the extra fields for the selected radio button
+			if (this.value === 'calendar') {
+				newFeedCalendarForm.classList.add('open');
+			} else if (this.value === 'survey') {
+				newFeedSurveyForm.classList.add('open');
+			}
+		});
+	});
+
+	initSurvey();
 });

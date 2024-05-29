@@ -3,27 +3,15 @@
   <%= icon "add-line" %>
 </button>
 <div id="feeds__feed_newSurvey_liveRegion" aria-live="polite" class="sr-only"></div>
-<div id="feeds__feed_newSurvey_questionsContainer">
-  <div id="newQuestion-1" class="feeds__feed_newSurvey_question">
-    <div class="feeds__feed_newSurvey_questionTitle">
-      <label for="question1"><%= t("decidim.feeds.components.feeds.newSurvey.questionTitle") %></label>
-      <input type="text" id="question1" name="question1" value="QUESTION" class="">
-    </div>
-    <fieldset>
-      <legend><%= t("decidim.feeds.components.feeds.newSurvey.answerType") %></legend>
-      <div class="questionType">
-        <input type="radio" id="single" name="answerType" value="single" class="sr-only">
-        <label for="single" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.newSurvey.multipleChoice") %></label>
-        <input type="radio" id="multiple" name="answerType" value="multiple" class="sr-only">
-        <label for="multiple" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.newSurvey.singleChoice") %></label>
-      </div>
-    </fieldset>
-    <div class="feeds__feed_newSurvey_answerContainer">
-      <div class="feeds__feed_newSurvey_answer" id="">
-        <label for="answer-1">1. </label>
-        <input type="text" id="answer1" name="answer-1">
-      </div>
-      <button class="button button__sm button__transparent-primary" aria-haspopup="true" aria-controls="newQuestion-3"><%= t("decidim.feeds.components.feeds.newSurvey.newAnswer")%></button>
-    </div>
-  </div>
-</div>
+<div id="feeds__feed_newSurvey_questionsContainer"></div>
+<script>
+  window.translations = {
+    questionTitle: "<%= t('decidim.feeds.components.feeds.newSurvey.questionTitle') %>",
+    answerType: "<%= t('decidim.feeds.components.feeds.newSurvey.answerType') %>",
+    multipleChoice: "<%= t('decidim.feeds.components.feeds.newSurvey.multipleChoice') %>",
+    singleChoice: "<%= t('decidim.feeds.components.feeds.newSurvey.singleChoice') %>",
+    newAnswer: "<%= t('decidim.feeds.components.feeds.newSurvey.newAnswer') %>",
+    newQuestionResponse: 'A new question has been inserted.',
+    newAnswerResponse: 'A new answer has been inserted.'
+  };
+</script>

@@ -17,7 +17,7 @@ module Decidim
         #   end
         # end
         # root to: "feeds#index"
-        resources :posts, only: [:index]
+        resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
       end
       
       isolate_namespace Decidim::Feeds
