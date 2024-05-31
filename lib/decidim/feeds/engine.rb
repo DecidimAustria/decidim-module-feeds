@@ -17,9 +17,10 @@ module Decidim
         #   end
         # end
         # root to: "feeds#index"
-        resources :posts, only: [:index, :new, :create, :show, :edit, :update, :destroy]
+        resources :posts
+        # get "/test" => "posts#test"
       end
-      
+
       isolate_namespace Decidim::Feeds
 
       # initializer "decidim_feeds.overrides", after: "decidim.action_controller" do
