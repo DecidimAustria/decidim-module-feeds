@@ -1,0 +1,3 @@
+<% form.fields_for :settings, form.object.settings do |settings_fields| %>
+  <%= settings_fields.select :component_id, available_feeds_options, prompt: "", label: t(".component") %>
+<% end %>

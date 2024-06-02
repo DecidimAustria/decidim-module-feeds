@@ -11,10 +11,10 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes
       include Decidim::Fingerprintable
+      include Decidim::HasComponent
       # include Decidim::Loggable
       # include Decidim::DownloadYourData
       # include Decidim::Resourceable
-      # include Decidim::HasComponent
       # include Decidim::Randomable
       # include Decidim::ScopableResource
       # include Decidim::HasReference
@@ -24,7 +24,9 @@ module Decidim
       # include Decidim::NewsletterParticipant
       # include Decidim::FilterableResource
 
-      belongs_to :organization, class_name: "Decidim::Organization"
+      # belongs_to :organization, class_name: "Decidim::Organization"
+
+      component_manifest_name "feeds"
 
       translatable_fields :body
 
@@ -34,7 +36,7 @@ module Decidim
 
       searchable_fields(
         {
-          # participatory_space: { component: :participatory_space },
+          participatory_space: { component: :participatory_space },
           organization_id: :organization_id,
           A: :body,
           datetime: :created_at

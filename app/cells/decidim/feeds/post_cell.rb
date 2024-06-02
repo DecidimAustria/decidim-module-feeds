@@ -7,7 +7,7 @@ module Decidim
       def show
         render :show
       end
-      
+
       def post
         model
       end

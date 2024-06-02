@@ -8,12 +8,14 @@ module Decidim
         include FormFactory
         def show
           # @posts = Decidim::Feeds::Post.where(organization: current_organization).order(created_at: :desc).limit(10)
-          @posts = Decidim::Feeds::Post.order(created_at: :desc).limit(10)
+          component_id = model.settings.try(:component_id)
+          @posts = Decidim::Feeds::Post.where(decidim_component_id: component_id).order(created_at: :desc).limit(10)
           @form = form(PostForm).from_params(params)
           render :show
         end
+
         def post_creation_params
-          #params[:post].merge(body_template: translated_proposal_body_template)
+          # params[:post].merge(body_template: translated_proposal_body_template)
           params[:post]
         end
       end

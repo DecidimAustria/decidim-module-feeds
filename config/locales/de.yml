@@ -1,12 +1,17 @@
 ---
 de:
   decidim:
+    components:
+      feeds:
+        name: Feeds
     feeds:
       content_blocks:
         feeds:
           title: Feed
           name: Feed
           description: Ein Feed mit Beiträgen, Ereignissen und anderen Inhalten.
+        feeds_settings_form:
+          component: Anzuzeigender Feed
       components:
         feeds:
           name: Feeds
