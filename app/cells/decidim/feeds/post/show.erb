@@ -1,5 +1,5 @@
 <div class="card__grid feeds__feed" data-content="<%= post_category %>">
-  <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
+  <%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
@@ -9,5 +9,5 @@
   <% if post_category == 'survey' %>
     <%= render partial: "decidim/feeds/content_blocks/feeds/survey.html" %>
   <% end %>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html", locals: {'post_commentable': post.enable_comments} %>
+  <%= cell("decidim/feeds/post_comment", post) %>
 </div>

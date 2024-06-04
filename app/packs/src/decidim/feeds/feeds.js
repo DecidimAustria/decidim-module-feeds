@@ -35,5 +35,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
+	document
+		.querySelectorAll('.feeds__feed_actions_submenu button')
+		.forEach(function (button) {
+			button.addEventListener('click', function () {
+				var submenuId = this.getAttribute('aria-controls');
+				var submenu = document.getElementById(submenuId);
+				var isHidden = submenu.classList.contains('hidden');
+
+				submenu.classList.toggle('hidden', !isHidden);
+				this.setAttribute('aria-expanded', !isHidden);
+			});
+		});
+
 	initSurvey();
 });

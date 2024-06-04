@@ -5,6 +5,11 @@ de:
       feeds:
         name: Feeds
     feeds:
+      mainMenu:
+        home: Start
+        user: User
+        group: Gruppen
+        messenger: Messenger
       content_blocks:
         feeds:
           title: Feed

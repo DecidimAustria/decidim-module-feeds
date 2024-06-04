@@ -2,6 +2,11 @@
 it:
   decidim:
     feeds:
+      mainMenu:
+        home: Start
+        user: User
+        group: Gruppi
+        messenger: Messenger
       content_blocks:
         feeds:
           title: Feed

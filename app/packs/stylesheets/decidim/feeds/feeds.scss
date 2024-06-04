@@ -11,6 +11,9 @@
 			@media (min-width: 480px) {
 				@apply col-start-2 col-end-3;
 			}
+			&[data-content] {
+				@apply shadow-feedBox;
+			}
 			&[data-content='post'] {
 				--tw-ring-color: theme('colors.feeds.post');
 			}
@@ -38,7 +41,7 @@
 			&[data-content='survey'] {
 				--tw-ring-color: theme('colors.feeds.survey');
 				.feeds__feed_survey {
-					@apply flex flex-col gap-1 text-sm font-bold;
+					@apply flex flex-col gap-2 text-sm font-bold;
 					.feeds__feed_survey-questions {
 						@apply flex flex-col gap-4 text-md;
 						.feeds__feed_survey-question {
@@ -51,9 +54,6 @@
 										@apply text-sm shrink-0;
 									}
 								}
-								.feeds__feed_survey-question-answerProgressbar {
-									@apply bg-success rounded-lg h-1;
-								}
 							}
 						}
 					}
@@ -63,21 +63,29 @@
 				--tw-ring-color: theme('colors.feeds.calendar');
 			}
 			.card__grid-metadata {
-				@apply gap-2 items-start flex-nowrap text-black;
+				@apply gap-2 items-center flex-nowrap text-black;
 				.author {
 					@apply mr-auto;
 				}
 				.feeds__feed_actions {
-					@apply flex gap-2;
+					@apply flex gap-4;
 					span {
 						@apply flex items-center gap-1 text-xs;
+					}
+					.feeds__feed_actions_submenu {
+						@apply relative self-start;
+						button {
+							span {
+								@apply leading-[0];
+							}
+						}
 					}
 				}
 			}
 			.feeds__feed_comments {
-				@apply flex justify-between;
+				@apply flex justify-between px-1 pt-4 pb-2;
 				span {
-					@apply flex items-center gap-1;
+					@apply flex items-center gap-1 text-xs;
 				}
 				.feeds__feed_comment {
 					@apply rounded-md px-3 pb-1.5 pt-2.5 shadow-sm focus-within:ring-2 focus-within:ring-2 bg-white;
@@ -104,7 +112,7 @@
 					}
 				}
 				.circle {
-					@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow justify-center items-center inline-flex text-black;
+					@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow-feedMenu justify-center items-center inline-flex text-black;
 					svg {
 						@apply w-[36px] h-[36px] fill-feeds-sidebar rotate-45 motion-safe:transition-transform;
 					}
@@ -149,6 +157,27 @@
 			@apply flex flex-col space-y-4;
 			a {
 				@apply flex flex-col items-center font-medium text-xs md:text-md text-feeds-sidebar;
+			}
+		}
+	}
+}
+
+header {
+	.main-bar__links-mobile {
+		// @apply w-[calc(100vw-16px)] ;
+		@apply inset-x-2 bottom-2 w-auto rounded-md shadow-feedMenu;
+		.main-bar__links-mobile__item {
+			@apply justify-between;
+			svg {
+				@apply w-[20px] h-[20px] fill-black;
+			}
+			&.circle {
+				svg {
+					@apply w-[42px] h-[42px] fill-black rotate-45;
+				}
+			}
+			span {
+				@apply text-black;
 			}
 		}
 	}

@@ -1,0 +1,34 @@
+<div class="card__grid-metadata">
+  <div class="author" data-author="">
+    <span>
+      <div class="author__container">
+        <span class="author__avatar-container">
+          <img alt="Avatar: Sint est." class="author__avatar" src="/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg">
+        </span>
+        <span class="author__name">Author 1</span>
+      </div>
+    </span>
+  </div>
+  <div class="feeds__feed_actions">
+    <span data-endorsements-count="">
+      <%= icon "thumb-up-line" %>
+      Gefällt mir (13)
+    </span>
+
+    <div class="feeds__feed_actions_submenu">
+      <button type="button" aria-haspopup="true" aria-controls="<%=post.id%>#feeds__feed_actions_submenu" id="<%=post.id%>#feeds__feed_actions_submenuButton" class="flex">
+        <span class="sr-only">Open Menu</span>
+        <span aria-hidden="true">...</span>
+      </button>
+      <ul id="<%=post.id%>#feeds__feed_actions_submenu" role="menu" aria-orientation="vertical" aria-labelledby="<%=post.id%>#feeds__feed_actions_submenuButton" class="absolute right-0 mt-5 px-4 py-2 bg-white divide-y divide-gray-100 border rounded-md shadow-lg overflow-hidden hidden">
+        <li class="text-right py-2">
+          <span>
+            <%= icon "flag-line" %>
+            Melden
+          </span>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</div>

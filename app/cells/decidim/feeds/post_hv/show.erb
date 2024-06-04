@@ -1,24 +1,24 @@
 <div class="card__grid feeds__feed" data-content="<%=post_category%>">
-  <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
+  <%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
     <%= post_body %>
   </div>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
+  <%= cell("decidim/feeds/post_comment", post) %>
 </div>
 
 <div class="card__grid feeds__feed" data-content="<%=post_category%>">
   <%= icon "home-gear-line", class: 'hv-icon' %>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
+  <%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
   <div class="card__grid-text">
     <%= post_body %>
   </div>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
+  <%= cell("decidim/feeds/post_comment", post) %>
 </div>
 
 <div class="card__grid feeds__feed hv-highlight" data-content="<%=post_category%>">
@@ -31,7 +31,7 @@
 </div>
 
 <div class="card__grid feeds__feed feeds__feed_hv-handling" data-content="<%=post_category%>">
-<%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
+<%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
@@ -46,11 +46,11 @@
       <div class="text-stone-700 text-xl font-bold font-['Source Sans Pro'] leading-loose tracking-tight">IN BEARBEITUNG</div>
     </div>
   </div>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
+  <%= cell("decidim/feeds/post_comment", post) %>
 </div>
 
 <div class="card__grid feeds__feed feeds__feed_hv-complete" data-content="<%=post_category%>">
-  <%= render partial: "decidim/feeds/content_blocks/feeds/meta.html" %>
+  <%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
       <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
   </div>
@@ -65,5 +65,5 @@
       <div class="text-stone-700 text-xl font-bold font-['Source Sans Pro'] leading-loose tracking-tight">IN BEARBEITUNG</div>
     </div>
   </div>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/comment.html" %>
+  <%= cell("decidim/feeds/post_comment", post) %>
 </div>
