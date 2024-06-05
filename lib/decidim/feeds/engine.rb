@@ -51,6 +51,10 @@ module Decidim
         Decidim.icons.register(name: "shake-hands-line", icon: "shake-hands-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "gallery-fill", icon: "gallery-fill", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "send-plane-line", icon: "send-plane-line", category: "system", description: "", engine: :feeds)
+        Decidim.icons.register(name: "image-add-line", icon: "image-add-line", category: "system", description: "", engine: :feeds)
+        Decidim.icons.register(name: "film-line", icon: "film-line", category: "system", description: "", engine: :feeds)
+        Decidim.icons.register(name: "file-add-line", icon: "file-add-line", category: "system", description: "", engine: :feeds)
+        Decidim.icons.register(name: "chat-4-line", icon: "chat-4-line", category: "system", description: "", engine: :feeds)
       end
 
     end

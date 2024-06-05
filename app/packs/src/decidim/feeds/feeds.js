@@ -1,6 +1,10 @@
 import { initSurvey } from './survey.js';
 
 document.addEventListener('DOMContentLoaded', function () {
+	console.log('js loaded');
+
+	document.getElementById('main-dropdown-summary-mobile').remove();
+
 	const newFeed = document.querySelector('.feeds__feed_newElement');
 	const newFeedOpener = document.querySelector(
 		'.feeds__feed_newElement-opener'

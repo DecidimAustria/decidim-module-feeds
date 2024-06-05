@@ -10,6 +10,8 @@ de:
         user: User
         group: Gruppen
         messenger: Messenger
+      topMenu:
+        information: Info
       content_blocks:
         feeds:
           title: Feed
