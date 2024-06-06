@@ -1,19 +1,19 @@
 <form id="newElementForm">
-  <label for="body" class="sr-only"><%= t("decidim.feeds.components.feeds.newFeed.text") %></label>
+  <label for="body" class="sr-only"><%= t("decidim.components.feeds.newFeed.text") %></label>
   <textarea id="body" name="body" rows="4" aria-required="true" class="feeds__feed_newElement_Body"></textarea>
   <fieldset>
-    <legend class="sr-only"><%= t("decidim.feeds.components.feeds.newFeed.category") %></legend>
+    <legend class="sr-only"><%= t("decidim.components.feeds.newFeed.category") %></legend>
     <div class="postType">
       <input type="radio" id="post" name="category" value="post" class="sr-only" checked>
-      <label for="post" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.filter.posts") %></label>
+      <label for="post" class="button button__sm button__transparent-primary"><%= t("decidim.components.feeds.filter.posts") %></label>
       <input type="radio" id="sharecare" name="category" value="sharecare" class="sr-only">
-      <label for="sharecare" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.filter.sharecare") %></label>
+      <label for="sharecare" class="button button__sm button__transparent-primary"><%= t("decidim.components.feeds.filter.sharecare") %></label>
       <input type="radio" id="hv" name="category" value="hv" class="sr-only">
-      <label for="hv" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.filter.hv") %></label>
+      <label for="hv" class="button button__sm button__transparent-primary"><%= t("decidim.components.feeds.filter.hv") %></label>
       <input type="radio" id="calendar" name="category" value="calendar" class="sr-only" aria-controls="extraFieldsForCalendar" aria-expanded="false">
-      <label for="calendar" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.filter.calendar") %></label>
+      <label for="calendar" class="button button__sm button__transparent-primary"><%= t("decidim.components.feeds.filter.calendar") %></label>
       <input type="radio" id="survey" name="category" value="survey" class="sr-only" aria-controls="extraFieldsForSurvey" aria-expanded="false">
-      <label for="survey" class="button button__sm button__transparent-primary"><%= t("decidim.feeds.components.feeds.filter.survey") %></label>
+      <label for="survey" class="button button__sm button__transparent-primary"><%= t("decidim.components.feeds.filter.survey") %></label>
     </div>
   </fieldset>
   
@@ -27,7 +27,7 @@
   <%=render partial: 'decidim/feeds/posts/attachment.html' %>
 
   <button class="sndBtn button button__sm button__transparent-primary" type="submit">
-    <%= t("decidim.feeds.components.feeds.newFeed.action") %>
+    <%= t("decidim.components.feeds.newFeed.action") %>
     <%= icon "send-plane-line" %>
   </button>
 </form>

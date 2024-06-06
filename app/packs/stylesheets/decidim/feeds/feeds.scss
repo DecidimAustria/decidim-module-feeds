@@ -45,7 +45,7 @@
 					.feeds__feed_survey-questions {
 						@apply flex flex-col gap-4 text-md;
 						.feeds__feed_survey-question {
-							@apply flex flex-col p-2 gap-2 rounded-md bg-feeds-bg;
+							@apply flex flex-col p-2 gap-2 rounded bg-feeds-bg;
 							.feeds__feed_survey-question-answer {
 								@apply font-medium flex flex-col px-2;
 								.feeds__feed_survey-question-answerInput {
@@ -88,7 +88,7 @@
 					@apply flex items-center gap-1 text-xs;
 				}
 				.feeds__feed_comment {
-					@apply rounded-md px-3 pb-1.5 pt-2.5 shadow-sm focus-within:ring-2 focus-within:ring-2 bg-white;
+					@apply rounded px-3 pb-1.5 pt-2.5 shadow-sm focus-within:ring-2 focus-within:ring-2 bg-white;
 					label {
 						@apply block text-md font-medium;
 					}
@@ -136,11 +136,11 @@
 						}
 						&.feeds__feed_newSurvey {
 							.feeds__feed_newSurvey-btn {
-								@apply flex justify-center items-center gap-2 text-black font-medium p-4 bg-feeds-bg w-full rounded-md;
+								@apply flex justify-center items-center gap-2 text-black font-medium p-4 bg-feeds-bg w-full rounded;
 							}
 							#newQuestion {
 								--tw-ring-color: theme('colors.feeds.sidebar');
-								@apply top-0 left-0 w-full h-full bg-white p-4 ring-1 rounded-md;
+								@apply top-0 left-0 w-full h-full bg-white p-4 ring-1 rounded;
 							}
 						}
 					}
@@ -167,50 +167,6 @@
 					@apply w-[24px] h-auto fill-feeds-sidebar;
 				}
 			}
-		}
-	}
-}
-
-header {
-	.main-bar__links-mobile-top {
-		@apply flex gap-2;
-		.links-mobile-top__item {
-			@apply flex gap-1 items-center text-sm rounded-lg shadow-feedMenu py-1 px-2;
-			svg {
-				@apply fill-black;
-			}
-			&[data-target*='dropdown'] {
-				@apply font-normal;
-				svg {
-					@apply w-[16px] h-auto;
-				}
-			}
-		}
-	}
-	.main-bar__links-mobile {
-		// @apply w-[calc(100vw-16px)] ;
-		@apply inset-x-2 bottom-2 w-auto rounded-md shadow-feedMenu;
-		.main-bar__links-mobile__item {
-			@apply justify-between w-1/5;
-			svg {
-				@apply w-[24px] h-auto fill-black;
-			}
-			&.circle {
-				svg {
-					@apply w-[48px] h-auto fill-black rotate-45;
-				}
-			}
-			span {
-				@apply text-black;
-			}
-		}
-	}
-}
-
-@media (max-width: 768px) {
-	header {
-		.main-bar {
-			@apply flex gap-4 items-center;
 		}
 	}
 }

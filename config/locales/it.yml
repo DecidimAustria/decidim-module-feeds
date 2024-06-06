@@ -1,27 +1,21 @@
 ---
 it:
   decidim:
-    feeds:
-      mainMenu:
-        home: Start
-        user: User
-        group: Gruppi
-        messenger: Messenger
-      topMenu:
-        information: Info
-      content_blocks:
-        feeds:
-          title: Feed
-          name: Feed
-          description: Un feed di post, eventi e altri contenuti.
-      components:
-        feeds:
-          name: Feeds
-          newFeed:
-            title: Nuovo feed
-            text: Inserisci un post
-            category: Scegli una categoria
-            action: Spedisci
+    components:
+      feeds:
+        name: Feeds
+        content_blocks:
+          feeds:
+            title: Feed
+            name: Feed
+            description: Un feed di post, eventi e altri contenuti.
+          feeds_settings_form:
+            component: Feed to display
+        newFeed:
+          title: Nuovo feed
+          text: Inserisci un post
+          category: Scegli una categoria
+          action: Spedisci
           newSurvey:
             newQuestion: Nuova domanda
             questionTitle: Inserisci la domanda
@@ -29,13 +23,13 @@ it:
             multipleChoice: Scelta multipla
             singleChoice: Scelta singola
             newAnswer: Nuova risposta
-          filter:
-            all: Tutti
-            title: Filtro
-            menuAriaLabel: Filter feeds
-            posts: Posts
-            sharecare: Share&Care
-            hv: HV
-            calendar: Calendario
-            survey: Questionario
-            help: Aiuto
+        filter:
+          all: Tutti
+          title: Filtro
+          menuAriaLabel: Filter feeds
+          posts: Posts
+          sharecare: Share&Care
+          hv: HV
+          calendar: Calendario
+          survey: Questionario
+          help: Aiuto

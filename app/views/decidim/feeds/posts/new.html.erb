@@ -5,19 +5,19 @@
     <legend class="sr-only">Choose a category</legend>
     <div class="postType">
       <%= form.radio_button :category, 'post', checked: true, class: 'sr-only', id: 'post' %>
-      <%= form.label :category, t("decidim.feeds.components.feeds.filter.posts"), for: 'post', class: 'button button__sm button__transparent-primary' %>
+      <%= form.label :category, t("decidim.components.feeds.filter.posts"), for: 'post', class: 'button button__sm button__transparent-primary' %>
 
       <%= form.radio_button :category, 'sharecare', class: 'sr-only', id: 'sharecare' %>
-      <%= form.label :category, t("decidim.feeds.components.feeds.filter.sharecare"), for: 'sharecare', class: 'button button__sm button__transparent-primary' %>
+      <%= form.label :category, t("decidim.components.feeds.filter.sharecare"), for: 'sharecare', class: 'button button__sm button__transparent-primary' %>
 
       <%= form.radio_button :category, 'hv', class: 'sr-only', id: 'hv' %>
-      <%= form.label :category, t("decidim.feeds.components.feeds.filter.hv"), for: 'hv', class: 'button button__sm button__transparent-primary' %>
+      <%= form.label :category, t("decidim.components.feeds.filter.hv"), for: 'hv', class: 'button button__sm button__transparent-primary' %>
 
       <%= form.radio_button :category, 'calendar', class: 'sr-only', id: 'calendar' %>
-      <%= form.label :category, t("decidim.feeds.components.feeds.filter.calendar"), for: 'calendar', class: 'button button__sm button__transparent-primary' %>
+      <%= form.label :category, t("decidim.components.feeds.filter.calendar"), for: 'calendar', class: 'button button__sm button__transparent-primary' %>
 
       <%= form.radio_button :category, 'survey', class: 'sr-only', id: 'survey' %>
-      <%= form.label :category, t("decidim.feeds.components.feeds.filter.survey"), for: 'survey', class: 'button button__sm button__transparent-primary' %>
+      <%= form.label :category, t("decidim.components.feeds.filter.survey"), for: 'survey', class: 'button button__sm button__transparent-primary' %>
     </div>
   </fieldset>
   <div id="extraFieldsForCalendar" class="feeds__feed_newElement_Xtra feeds__feed_newCalender">

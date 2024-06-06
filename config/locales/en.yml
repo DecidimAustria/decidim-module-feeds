@@ -4,29 +4,18 @@ en:
     components:
       feeds:
         name: Feeds
-    feeds:
-      mainMenu:
-        home: Start
-        user: User
-        group: Groups
-        messenger: Messenger
-      topMenu:
-        information: Info
-      content_blocks:
-        feeds:
-          title: Feed
-          name: Feed
-          description: A feed of posts, events, and other content.
-        feeds_settings_form:
-          component: Feed to display
-      components:
-        feeds:
-          name: Feeds
-          newFeed:
-            title: New Feed
-            text: Please insert a post
-            category: Choose a category
-            action: Submit
+        content_blocks:
+          feeds:
+            title: Feed
+            name: Feed
+            description: A feed of posts, events, and other content.
+          feeds_settings_form:
+            component: Feed to display
+        newFeed:
+          title: New Feed
+          text: Please insert a post
+          category: Choose a category
+          action: Submit
           newSurvey:
             newQuestion: New Question
             questionTitle: Enter question
@@ -34,13 +23,13 @@ en:
             multipleChoice: Multiple choice
             singleChoice: Single choice
             newAnswer: New answer
-          filter:
-            all: All
-            title: Filter
-            menuAriaLabel: Filter feeds
-            posts: Posts
-            sharecare: Share&Care
-            hv: HV
-            calendar: Calendar
-            survey: Survey
-            help: Help
+        filter:
+          all: All
+          title: Filter
+          menuAriaLabel: Filter feeds
+          posts: Posts
+          sharecare: Share&Care
+          hv: HV
+          calendar: Calendar
+          survey: Survey
+          help: Help
