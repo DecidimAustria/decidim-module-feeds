@@ -4,6 +4,7 @@ module Decidim
   module Feeds
     class PostCommentCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
+      include Decidim::Comments::CommentsHelper
       def show
         render :show
       end

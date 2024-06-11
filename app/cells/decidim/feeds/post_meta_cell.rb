@@ -5,9 +5,11 @@ module Decidim
     class PostMetaCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
       include Decidim::TooltipHelper
-    include Decidim::CardHelper
-    include Decidim::LayoutHelper
-    include Decidim::SearchesHelper
+      include Decidim::CardHelper
+      include Decidim::LayoutHelper
+      include Decidim::SearchesHelper
+      include ::Decidim::EndorsableHelper
+      include ::Decidim::FollowableHelper
 
       alias resource model
 
