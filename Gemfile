@@ -13,7 +13,7 @@ gem "bootsnap", "~> 1.4"
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
-  gem "decidim-dev", "0.28.0"
+  gem "decidim-dev", "0.28.1"
 end
 
 group :development do
