@@ -1,19 +1,15 @@
 <div class="card__grid-metadata">
-  <div class="author" data-author="">
-    <span>
-      <div class="author__container">
-        <span class="author__avatar-container">
-          <img alt="Avatar: Sint est." class="author__avatar" src="/decidim-packs/media/images/default-avatar-aaa9e55bac5d7159b847.svg">
-        </span>
-        <span class="author__name">Author 1</span>
-      </div>
-    </span>
-  </div>
+  <%# <%= cell "decidim/author", post.author, from: post, layout: :compact %>
+  AUTHOR
   <div class="feeds__feed_actions">
+    
+    <%# <%= cell "decidim/endorsement_buttons", post %>
+
     <span data-endorsements-count="">
       <%= icon "thumb-up-line" %>
       Gefällt mir (13)
     </span>
+
 
     <div class="feeds__feed_actions_submenu">
       <button type="button" aria-expanded="false" aria-controls="<%=post.id%>#feeds__feed_actions_submenu" id="<%=post.id%>#feeds__feed_actions_submenuButton" class="flex">
