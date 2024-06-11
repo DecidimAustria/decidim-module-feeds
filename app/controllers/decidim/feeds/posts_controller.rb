@@ -2,6 +2,7 @@ require_dependency "decidim/feeds/application_controller"
 
 module Decidim::Feeds
   class PostsController < ApplicationController
+    helper Decidim::Feeds::ApplicationHelper
     def index
       @form = form(PostForm).from_params(post_creation_params)
     end
