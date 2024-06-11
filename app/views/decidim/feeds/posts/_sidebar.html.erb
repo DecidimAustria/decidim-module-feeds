@@ -2,37 +2,37 @@
   <nav aria-label="<%= t("decidim.components.feeds.filter.menuAriaLabel") %>">
     <ul>
       <li>
-        <%= link_to "#all", class: "", data: { filter: 'all' } do %>
+        <%= link_to "?filter_post_category=", class: "", data: { filter: 'all' } do %>
           <%= icon "function-line" %>
           <span><%= t("decidim.components.feeds.filter.all") %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "#post", class: "", data: { filter: 'post' } do %>
+        <%= link_to "?filter_post_category=post", class: "", data: { filter: 'post' } do %>
           <%= icon "home-5-line" %>
           <span><%= t("decidim.components.feeds.filter.posts") %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "#sharecare", class: "", data: { filter: 'sharecare' } do %>
+        <%= link_to "?filter_post_category=sharecare", class: "", data: { filter: 'sharecare' } do %>
           <%= icon "shake-hands-line" %>
           <span><%= t("decidim.components.feeds.filter.sharecare") %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "#calendar", class: "", data: { filter: 'calendar' } do %>
+        <%= link_to "?filter_post_category=calendar", class: "", data: { filter: 'calendar' } do %>
           <%= icon "calendar-line" %>
           <span><%= t("decidim.components.feeds.filter.calendar") %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "#survey", class: "", data: { filter: 'survey' } do %>
+        <%= link_to "?filter_post_category=survey", class: "", data: { filter: 'survey' } do %>
           <%= icon "draft-line" %>
           <span><%= t("decidim.components.feeds.filter.survey") %></span>
         <% end %>
       </li>
       <li>
-        <%= link_to "#hv", class: "", data: { filter: 'hv' } do %>
+        <%= link_to "?filter_post_category=hv", class: "", data: { filter: 'hv' } do %>
           <%= icon "home-gear-line" %>
           <span><%= t("decidim.components.feeds.filter.hv") %></span>
         <% end %>

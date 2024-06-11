@@ -44,6 +44,12 @@ module Decidim
         index_on_create: true,
         index_on_update: true
       )
+
+      def self.filter_category(category)
+        return self if category.blank?
+
+        where(category:)
+      end
     end
   end
 end
