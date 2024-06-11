@@ -1,42 +1,24 @@
 <aside class="feeds__aside">
   <nav aria-label="<%= t("decidim.components.feeds.filter.menuAriaLabel") %>">
     <ul>
-      <li>
-        <%= link_to "?filter_post_category=", class: "", data: { filter: 'all' } do %>
-          <%= icon "function-line" %>
-          <span><%= t("decidim.components.feeds.filter.all") %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "?filter_post_category=post", class: "", data: { filter: 'post' } do %>
-          <%= icon "home-5-line" %>
-          <span><%= t("decidim.components.feeds.filter.posts") %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "?filter_post_category=sharecare", class: "", data: { filter: 'sharecare' } do %>
-          <%= icon "shake-hands-line" %>
-          <span><%= t("decidim.components.feeds.filter.sharecare") %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "?filter_post_category=calendar", class: "", data: { filter: 'calendar' } do %>
-          <%= icon "calendar-line" %>
-          <span><%= t("decidim.components.feeds.filter.calendar") %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "?filter_post_category=survey", class: "", data: { filter: 'survey' } do %>
-          <%= icon "draft-line" %>
-          <span><%= t("decidim.components.feeds.filter.survey") %></span>
-        <% end %>
-      </li>
-      <li>
-        <%= link_to "?filter_post_category=hv", class: "", data: { filter: 'hv' } do %>
-          <%= icon "home-gear-line" %>
-          <span><%= t("decidim.components.feeds.filter.hv") %></span>
-        <% end %>
-      </li>
+      <% filters = [
+        { filter: 'post', icon: 'home-5-line' },
+        { filter: 'sharecare', icon: 'shake-hands-line' },
+        { filter: 'calendar', icon: 'calendar-line' },
+        { filter: 'survey', icon: 'draft-line' },
+        { filter: 'hv', icon: 'home-gear-line' }
+      ] %>
+      <% if params[:filter_post_category].present? && !params[:filter_post_category].empty? %>
+        <% filters.unshift({ filter: 'all', icon: 'function-line' }) %>
+      <% end %>
+      <% filters.each do |filter| %>
+        <li>
+          <%= link_to filter[:filter] == 'all' ? "/" : "?filter_post_category=#{filter[:filter]}", class: (params[:filter_post_category] == filter[:filter] ? 'active' : ''), data: { filter: filter[:filter] }, aria: { current: (params[:filter_post_category] == filter[:filter] ? 'page' : nil) } do %>
+            <%= icon "#{filter[:icon]}" %>
+            <span><%= t("decidim.components.feeds.filter.#{filter[:filter]}") %></span>
+          <% end %>
+        </li>
+      <% end %>
     </ul>
   </nav>
 </aside>

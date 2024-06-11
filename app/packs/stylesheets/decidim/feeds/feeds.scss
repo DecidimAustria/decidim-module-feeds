@@ -166,6 +166,36 @@
 				svg {
 					@apply w-[24px] h-auto fill-feeds-sidebar;
 				}
+				&.active {
+					&[data-filter='post'] {
+						svg {
+							@apply fill-feeds-post;
+						}
+					}
+					&[data-filter='sharecare'] {
+						svg {
+							@apply fill-feeds-sharecare;
+						}
+					}
+					&[data-filter='hv'] {
+						svg {
+							@apply fill-feeds-hv;
+						}
+					}
+					&[data-filter='survey'] {
+						svg {
+							@apply fill-feeds-survey;
+						}
+					}
+					&[data-filter='calendar'] {
+						svg {
+							@apply fill-feeds-calendar;
+						}
+					}
+				}
+				&[data-filter='hv'] {
+					@apply mt-8;
+				}
 			}
 		}
 	}

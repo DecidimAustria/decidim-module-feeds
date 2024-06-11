@@ -27,7 +27,7 @@ en:
           all: All
           title: Filter
           menuAriaLabel: Filter feeds
-          posts: Posts
+          post: Posts
           sharecare: Share&Care
           hv: HV
           calendar: Calendar

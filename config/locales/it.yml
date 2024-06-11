@@ -27,7 +27,7 @@ it:
           all: Tutti
           title: Filtro
           menuAriaLabel: Filter feeds
-          posts: Posts
+          post: Posts
           sharecare: Share&Care
           hv: HV
           calendar: Calendario
