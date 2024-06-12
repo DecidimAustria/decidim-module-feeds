@@ -1,5 +1,4 @@
 <div class="feeds__feed_comments">
-  <%= comments_for post %>
   <% if post_commentable %>
     <button class="button button__sm button__transparent-primary">Kommentieren</button>
   <% end %>
@@ -8,3 +7,4 @@
     Kommentare (8) 
   </span>
 </div>
+<%= comments_for post %>

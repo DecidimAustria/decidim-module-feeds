@@ -8,7 +8,11 @@
 		@apply flex-grow flex flex-wrap gap-4;
 		.feeds__feed {
 			@apply p-2 gap-2 ring-1 hover:cursor-default;
-			@media (min-width: 480px) {
+
+			@media (min-width: 768px) {
+				@apply col-start-1 col-end-4;
+			}
+			@media (min-width: 1024px) {
 				@apply col-start-2 col-end-3;
 			}
 			&[data-content] {
@@ -96,6 +100,9 @@
 						@apply block w-full border-0 p-0 focus:ring-0 sm:text-sm sm:leading-6 bg-transparent;
 					}
 				}
+			}
+			.comment-order-by {
+				@apply hidden;
 			}
 			&.feeds__feed_newElement {
 				--tw-ring-color: theme('colors.white');
