@@ -1,6 +1,10 @@
 ---
 it:
   decidim:
+    feeds:
+      content_blocks:
+        feeds:
+          name: Feed
     components:
       feeds:
         name: Feeds
