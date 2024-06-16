@@ -13,7 +13,19 @@ module Decidim
 
       def index
         enforce_permission_to :read, :post
-        @form = form(PostForm).from_params(post_creation_params)
+
+        @posts = Decidim::Feeds::Post
+                 .where(decidim_component_id: current_component.id)
+                 .filter_category(params[:filter_post_category])
+                 .order(created_at: :desc)
+                 .limit(10)
+        extra_context = {
+          current_component: current_component,
+          current_organization: current_component.organization,
+          current_user:,
+          current_participatory_space: current_component.participatory_space
+        }
+        @form = form(Decidim::Feeds::PostForm).from_params(params, extra_context)
       end
 
       def show

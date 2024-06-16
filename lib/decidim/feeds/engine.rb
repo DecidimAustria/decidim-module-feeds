@@ -16,7 +16,7 @@ module Decidim
         #     resources :exports, only: [:create]
         #   end
         # end
-        root to: "feeds#index"
+        root to: "posts#index"
         resources :posts
         # get "/test" => "posts#test"
       end
