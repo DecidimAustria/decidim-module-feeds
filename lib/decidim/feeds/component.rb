@@ -6,6 +6,11 @@ Decidim.register_component(:feeds) do |component|
   component.engine = Decidim::Feeds::Engine
   component.admin_engine = Decidim::Feeds::AdminEngine
   component.icon = "decidim/feeds/icon.svg"
+  component.permissions_class_name = "Decidim::Feeds::Permissions"
+
+  # component.exports :feeds do |exports|
+  #   exports.include_in_open_data = false
+  # end
 
   # component.on(:before_destroy) do |instance|
   #   # Code executed before removing the component
@@ -13,6 +18,7 @@ Decidim.register_component(:feeds) do |component|
 
   # These actions permissions can be configured in the admin panel
   # component.actions = %w()
+  # component.actions = %w(comment)
 
   # component.settings(:global) do |settings|
   #   # Add your global settings

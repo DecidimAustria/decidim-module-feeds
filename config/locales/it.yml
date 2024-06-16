@@ -5,6 +5,9 @@ it:
       content_blocks:
         feeds:
           name: Feed
+      posts:
+        create:
+          success: Post creato con successo
     components:
       feeds:
         name: Feeds

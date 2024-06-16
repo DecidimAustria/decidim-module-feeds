@@ -14,6 +14,7 @@ module Decidim
       # attribute :body, String
       attribute :body, Decidim::Attributes::CleanString
       attribute :category, String
+      attribute :enable_comments, Boolean, default: true
       #attribute :body_template, String
       #attribute :user_group_id, Integer
       #attribute :category_id, Integer
