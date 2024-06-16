@@ -31,7 +31,8 @@ de:
           all: Alle
           title: Filter
           menuAriaLabel: Feeds filtern
-          post: Beiträge
+          post: Beitrag
+          posts: Beiträge
           sharecare: Share&Care
           hv: HV
           calendar: Kalender

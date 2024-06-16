@@ -11,8 +11,9 @@ module Decidim
       mimic :post
 
       #attribute :body, Decidim::Attributes::CleanString
-      attribute :body, String
+      # attribute :body, String
       attribute :body, Decidim::Attributes::CleanString
+      attribute :category, String
       #attribute :body_template, String
       #attribute :user_group_id, Integer
       #attribute :category_id, Integer
@@ -35,7 +36,7 @@ module Decidim
       # validate :body_is_not_bare_template
       validate :notify_missing_attachment_if_errored
 
-      # alias component current_component
+      alias component current_component
       # delegate :categories, to: :current_component
 
       def map_model(model)

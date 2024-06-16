@@ -31,7 +31,8 @@ it:
           all: Tutti
           title: Filtro
           menuAriaLabel: Filter feeds
-          post: Posts
+          post: Post
+          posts: Posts
           sharecare: Share&Care
           hv: HV
           calendar: Calendario
