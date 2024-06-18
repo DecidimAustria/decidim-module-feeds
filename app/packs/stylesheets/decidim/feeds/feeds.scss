@@ -87,12 +87,20 @@
 				}
 			}
 			.feeds__feed_comments {
-				@apply flex justify-between px-1 pt-4 pb-2;
-				span {
-					@apply flex items-center gap-1 text-xs;
-				}
-				.feeds__feed_comment {
-					@apply rounded px-3 pb-1.5 pt-2.5 shadow-sm focus-within:ring-2 focus-within:ring-2 bg-white;
+				@apply px-1 pt-4 pb-2;
+				#comments {
+					.comments__header {
+						@apply flex-row justify-end;
+						h2 {
+							@apply flex text-sm font-medium gap-1;
+							svg {
+								@apply w-[14px] h-auto fill-black;
+							}
+						}
+					}
+					.comment-order-by {
+						@apply hidden;
+					}
 					label {
 						@apply block text-md font-medium;
 					}
@@ -101,9 +109,7 @@
 					}
 				}
 			}
-			.comment-order-by {
-				@apply hidden;
-			}
+
 			&.feeds__feed_newElement {
 				--tw-ring-color: theme('colors.white');
 				@apply gap-4;

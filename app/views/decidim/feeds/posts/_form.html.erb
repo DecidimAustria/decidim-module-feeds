@@ -1,22 +1,22 @@
 <%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |form| %>
   <%= form.label :body, t("decidim.components.feeds.newFeed.text"), class: 'sr-only' %>
-  <%= form.text_area :body, rows: 4, 'aria-required': true %>
+  <%= form.text_area :body, rows: 4, 'aria-required': true, label:false %>
   <fieldset>
     <legend class="sr-only"><%= t("decidim.components.feeds.newFeed.category") %></legend>
     <div class="postType">
-      <%= form.radio_button :category, 'post', checked: true, class: 'sr-only', id: 'post' %>
+      <%= form.radio_button :category, 'post', checked: true, class: 'sr-only', id: 'post', label:false %>
       <%= form.label :category, t("decidim.components.feeds.filter.posts"), for: 'post', class: 'button button__sm button__transparent-primary' %>
 
-      <%= form.radio_button :category, 'sharecare', class: 'sr-only', id: 'sharecare' %>
+      <%= form.radio_button :category, 'sharecare', class: 'sr-only', id: 'sharecare', label:false %>
       <%= form.label :category, t("decidim.components.feeds.filter.sharecare"), for: 'sharecare', class: 'button button__sm button__transparent-primary' %>
 
-      <%= form.radio_button :category, 'hv', class: 'sr-only', id: 'hv' %>
+      <%= form.radio_button :category, 'hv', class: 'sr-only', id: 'hv', label:false %>
       <%= form.label :category, t("decidim.components.feeds.filter.hv"), for: 'hv', class: 'button button__sm button__transparent-primary' %>
 
-      <%= form.radio_button :category, 'calendar', class: 'sr-only', id: 'calendar' %>
+      <%= form.radio_button :category, 'calendar', class: 'sr-only', id: 'calendar', label:false %>
       <%= form.label :category, t("decidim.components.feeds.filter.calendar"), for: 'calendar', class: 'button button__sm button__transparent-primary' %>
 
-      <%= form.radio_button :category, 'survey', class: 'sr-only', id: 'survey' %>
+      <%= form.radio_button :category, 'survey', class: 'sr-only', id: 'survey', label:false %>
       <%= form.label :category, t("decidim.components.feeds.filter.survey"), for: 'survey', class: 'button button__sm button__transparent-primary' %>
     </div>
   </fieldset>

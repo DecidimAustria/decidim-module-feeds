@@ -1,10 +1,6 @@
-<div class="feeds__feed_comments">
-  <% if post_commentable %>
-    <button class="button button__sm button__transparent-primary">Kommentieren</button>
-  <% end %>
-  <span data-comments-count="">
-    <%= icon "chat-1-line" %>
-    Kommentare (8) 
-  </span>
-</div>
-<%= comments_for post %>
+<% if post_commentable %>
+  <div class="feeds__feed_comments">
+    <button class="button button__sm button__transparent-primary absolute">Kommentieren</button>
+    <%= comments_for post %>
+  </div>
+<% end %>
