@@ -50,5 +50,59 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		});
 
+	// comments
+
+	// Select all comments__header h2 elements
+	const commentsHeaders = document.querySelectorAll('.comments__header h2');
+	// Loop over all h2 elements
+	commentsHeaders.forEach((commentsHeader) => {
+		// Find the parent container with "data-decidim-comments"
+		const parentContainer = commentsHeader.closest('[data-decidim-comments]');
+		// Get the ID of the parent container
+		const parentId = parentContainer.getAttribute('id');
+		// Set the aria-controls attribute to the h2 element
+		commentsHeader.setAttribute('aria-controls', `${parentId}-threads`);
+		// Set the aria-expanded attribute to false initially
+		commentsHeader.setAttribute('aria-expanded', 'false');
+	});
+
+	const newCommentBtns = document.querySelectorAll('.newCommentBtn');
+	const showCommentsBtns = document.querySelectorAll('.comments__header h2');
+
+	newCommentBtns.forEach((newCommentBtn) => {
+		newCommentBtn.addEventListener('click', function () {
+			const controlledDivId = newCommentBtn.getAttribute('aria-controls');
+			const controlledDiv = document.getElementById(controlledDivId);
+			const isExpanded = newCommentBtn.getAttribute('aria-expanded') === 'true';
+			newCommentBtn.setAttribute('aria-expanded', !isExpanded);
+			if (isExpanded) {
+				controlledDiv.style.height = '0';
+				controlledDiv.style.visibility = 'hidden';
+				controlledDiv.style.marginTop = '0';
+			} else {
+				controlledDiv.style.height = 'auto';
+				controlledDiv.style.visibility = 'visible';
+				controlledDiv.style.marginTop = '32px';
+			}
+		});
+	});
+
+	showCommentsBtns.forEach((showCommentsBtn) => {
+		showCommentsBtn.addEventListener('click', function () {
+			const controlledDivId = showCommentsBtn.getAttribute('aria-controls');
+			const controlledDiv = document.getElementById(controlledDivId);
+			const isExpanded =
+				showCommentsBtn.getAttribute('aria-expanded') === 'true';
+			showCommentsBtn.setAttribute('aria-expanded', !isExpanded);
+			if (isExpanded) {
+				controlledDiv.style.height = '0';
+				controlledDiv.style.visibility = 'hidden';
+			} else {
+				controlledDiv.style.height = 'auto';
+				controlledDiv.style.visibility = 'visible';
+			}
+		});
+	});
+
 	initSurvey();
 });

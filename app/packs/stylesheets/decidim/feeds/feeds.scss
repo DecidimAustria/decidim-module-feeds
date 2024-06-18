@@ -90,9 +90,9 @@
 				@apply px-1 pt-4 pb-2;
 				#comments {
 					.comments__header {
-						@apply flex-row justify-end;
+						@apply flex-row justify-end h-8 items-center mb-0;
 						h2 {
-							@apply flex text-sm font-medium gap-1;
+							@apply flex text-sm font-medium gap-1 cursor-pointer;
 							svg {
 								@apply w-[14px] h-auto fill-black;
 							}
@@ -101,11 +101,18 @@
 					.comment-order-by {
 						@apply hidden;
 					}
-					label {
-						@apply block text-md font-medium;
+					.comment-threads,
+					.new_comment {
+						@apply h-0 invisible motion-safe:transition-transform;
 					}
-					textarea {
-						@apply block w-full border-0 p-0 focus:ring-0 sm:text-sm sm:leading-6 bg-transparent;
+					.add-comment {
+						@apply mt-0;
+						label {
+							@apply block text-md font-medium;
+						}
+						textarea {
+							@apply block w-full sm:text-sm sm:leading-6;
+						}
 					}
 				}
 			}
