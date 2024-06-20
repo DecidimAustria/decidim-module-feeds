@@ -1,16 +1,11 @@
 <div class="card__grid-metadata">
-  <%# <%= cell "decidim/author", post.author, layout: :avatar %>
-  <%# <%= cell "decidim/author", post.author, from: post, layout: :compact %>
-  AUTHOR
+  <%= cell "decidim/author", Decidim::UserPresenter.new(post.author), layout: :compact %>
   <div class="feeds__feed_actions">
-    
-  <%# <%= cell "decidim/endorsement_buttons", post %>
+      <%# <%= endorsement_buttons_cell(post) %>
     <span data-endorsements-count="">
       <%= icon "thumb-up-line" %>
       Gefällt mir (13)
     </span>
-
-
     <div class="feeds__feed_actions_submenu">
       <button type="button" aria-expanded="false" aria-controls="<%=post.id%>#feeds__feed_actions_submenu" id="<%=post.id%>#feeds__feed_actions_submenuButton" class="flex">
         <span class="sr-only">Open Menu</span>

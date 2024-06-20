@@ -4,12 +4,8 @@ module Decidim
   module Feeds
     class PostMetaCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
-      include ::Devise::Controllers::Helpers
-      include ::Devise::Controllers::UrlHelpers
-      include Messaging::ConversationHelper
-      include Decidim::FollowableHelper
-      include ERB::Util
-
+      include ::Decidim::EndorsableHelper
+      include Decidim::EndorsableHelper
       def show
         render :show
       end
@@ -17,12 +13,6 @@ module Decidim
       def post
         model
       end
-
-      property :profile_path
-      property :can_be_contacted?
-      property :has_tooltip?
-
-      delegate :current_user, to: :controller, prefix: false
       
     end
   end

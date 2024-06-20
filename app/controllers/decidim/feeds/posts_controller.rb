@@ -9,8 +9,6 @@ module Decidim
       include Flaggable
       include Decidim::AttachmentsHelper
 
-      helper Decidim::Feeds::ApplicationHelper
-
       def index
         enforce_permission_to :read, :post
 
