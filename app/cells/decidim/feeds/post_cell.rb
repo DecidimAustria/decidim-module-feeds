@@ -3,7 +3,9 @@
 module Decidim
   module Feeds
     class PostCell < Decidim::ViewModel
+      include PostCellsHelper
       include Cell::ViewModel::Partial
+
       def show
         render :show
       end

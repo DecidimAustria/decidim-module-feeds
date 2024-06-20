@@ -25,6 +25,10 @@ Decidim.register_component(:feeds) do |component|
   #   # Available types: :integer, :boolean
   #   # settings.attribute :vote_limit, type: :integer, default: 0
   # end
+  component.settings(:global) do |settings|
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
+  end
 
   # component.settings(:step) do |settings|
   #   # Add your settings per step
