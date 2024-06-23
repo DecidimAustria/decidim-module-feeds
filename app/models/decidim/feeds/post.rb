@@ -50,6 +50,22 @@ module Decidim
 
         where(category:)
       end
+
+      # Posts don't have a title, but Commentable requires it, so let's extract the first words of each translation of the body
+      def title
+        truncated_body = {}
+        body.each do |locale, translations|
+          if locale == "machine_translations"
+            truncated_body[locale] = {}
+            translations.each do |key, value|
+              truncated_body[locale][key] = value.first.truncate_words(4)
+            end
+          else
+            truncated_body[locale] = translations.first.truncate_words(4)
+          end
+        end
+        truncated_body
+      end
     end
   end
 end
