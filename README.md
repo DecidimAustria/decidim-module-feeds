@@ -1,6 +1,8 @@
-# Decidim::Feeds
+# Decidim::Feeds component (under development)
 
-Feeds component for Decidim.
+This Feeds component adds social posts functionality to Decidim.
+
+**The module is currently in development and not yet ready.**
 
 ## Usage
 
