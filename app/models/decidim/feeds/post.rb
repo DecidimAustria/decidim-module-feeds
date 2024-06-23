@@ -2,6 +2,7 @@ module Decidim
   module Feeds
     # The data store for a Proposal in the Decidim::Proposals component.
     class Post < Feeds::ApplicationRecord
+      include Decidim::Resourceable
       include Decidim::Authorable
       include Decidim::Reportable
       include Decidim::HasAttachments
@@ -14,7 +15,6 @@ module Decidim
       include Decidim::HasComponent
       # include Decidim::Loggable
       # include Decidim::DownloadYourData
-      # include Decidim::Resourceable
       # include Decidim::Randomable
       # include Decidim::ScopableResource
       # include Decidim::HasReference
