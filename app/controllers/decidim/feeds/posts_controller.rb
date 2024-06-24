@@ -16,6 +16,7 @@ module Decidim
                  .where(decidim_component_id: current_component.id)
                  .filter_category(params[:filter_post_category])
                  .order(created_at: :desc)
+                 .includes(:attachments)
                  .limit(10)
         extra_context = {
           current_component: current_component,

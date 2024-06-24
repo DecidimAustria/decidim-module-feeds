@@ -99,6 +99,14 @@ module Decidim
       #   @component_suggested_hashtags ||= ordered_hashtag_list(current_component.current_settings.suggested_hashtags)
       # end
 
+      def has_attachments?
+        post.has_attachments? && errors[:add_documents].empty? && add_documents.present?
+      end
+
+      def has_error_in_attachments?
+        errors[:add_documents].present?
+      end
+
       private
 
       # def body_is_not_bare_template

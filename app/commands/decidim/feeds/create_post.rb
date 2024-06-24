@@ -23,7 +23,7 @@ module Decidim
 
       private
 
-      attr_reader :post, :form
+      attr_reader :post, :form, :attachment
 
       def event_arguments
         {
