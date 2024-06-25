@@ -1,7 +1,16 @@
 <div class="card__grid feeds__feed" data-content="<%= post_category %>">
   <%= cell("decidim/feeds/post_meta", post) %>
   <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
+      <% if post.attachments.any? %>
+        <div class="post-attachments">
+          <% post.attachments.each do |attachment| %>
+            <!-- Example for displaying images, adjust based on your attachment types -->
+            <img src="<%= attachment.url %>" alt="<%= attachment.name %>">
+          <% end %>
+        </div>
+      <% else %>
+      NO ATTACH
+      <% end %>
   </div>
   <div class="card__grid-text">
     <%= post_body %>

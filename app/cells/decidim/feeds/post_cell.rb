@@ -25,6 +25,14 @@ module Decidim
       def post_commentable
         model.enable_comments?
       end
+
+       def resource_image_path
+        model.attachments.first&.url
+      end
+
+      def has_image?
+        resource_image_path.present?
+      end
     end
   end
 end

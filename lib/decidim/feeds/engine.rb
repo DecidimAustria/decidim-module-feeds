@@ -55,6 +55,7 @@ module Decidim
         Decidim.icons.register(name: "film-line", icon: "film-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "file-add-line", icon: "file-add-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "chat-4-line", icon: "chat-4-line", category: "system", description: "", engine: :feeds)
+        
       end
 
     end

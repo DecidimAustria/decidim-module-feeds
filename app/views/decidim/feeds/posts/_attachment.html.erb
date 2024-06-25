@@ -1,11 +1,5 @@
 <div class="feeds__feed_newElement_Media">
-  <!--
-  <button type="button">
-    <%= icon "image-add-line" %>
-    <span class="sr-only"></span>
-  </button>
-  -->
-  <%# form.attachment :documents,
+  <%= form.attachment :documents,
                       multiple: false,
                       label: t("decidim.proposals.collaborative_drafts.new.add_file"),
                       button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
@@ -13,10 +7,10 @@
                       button_class: "button button__lg button__transparent-secondary w-full",
                       help_text: t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit"),
                       help_i18n_scope: "decidim.forms.file_help.file" %>
-  <%= form.upload :add_documents,
+  <%# form.upload :add_documents,
                   label: false,
-                  button_label: icon("image-add-line"),
-                  button_edit_label: icon("image-add-line"),
+                  button_label: icon("upload-cloud-2-line", 'aria-hidden': false, 'aria-label': t("decidim.proposals.collaborative_drafts.new.add_file")),
+                  button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
                   multiple: true,
                   #label: false,
                   # id: field_id,
@@ -33,12 +27,4 @@
                   # button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
                   # button_class: "button button__lg button__transparent-secondary w-full",
                   required: false %>
-  <button type="button">
-    <%= icon "film-line" %>
-    <span class="sr-only"></span>
-  </button>
-  <button type="button">
-    <%= icon "file-add-line" %>
-    <span class="sr-only"></span>
-  </button>
 </div>
