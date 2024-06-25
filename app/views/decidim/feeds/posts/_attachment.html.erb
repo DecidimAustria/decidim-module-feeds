@@ -1,5 +1,5 @@
 <div class="feeds__feed_newElement_Media">
-  <%= form.attachment :documents,
+  <%# form.attachment :documents,
                       multiple: false,
                       label: t("decidim.proposals.collaborative_drafts.new.add_file"),
                       button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
@@ -7,9 +7,12 @@
                       button_class: "button button__lg button__transparent-secondary w-full",
                       help_text: t("attachment_legend", scope: "decidim.proposals.collaborative_drafts.edit"),
                       help_i18n_scope: "decidim.forms.file_help.file" %>
-  <%# form.upload :add_documents,
+  <%# 
+  button_label: icon("upload-cloud-2-line", 'aria-hidden': false, 'aria-label': t("decidim.proposals.collaborative_drafts.new.add_file")),
+   %>
+  <%= form.upload :add_documents,
                   label: false,
-                  button_label: icon("upload-cloud-2-line", 'aria-hidden': false, 'aria-label': t("decidim.proposals.collaborative_drafts.new.add_file")),
+                  button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
                   button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
                   multiple: true,
                   #label: false,
