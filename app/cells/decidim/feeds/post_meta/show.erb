@@ -11,12 +11,38 @@
         <span class="sr-only">Open Menu</span>
         <span aria-hidden="true">...</span>
       </button>
-      <ul id="<%=post.id%>#feeds__feed_actions_submenu" role="menu" aria-orientation="vertical" aria-labelledby="<%=post.id%>#feeds__feed_actions_submenuButton" class="absolute right-0 mt-6 px-4 py-2 bg-white divide-y divide-gray-100 rounded-md shadow-feedMenu overflow-hidden hidden">
-        <li class="text-right py-2">
+      <ul id="<%=post.id%>#feeds__feed_actions_submenu" role="menu" aria-orientation="vertical" aria-labelledby="<%=post.id%>#feeds__feed_actions_submenuButton" class="absolute right-0 mt-6 px-4 py-2 bg-white divide-y divide-dashed divide-gray-100 rounded-md shadow-feedMenu overflow-hidden hidden">
+        <li class="text-right py-2 text-feeds-sidebar">
+          <%= link_to '#', class:'hover:text-black' do %>
+            <span>
+              <%= icon "flag-line" %>
+              Melden
+            </span>
+          <% end %>
+        </li>
+        <li class="text-right py-2 text-feeds-sidebar">
+          <%= link_to '#', class:'hover:text-black' do %>
           <span>
-            <%= icon "flag-line" %>
-            Melden
+            <%= icon "translate-line" %>
+            Übersetzen
           </span>
+          <% end %>
+        </li>
+        <li class="text-right py-2 text-feeds-sidebar">
+          <%= link_to '#', class:'hover:text-black' do %>
+          <span>
+            <%= icon "pencil-line" %>
+            Editieren
+          </span>
+          <%end%>
+        </li>
+        <li class="text-right py-2 text-feeds-sidebar">
+          <%= link_to '#', class:'hover:text-black' do %>
+          <span>
+            <%= icon "delete-bin-line" %>
+            Löschen
+          </span>
+          <%end%>
         </li>
       </ul>
     </div>
