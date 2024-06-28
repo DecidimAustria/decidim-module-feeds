@@ -82,7 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
 			} else {
 				controlledDiv.style.height = 'auto';
 				controlledDiv.style.visibility = 'visible';
-				controlledDiv.style.marginTop = '32px';
+				controlledDiv.style.marginTop = '8px';
+				controlledDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
 			}
 		});
 	});
@@ -97,9 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
 			if (isExpanded) {
 				controlledDiv.style.height = '0';
 				controlledDiv.style.visibility = 'hidden';
+				controlledDiv.style.marginTop = '0';
 			} else {
 				controlledDiv.style.height = 'auto';
 				controlledDiv.style.visibility = 'visible';
+				controlledDiv.style.marginTop = '8px';
 			}
 		});
 	});

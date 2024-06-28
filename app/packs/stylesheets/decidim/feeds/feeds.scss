@@ -102,17 +102,30 @@
 						@apply hidden;
 					}
 					.comment-threads,
-					.new_comment {
+					.add-comment:not(.comment__additionalreply) form.new_comment {
 						@apply h-0 invisible motion-safe:transition-transform;
 					}
+					.comment-threads {
+						.comment-thread {
+							.comment__header {
+								@apply -ml-8;
+							}
+							.author__avatar-container {
+								@apply w-6 h-6;
+							}
+						}
+					}
 					.add-comment {
-						@apply mt-0;
+						@apply mt-4;
 						label {
 							@apply block text-md font-medium;
 						}
 						textarea {
 							@apply block w-full sm:text-sm sm:leading-6;
 						}
+					}
+					.add-comment:not(.comment__additionalreply) {
+						@apply mt-0;
 					}
 				}
 			}
@@ -217,6 +230,25 @@
 					@apply mt-8;
 				}
 			}
+		}
+	}
+}
+
+// tooltip
+.author__tooltip {
+	&[role='tooltip'] {
+		@apply bg-white text-black rounded-2xl shadow-feedMenu;
+		.author__name {
+			@apply text-black;
+			&:hover {
+				@apply no-underline;
+			}
+		}
+		&::before {
+			@apply bg-white;
+		}
+		.button {
+			@apply border-black bg-white text-black;
 		}
 	}
 }
