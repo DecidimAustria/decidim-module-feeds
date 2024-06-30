@@ -28,6 +28,7 @@ Decidim.register_component(:feeds) do |component|
   component.settings(:global) do |settings|
     settings.attribute :endorsements_enabled, type: :boolean, default: true
     settings.attribute :endorsements_blocked, type: :boolean
+    settings.attribute :attachments_allowed?, type: :boolean, default: true
   end
 
   # component.settings(:step) do |settings|

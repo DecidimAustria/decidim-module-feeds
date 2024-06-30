@@ -6,7 +6,7 @@ module Decidim
     class PostForm < Decidim::Form
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
-      include Decidim::HasUploadValidations
+      # include Decidim::HasUploadValidations # should be included by AttachmentForm
 
       mimic :post
 

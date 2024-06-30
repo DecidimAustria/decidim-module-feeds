@@ -5,7 +5,7 @@
         <div class="post-attachments">
           <% post.attachments.each do |attachment| %>
             <!-- Example for displaying images, adjust based on your attachment types -->
-            <img src="<%= attachment.url %>" alt="<%= attachment.name %>">
+            <img src="<%= attachment.url %>" alt="<%#= attachment.name %>">
           <% end %>
         </div>
       <% else %>
