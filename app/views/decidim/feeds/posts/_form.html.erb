@@ -29,5 +29,5 @@
 
   <%= render partial: "decidim/feeds/posts/attachment.html", locals: { form: form } %>
 
-  <%= form.submit "#{t("decidim.components.feeds.newFeed.action")} #{icon('send-plane-line')}", class: "sndBtn button button__sm button__transparent-primary", data: { disable: true } %>
+  <%= form.submit "#{t("decidim.components.feeds.newFeed.action")} #{icon('send-plane-line')}".html_safe, data: { disable: true }, class: "sndBtn button button__sm button__transparent-primary" %>
 <% end %>
