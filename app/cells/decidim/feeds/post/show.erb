@@ -1,15 +1,37 @@
 <div class="card__grid feeds__feed" data-content="<%= post_category %>">
   <%= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-img">
+  <div class="">
       <% if post.attachments.any? %>
-        <div class="post-attachments">
-          <% post.attachments.each do |attachment| %>
-            <!-- Example for displaying images, adjust based on your attachment types -->
-            <img src="<%= attachment.url %>" alt="<%#= attachment.name %>">
-          <% end %>
+        <div class="attachments">
+          <!-- Images and Videos -->
+         <div class="flex flex-col items-center">
+          <ul id="galleryItems" class="image-video-list space-y-2">
+            <% post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |attachment, index| %>
+              <li class="<%= attachment.url.match(/\.(mp4|webm)$/i) ? 'video' : 'image' %> <%= 'hidden' unless index.zero? %> aspect-w-16 aspect-h-9 overflow-hidden" data-src="<%= attachment.url %>">
+                <% if attachment.url.match(/\.(mp4|webm)$/i) %>
+                  <%= video_tag(attachment.url, class: "video-class object-cover w-full h-full", controls: true, preload: "auto") %>
+                <% else %>
+                  <%= image_tag(attachment.url, class: "image-class object-cover w-full h-full", alt: "Image description") %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <div id="navDots" class="nav-dots flex gap-2 p-2">
+            <% post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |_, index| %>
+              <div class="dot cursor-pointer h-5 w-5 rounded-full bg-gray-2 <%= 'bg-gray-4' if index.zero? %>" role="button" aria-label="Navigate to item <%= index + 1 %>"></div>
+            <% end %>
+          </div>
         </div>
-      <% else %>
-      NO ATTACH
+
+          <!-- Documents -->
+          <ul class="document-list space-y-2 mt-4">
+            <% post.attachments.reject { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |attachment, index| %>
+              <li class="<%= index.even? ? 'bg-feeds-formBody' : '' %> py-1 pl-2 pr-4 flex gap-1 items-center">
+                 <%= icon "file-2-line" %> <%= link_to File.basename(attachment.url), attachment.url %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
   </div>
   <div class="card__grid-text">

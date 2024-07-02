@@ -1,4 +1,5 @@
 import { initSurvey } from './survey.js';
+import carousel from './carousel.js';
 
 document.addEventListener('DOMContentLoaded', function () {
 	console.log('js loaded');
@@ -108,4 +109,5 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	initSurvey();
+	carousel.initCarousel();
 });
