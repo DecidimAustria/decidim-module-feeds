@@ -109,5 +109,5 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	initSurvey();
-	carousel.initCarousel();
+	carousel.init();
 });
