@@ -11,6 +11,7 @@
   button_label: icon("upload-cloud-2-line", 'aria-hidden': false, 'aria-label': t("decidim.proposals.collaborative_drafts.new.add_file")),
    %>
   <%= form.upload :add_documents,
+                  titled: true,
                   label: false,
                   button_label: t("decidim.proposals.collaborative_drafts.new.add_file"),
                   button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
@@ -21,7 +22,6 @@
                   # attribute:,
                   # resource_name: @object_name,
                   # resource_class: options[:resource_class]&.to_s || resource_class(attribute),
-                  # titled: false,
                   # show_current: true,
                   # max_file_size:,
                   # help: help_messages,
