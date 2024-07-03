@@ -1,69 +1,19 @@
-<div class="card__grid feeds__feed" data-content="<%=post_category%>">
-  <%= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
-  </div>
-  <div class="card__grid-text">
-    <%= post_body %>
-  </div>
-  <%= cell("decidim/feeds/post_comment", post) %>
-</div>
-
-<div class="card__grid feeds__feed" data-content="<%=post_category%>">
+<div class="card__grid feeds__feed <%= 'hv-highlight' if post_highlighted %>" data-content="<%=post_category%>">
   <%= icon "home-gear-line", class: 'hv-icon' %>
   <%= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
-  </div>
+  <%= cell("decidim/feeds/post_attachments", post) %>
   <div class="card__grid-text">
     <%= post_body %>
   </div>
-  <%= cell("decidim/feeds/post_comment", post) %>
-</div>
-
-<div class="card__grid feeds__feed hv-highlight" data-content="<%=post_category%>">
-  <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
-  </div>
-  <div class="card__grid-text">
-    <%= post_body %>
-  </div>
-</div>
-
-<div class="card__grid feeds__feed feeds__feed_hv-handling" data-content="<%=post_category%>">
-<%= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
-  </div>
-  <div class="card__grid-text">
-    <%= post_body %>
-  </div>
-  <div class="bg-white rounded-2xl border-4 border-warning flex-col justify-between items-center inline-flex">
-    <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
-      <div class="text-stone-700 text-base font-normal font-['Source Sans Pro'] leading-normal">25.04.2024, 09:00</div>
+  <% if post_status %>
+    <div class="bg-white rounded-2xl border-4 border-<%= status_class %> flex-col justify-between items-center inline-flex">
+      <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
+        <div class="">25.04.2024, 09:00</div>
+      </div>
+      <div class="self-stretch grow shrink basis-0 bg-<%= status_class %> rounded-lg justify-center items-center gap-2 inline-flex">
+        <div class="">IN BEARBEITUNG</div>
+      </div>
     </div>
-    <div class="self-stretch grow shrink basis-0 bg-warning rounded-lg justify-center items-center gap-2 inline-flex">
-      <div class="text-stone-700 text-xl font-bold font-['Source Sans Pro'] leading-loose tracking-tight">IN BEARBEITUNG</div>
-    </div>
-  </div>
-  <%= cell("decidim/feeds/post_comment", post) %>
-</div>
-
-<div class="card__grid feeds__feed feeds__feed_hv-complete" data-content="<%=post_category%>">
-  <%= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-img">
-      <%= image_pack_tag('media/images/130828cp0030-768x511.webp', alt: 'Description') %>
-  </div>
-  <div class="card__grid-text">
-    <%= post_body %>
-  </div>
-  <div class="bg-white rounded-2xl border-4 border-success flex-col justify-between items-center inline-flex">
-    <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
-      <div class="text-stone-700 text-base font-normal font-['Source Sans Pro'] leading-normal">25.04.2024, 09:00</div>
-    </div>
-    <div class="self-stretch grow shrink basis-0 bg-success rounded-lg justify-center items-center gap-2 inline-flex">
-      <div class="text-stone-700 text-xl font-bold font-['Source Sans Pro'] leading-loose tracking-tight">IN BEARBEITUNG</div>
-    </div>
-  </div>
+  <% end %>
   <%= cell("decidim/feeds/post_comment", post) %>
 </div>
