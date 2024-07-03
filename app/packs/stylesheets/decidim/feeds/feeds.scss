@@ -13,7 +13,7 @@
 				@apply col-start-1 col-end-4;
 			}
 			@media (min-width: 1024px) {
-				@apply col-start-2 col-end-3;
+				@apply col-start-1 col-end-3;
 			}
 			&[data-content] {
 				@apply shadow-feedBox;
@@ -83,6 +83,17 @@
 								@apply leading-[0];
 							}
 						}
+					}
+				}
+			}
+			.feeds__feed_gallery {
+				li {
+					transition: opacity 0.5s ease;
+					opacity: 0;
+					display: none;
+					&.active {
+						opacity: 1;
+						display: block;
 					}
 				}
 			}
