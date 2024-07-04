@@ -4,14 +4,16 @@ const carousel = (() => {
 	const setActiveItem = (galleryId, index, direction = null) => {
 		const galleryItems = document.querySelectorAll(`#${galleryId} li`);
 		const navDots = document.querySelectorAll(
-			`.feedGallery_nav_dot[data-target="${galleryId}"]`
+			`.feeds__feed_gallery_nav_dot[data-target="${galleryId}"]`
 		);
 		let activeIndex = index;
 
 		if (direction) {
-			const currentIndex = Array.from(galleryItems).findIndex(
-				(item) => !item.classList.contains('hidden')
+			const currentIndex = Array.from(galleryItems).findIndex((item) =>
+				item.classList.contains('active')
 			);
+			console.log(currentIndex);
+
 			if (direction === 'left' && currentIndex < galleryItems.length - 1) {
 				activeIndex = currentIndex + 1;
 			} else if (direction === 'right' && currentIndex > 0) {
@@ -20,8 +22,7 @@ const carousel = (() => {
 		}
 
 		galleryItems.forEach((item, idx) => {
-			item.classList.toggle('hidden', idx !== activeIndex);
-			if (idx === index) {
+			if (idx === activeIndex) {
 				item.classList.add('active');
 			} else {
 				item.classList.remove('active');
@@ -52,7 +53,7 @@ const carousel = (() => {
 	};
 
 	const attachEventListenersToDots = () => {
-		document.querySelectorAll('.feedGallery_nav_dot').forEach((dot) => {
+		document.querySelectorAll('.feeds__feed_gallery_nav_dot').forEach((dot) => {
 			dot.addEventListener('click', function () {
 				const targetGalleryId = this.getAttribute('data-target');
 				const targetIndex = parseInt(this.getAttribute('data-index'), 10);
@@ -64,7 +65,7 @@ const carousel = (() => {
 	const init = () => {
 		attachEventListenersToDots();
 		// Initialize swipe listeners for each gallery
-		document.querySelectorAll('.feedGallery').forEach((gallery) => {
+		document.querySelectorAll('.feeds__feed_gallery').forEach((gallery) => {
 			attachSwipeListeners(gallery.id);
 		});
 	};

@@ -95,6 +95,19 @@
 						opacity: 1;
 						display: block;
 					}
+					@supports not (aspect-ratio: 4 / 3) {
+						&::before {
+							float: left;
+							padding-top: 75%;
+							content: '';
+						}
+
+						&::after {
+							display: block;
+							content: '';
+							clear: both;
+						}
+					}
 				}
 			}
 			.feeds__feed_comments {

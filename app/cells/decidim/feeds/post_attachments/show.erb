@@ -2,7 +2,7 @@
   <div class="feeds__attachments">
 
     <div class="flex flex-col items-center">
-      <ul id="galleryItems_<%= post.id %>" class="feeds__feed_gallery">
+      <ul id="galleryItems_<%= post.id %>" class="feeds__feed_gallery flex overflow-hidden">
         <% post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |attachment, index| %>
           <li class="<%= attachment.url.match(/\.(mp4|webm)$/i) ? 'video' : 'image' %> <%= index.zero? ? 'active' : '' %> aspect-4/3 overflow-hidden rounded-md flex justify-center items-center" data-src="<%= attachment.url %>">
             <% if attachment.url.match(/\.(mp4|webm)$/i) %>
@@ -18,7 +18,7 @@
       <% if post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.count > 1 %>
         <div id="navDots_<%= post.id %>" class="nav-dots flex gap-2 p-2">
           <% post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |_, index| %>
-            <div class="feedGallery_nav_dot cursor-pointer h-2 w-2 rounded-full shadow-<%= index.zero? ? 'feedNotification' : 'feedNotificationInset' %>" role="button" aria-label="Navigate to item <%= index + 1 %>" data-target="galleryItems_<%= post.id %>" data-index="<%= index %>"></div>
+            <div class="feeds__feed_gallery_nav_dot cursor-pointer h-2 w-2 rounded-full shadow-<%= index.zero? ? 'feedNotification' : 'feedNotificationInset' %>" role="button" aria-label="Navigate to item <%= index + 1 %>" data-target="galleryItems_<%= post.id %>" data-index="<%= index %>"></div>
           <% end %>
         </div>
       <% end %>
