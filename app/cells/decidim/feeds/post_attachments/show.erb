@@ -4,12 +4,12 @@
     <div class="flex flex-col items-center">
       <ul id="galleryItems_<%= post.id %>" class="feeds__feed_gallery flex overflow-hidden">
         <% post.attachments.select { |a| a.url.match(/\.(jpg|jpeg|png|svg|webp|mp4|webm)$/i) }.each_with_index do |attachment, index| %>
-          <li class="<%= attachment.url.match(/\.(mp4|webm)$/i) ? 'video' : 'image' %> <%= index.zero? ? 'active' : '' %> aspect-4/3 overflow-hidden rounded-md flex justify-center items-center" data-src="<%= attachment.url %>">
+          <li class="<%= attachment.url.match(/\.(mp4|webm)$/i) ? 'video' : 'image' %> <%= index.zero? ? 'active' : '' %> aspect-4/3 overflow-hidden flex justify-center items-center" data-src="<%= attachment.url %>">
             <% if attachment.url.match(/\.(mp4|webm)$/i) %>
-              <%= video_tag(attachment.url, class: "object-cover w-full h-full rounded-md", controls: true, preload: "auto") %>
+              <%= video_tag(attachment.url, class: "object-cover w-full h-full", controls: true, preload: "auto") %>
             <% else %>
-              <div class="w-full h-full flex justify-center items-center rounded-md">
-                <%= image_tag(attachment.url, class: "max-w-full max-h-full object-contain rounded-md", alt: translated_attribute(attachment.title)) %>
+              <div class="w-full h-full flex justify-center items-center">
+                <%= image_tag(attachment.url, class: "max-w-full max-h-full object-contain", alt: translated_attribute(attachment.title), width: '400px', height: '300px' ) %>
               </div>
             <% end %>
           </li>
