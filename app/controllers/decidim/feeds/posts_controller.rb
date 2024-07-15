@@ -12,6 +12,8 @@ module Decidim
       def index
         enforce_permission_to :read, :post
 
+        participatory_space = current_component.participatory_space
+
         @posts = Decidim::Feeds::Post
                  .where(decidim_component_id: current_component.id)
                  .filter_category(params[:filter_post_category])
@@ -22,9 +24,14 @@ module Decidim
           current_component: current_component,
           current_organization: current_component.organization,
           current_user:,
-          current_participatory_space: current_component.participatory_space
+          current_participatory_space: participatory_space
         }
         @form = form(Decidim::Feeds::PostForm).from_params(params, extra_context)
+
+        meetings_component = participatory_space.components.find_by(manifest_name: "meetings")
+        @meetings = meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component)
+
+        @all_objects = (@posts + @meetings).sort_by(&:created_at).reverse
       end
 
       def show

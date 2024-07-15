@@ -1,7 +1,11 @@
-<% @posts.each do |post| %>
-  <% if post.category == 'hv' %>
-    <%= cell("decidim/feeds/post_hv", post) %>
-  <% else %>
-    <%= cell("decidim/feeds/post", post) %>
+<% @all_objects.each do |post| %>
+  <% if post.is_a?(Decidim::Feeds::Post) %>
+    <% if post.category == 'hv' %>
+      <%= cell("decidim/feeds/post_hv", post) %>
+    <% else %>
+      <%= cell("decidim/feeds/post", post) %>
+    <% end %>
+  <% elsif post.is_a?(Decidim::Meetings::Meeting) %>
+    <%= cell("decidim/feeds/meeting", post) %>
   <% end %>
 <% end %>
