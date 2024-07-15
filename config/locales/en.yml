@@ -41,3 +41,7 @@ en:
           calendar: Calendar
           survey: Survey
           help: Help
+        calendar:
+          date_separator: to
+          start_time: At
+          end_time: Until

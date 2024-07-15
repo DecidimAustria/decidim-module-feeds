@@ -1,8 +1,42 @@
-<div class="card__grid feeds__feed" data-content="meeting">
-  <%#= cell("decidim/feeds/post_meta", post) %>
-  <div class="card__grid-text">
-    <%= meeting_title %>
+<div class="card__grid feeds__feed" data-content="calendar">
+  <%#= cell("decidim/feeds/post_meta", meeting) %>
+  <div class="flex gap-1">
+    <div class="card__grid-text--meta flex flex-col gap-2 justify-center">
+      <time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
+        <span class="card__calendar-month"><%= l(meeting.start_time, format: "%b") %></span>
+        <span class="card__calendar-day"><%= l(meeting.start_time, format: "%d") %></span>
+        <span class="card__calendar-year"><%= l(meeting.start_time, format: "%Y") %></span>
+      </time>
+      <% if meeting.start_time.to_date != meeting.end_time.to_date %>
+        <span class="self-center font-bold text-xs"><%= t("decidim.components.feeds.calendar.date_separator") %></span>
+        <time class="card__calendar" datetime="<%= meeting.end_time.iso8601 %>">
+          <span class="card__calendar-month"><%= l(meeting.end_time, format: "%b") %></span>
+          <span class="card__calendar-day"><%= l(meeting.end_time, format: "%d") %></span>
+          <span class="card__calendar-year"><%= l(meeting.end_time, format: "%Y") %></span>
+        </time>
+      <% end %>
+    </div>
+    <div class="card__grid-text">
+      <%= meeting_description%>
+      <div class="bg-background p-2 rounded-md font-bold w-fit">
+        <time datetime="<%= meeting.start_time.iso8601 %>">
+          <%= l(meeting.start_time, format: "%H:%M") %>
+        </time>
+        </time>
+        <% if meeting.start_time != meeting.end_time %>
+          <%= t("decidim.components.feeds.calendar.end_time") %>
+          <time datetime="<%= meeting.end_time.iso8601 %>">
+            <%= l(meeting.end_time, format: "%H:%M") %>
+          </time>
+        <% end %>
+      </div>
+      <% if meeting.address != '' %>
+        <div class="bg-background p-2 rounded-md font-bold w-fit">
+          <%= meeting.address%>
+        </div>
+      <% end %>
+    </div>
+    
   </div>
-
-  <%#= cell("decidim/feeds/post_comment", post) %>
+  <%= cell("decidim/feeds/post_comment", meeting) %>
 </div>

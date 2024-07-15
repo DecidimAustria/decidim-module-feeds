@@ -41,3 +41,7 @@ de:
           calendar: Kalender
           survey: Umfrage
           help: Hilfe
+        calendar:
+          date_separator: bis
+          start_time: Von
+          end_time: bis

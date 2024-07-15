@@ -29,7 +29,11 @@ module Decidim
         @form = form(Decidim::Feeds::PostForm).from_params(params, extra_context)
 
         meetings_component = participatory_space.components.find_by(manifest_name: "meetings")
-        @meetings = meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component)
+        @meetings = if params[:filter_post_category].blank? || params[:filter_post_category] == 'calendar'
+                meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component)
+              else
+                []
+              end
 
         @all_objects = (@posts + @meetings).sort_by(&:created_at).reverse
       end

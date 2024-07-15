@@ -1,6 +1,6 @@
-<div class="feeds__container">
+<main class="feeds__container px-4">
   <div class="feeds__body">
-    <div class="card__grid-home">
+    <div class="card__grid-home w-full">
       <% if current_user %>
         <div class="card__grid feeds__feed feeds__feed_newElement">
           <button class="btn circle feeds__feed_newElement-opener" aria-expanded="false" aria-controls="newElementForm" type="button">
@@ -14,5 +14,5 @@
     </div>
   </div>
   <%= render partial: "decidim/feeds/posts/sidebar.html" %>
-</div>
+</main>
 <%= append_javascript_pack_tag "decidim_feeds" %>

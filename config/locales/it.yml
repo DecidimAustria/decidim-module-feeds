@@ -41,3 +41,7 @@ it:
           calendar: Calendario
           survey: Questionario
           help: Aiuto
+        calendar:
+          date_separator: fino al
+          start_time: Alle
+          end_time: Fino a

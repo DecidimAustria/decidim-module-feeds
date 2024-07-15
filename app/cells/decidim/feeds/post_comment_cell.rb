@@ -14,8 +14,24 @@ module Decidim
         model
       end
 
+      def model_type
+        if model.is_a?(Decidim::Feeds::Post)
+          "Post"
+        elsif model.is_a?(Decidim::Meetings::Meeting)
+          "Meeting"
+        else
+          "Post"
+        end
+      end
+
       def post_commentable
-        model.enable_comments?
+        if model.respond_to?(:enable_comments?)
+          model.enable_comments?
+        elsif model.respond_to?(:comments_enabled?)
+          model.comments_enabled?
+        else
+          false # Default to false if neither method exists
+        end
       end
 
       def machine_translations_toggled?
@@ -25,6 +41,8 @@ module Decidim
       def comments_count
         model.comments_count
       end
+
+      
 
     end
   end
