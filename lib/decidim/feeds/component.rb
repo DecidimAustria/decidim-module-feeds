@@ -26,14 +26,14 @@ Decidim.register_component(:feeds) do |component|
   #   # settings.attribute :vote_limit, type: :integer, default: 0
   # end
   component.settings(:global) do |settings|
-    settings.attribute :endorsements_enabled, type: :boolean, default: true
-    settings.attribute :endorsements_blocked, type: :boolean
     settings.attribute :attachments_allowed?, type: :boolean, default: true
   end
 
-  # component.settings(:step) do |settings|
-  #   # Add your settings per step
-  # end
+  component.settings(:step) do |settings|
+    # Add your settings per step
+    settings.attribute :endorsements_enabled, type: :boolean, default: true
+    settings.attribute :endorsements_blocked, type: :boolean
+  end
 
   # component.register_resource(:some_resource) do |resource|
   #   # Register a optional resource that can be references from other resources.
