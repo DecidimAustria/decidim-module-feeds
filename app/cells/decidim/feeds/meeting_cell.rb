@@ -31,6 +31,10 @@ module Decidim
         model.address
       end
 
+      def meeting_location
+        translated_attribute model.location
+      end
+
       def comments_enabled
         model.comments_enabled?
       end

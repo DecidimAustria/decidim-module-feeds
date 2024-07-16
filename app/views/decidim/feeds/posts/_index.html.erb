@@ -10,6 +10,13 @@
           <%= render partial: "decidim/feeds/posts/form.html" %>
         </div>
       <% end %>
+      <% if params[:filter_post_category] == 'calendar' %>
+        <div class="meeting-list__block-list-aside">
+          <% calendar_months.each do |start_date| %>
+            <%= cell "decidim/meetings/meeting_month", collection, start_date: %>
+          <% end %>
+        </div>
+      <% end %>
       <%= render partial: "decidim/feeds/posts/feed.html" %>
     </div>
   </div>

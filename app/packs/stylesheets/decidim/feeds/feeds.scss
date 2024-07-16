@@ -76,6 +76,19 @@
 					span {
 						@apply flex items-center gap-1 text-xs;
 					}
+					.endorsers-list__trigger {
+						@apply hidden;
+					}
+					#endorsement-button {
+						@apply border-0 p-0 font-normal;
+						&:hover {
+							background: none;
+							color: inherit;
+						}
+						svg {
+							@apply fill-black;
+						}
+					}
 					.feeds__feed_actions_submenu {
 						@apply relative self-start;
 						button {
