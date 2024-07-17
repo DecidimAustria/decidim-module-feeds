@@ -57,8 +57,8 @@ module Decidim
         Decidim.icons.register(name: "chat-4-line", icon: "chat-4-line", category: "communication", description: "", engine: :feeds)
         Decidim.icons.register(name: "translate-line", icon: "translate-line", category: "editor", description: "", engine: :feeds)
         Decidim.icons.register(name: "translate-2-line", icon: "translate-2-line", category: "editor", description: "", engine: :feeds)
-        
         Decidim.icons.register(name: "file-2-line", icon: "file-2-line", category: "editor", description: "", engine: :feeds)
+        Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :feeds)
       end
 
     end
