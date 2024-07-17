@@ -1,6 +1,6 @@
 <div class="card__grid feeds__feed" data-content="calendar">
   <%= cell("decidim/feeds/post_meta", meeting) %>
-  <div class="flex gap-1">
+  <div class="flex gap-8 py-4">
     <div class="card__grid-text--meta flex flex-col gap-2 justify-center">
       <time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
         <span class="card__calendar-month"><%= l(meeting.start_time, format: "%b") %></span>
@@ -16,25 +16,28 @@
         </time>
       <% end %>
     </div>
-    <div class="card__grid-text">
-      <%= meeting_description %>
-      <div class="bg-background p-2 rounded-md font-bold w-fit">
-        <time datetime="<%= meeting.start_time.iso8601 %>">
-          <%= l(meeting.start_time, format: "%H:%M") %>
-        </time>
-        </time>
-        <% if meeting.start_time != meeting.end_time %>
-          <%= t("decidim.components.feeds.calendar.end_time") %>
-          <time datetime="<%= meeting.end_time.iso8601 %>">
-            <%= l(meeting.end_time, format: "%H:%M") %>
+    <div class="card__grid-text p-0">
+      <h2 class="h3"><%= meeting_title %></h2>
+      <p><%= meeting_description %></p>
+      <div class="flex gap-4 mt-auto">
+        <div class="bg-background p-2 rounded-md font-bold w-fit">
+          <time datetime="<%= meeting.start_time.iso8601 %>">
+            <%= l(meeting.start_time, format: "%H:%M") %>
           </time>
+          </time>
+          <% if meeting.start_time != meeting.end_time %>
+            <%= t("decidim.components.feeds.calendar.end_time") %>
+            <time datetime="<%= meeting.end_time.iso8601 %>">
+              <%= l(meeting.end_time, format: "%H:%M") %>
+            </time>
+          <% end %>
+        </div>
+        <% if meeting_location != '' %>
+          <div class="bg-background p-2 rounded-md font-bold w-fit">
+            <%= meeting_location%>
+          </div>
         <% end %>
       </div>
-      <% if meeting_location != '' %>
-        <div class="bg-background p-2 rounded-md font-bold w-fit">
-          <%= meeting_location%>
-        </div>
-      <% end %>
     </div>
     
   </div>
