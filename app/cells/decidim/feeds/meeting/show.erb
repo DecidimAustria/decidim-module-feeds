@@ -1,5 +1,5 @@
 <div class="card__grid feeds__feed" data-content="calendar">
-  <%#= cell("decidim/feeds/post_meta", meeting) %>
+  <%= cell("decidim/feeds/post_meta", meeting) %>
   <div class="flex gap-1">
     <div class="card__grid-text--meta flex flex-col gap-2 justify-center">
       <time class="card__calendar" datetime="<%= meeting.start_time.iso8601 %>">
@@ -17,7 +17,7 @@
       <% end %>
     </div>
     <div class="card__grid-text">
-      <%= meeting_description%>
+      <%= meeting_description %>
       <div class="bg-background p-2 rounded-md font-bold w-fit">
         <time datetime="<%= meeting.start_time.iso8601 %>">
           <%= l(meeting.start_time, format: "%H:%M") %>

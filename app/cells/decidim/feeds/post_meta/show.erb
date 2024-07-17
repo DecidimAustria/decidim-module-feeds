@@ -1,8 +1,10 @@
 <div class="card__grid-metadata">
-  <%= cell "decidim/author", Decidim::UserPresenter.new(post_author), layout: :compact %>
+  <%= cell "decidim/author", Decidim::UserPresenter.new(post.author), layout: :compact %>
   <div class="feeds__feed_actions">
-    <%= endorsement_buttons_cell(post) %>
-    <%= cell "decidim/endorsers_list", post, layout: :full %>
+    <% if post.is_a?(Decidim::Feeds::Post) %>
+      <%= endorsement_buttons_cell(post) %>
+      <%= cell "decidim/endorsers_list", post, layout: :full %>
+    <% end %>
     <div class="feeds__feed_actions_submenu">
       <button type="button" aria-expanded="false" aria-controls="<%= post.id %>#feeds__feed_actions_submenu" id="<%= post.id %>#feeds__feed_actions_submenuButton" class="flex">
         <span class="sr-only">Open Menu</span>
@@ -31,7 +33,7 @@
             <%= icon "pencil-line" %>
             Editieren
           </span>
-          <%end%>
+          <% end %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
           <%= link_to '#', class:'hover:text-black' do %>
@@ -39,7 +41,7 @@
             <%= icon "delete-bin-line" %>
             Löschen
           </span>
-          <%end%>
+          <% end %>
         </li>
       </ul>
     </div>
