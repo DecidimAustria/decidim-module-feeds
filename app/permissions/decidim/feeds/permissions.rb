@@ -16,6 +16,11 @@ module Decidim
           when :read
             allow! if can_access?
           end
+        when :meeting
+          case permission_action.action
+          when :create
+            allow! if can_create_posts?
+          end
         end
 
         permission_action

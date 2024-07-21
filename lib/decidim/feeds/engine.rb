@@ -18,6 +18,7 @@ module Decidim
         # end
         root to: "posts#index"
         resources :posts
+        resources :meetings, only: %i[new create]
         # get "/test" => "posts#test"
       end
 
