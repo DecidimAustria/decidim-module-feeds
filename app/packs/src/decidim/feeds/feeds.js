@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	document
-		.querySelectorAll('.feeds__feed_actions_submenu button')
+		.querySelectorAll('.feeds__feed_actions_submenu > button')
 		.forEach(function (button) {
 			button.addEventListener('click', function () {
 				var submenuId = this.getAttribute('aria-controls');
