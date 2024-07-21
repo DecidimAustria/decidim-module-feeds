@@ -66,6 +66,21 @@ module Decidim
         end
         truncated_body
       end
+
+      # Public: Overrides the `reported_content_url` Reportable concern method.
+      def reported_content_url
+        ResourceLocatorPresenter.new(self).url
+      end
+
+      # Public: Overrides the `reported_attributes` Reportable concern method.
+      def reported_attributes
+        [:body]
+      end
+
+      # Public: Overrides the `reported_searchable_content_extras` Reportable concern method.
+      def reported_searchable_content_extras
+        [author.name]
+      end
     end
   end
 end
