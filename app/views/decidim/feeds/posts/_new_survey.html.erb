@@ -3,7 +3,15 @@
   <%= icon "add-line" %>
 </button>
 <div id="feeds__feed_newSurvey_liveRegion" aria-live="polite" class="sr-only"></div>
-<div id="feeds__feed_newSurvey_questionsContainer"></div>
+<div id="feeds__feed_newSurvey_questionsContainer">
+  <template id="question_template">
+    <%#= form.fields_for :questions, @form.questions.new, child_index: "NEW_RECORD" do |question_form| %>
+    <%= fields_for "post[questions][NEW_RECORD]", Decidim::Feeds::Question.new do |question_form| %>
+      <%= render partial: "decidim/feeds/posts/new_survey_question", locals: { form: question_form } %>
+    <% end %>
+  </template>
+
+</div>
 <script>
   window.translations = {
     questionTitle: "<%= t('decidim.components.feeds.newFeed.newSurvey.questionTitle') %>",

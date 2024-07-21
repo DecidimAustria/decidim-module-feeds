@@ -1,6 +1,5 @@
 module Decidim
   module Feeds
-    # The data store for a Proposal in the Decidim::Proposals component.
     class Post < Feeds::ApplicationRecord
       include Decidim::Resourceable
       include Decidim::Authorable
@@ -25,6 +24,9 @@ module Decidim
       # include Decidim::FilterableResource
 
       # belongs_to :organization, class_name: "Decidim::Organization"
+
+      has_many :questions, class_name: "Decidim::Feeds::Question", dependent: :destroy
+      accepts_nested_attributes_for :questions, reject_if: ->(attributes){ attributes['name'].blank? }, allow_destroy: true
 
       component_manifest_name "feeds"
 

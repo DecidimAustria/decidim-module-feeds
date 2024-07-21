@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		newFeed.classList.toggle('open');
 	});
 
-	const newFeedForm = document.querySelector('.feeds__feed_newElement form');
+	const newFeedForm = document.querySelector('.feeds__feed_newElement .posts_form');
 	const newFeedFormPostType = newFeedForm.querySelectorAll(
 		'.postType input[type="radio"]'
 	);

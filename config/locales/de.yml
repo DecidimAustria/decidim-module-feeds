@@ -44,6 +44,8 @@ de:
             multipleChoice: Mehrfachauswahl
             singleChoice: Einzelwahl
             newAnswer: Neue Antwort
+            deleteQuestion: Frage löschen
+            deleteAnswer: Antwort löschen
         filter:
           all: Alle
           title: Filter

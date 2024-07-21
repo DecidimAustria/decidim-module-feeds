@@ -21,6 +21,7 @@ module Decidim
       #attribute :scope_id, Integer
       attribute :attachment, AttachmentForm
       #attribute :suggested_hashtags, Array[String]
+      attribute :questions, Array[QuestionForm]
 
       attachments_attribute :documents
 

@@ -44,6 +44,8 @@ en:
             multipleChoice: Multiple choice
             singleChoice: Single choice
             newAnswer: New answer
+            deleteQuestion: Delete question
+            deleteAnswer: Delete answer
         filter:
           all: All
           title: Filter

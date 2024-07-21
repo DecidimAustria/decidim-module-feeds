@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-<%= decidim_form_for(@form, html: { class: "meetings_form new_meeting" }) do |form| %>
+<%= decidim_form_for(@form, html: { class: "posts_form new_post" }) do |form| %>
   <%= form.label :body, t("decidim.components.feeds.newFeed.text"), class: 'sr-only' %>
   <%= form.text_area :body, rows: 4, 'aria-required': true, label:false %>
   <fieldset>
@@ -38,7 +38,7 @@
     <%= render partial: 'decidim/feeds/posts/new_calendar.html' %>
   </div>
   <div id="extraFieldsForSurvey" class="feeds__feed_newElement_Xtra feeds__feed_newSurvey">
-    <%= render partial: 'decidim/feeds/posts/new_survey.html' %>
+    <%= render partial: 'decidim/feeds/posts/new_survey.html', locals: { form: form } %>
   </div>
 
   <%= render partial: "decidim/feeds/posts/attachment.html", locals: { form: form } %>
