@@ -121,7 +121,7 @@ module Decidim
       end
 
       def meeting_form
-        form(Decidim::Feeds::MeetingForm)
+        form(Decidim::Meetings::MeetingForm)
       end
 
       def tab_panel_items

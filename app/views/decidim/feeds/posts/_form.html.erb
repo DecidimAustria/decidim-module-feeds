@@ -1,16 +1,16 @@
 <%= decidim_form_for(@meeting_form, url: meetings_path, html: { class: "meetings_form new_meeting" }) do |form| %>
-    <div class="form__wrapper">
-      <%= render partial: "meeting_form", locals: { form: form } %>
-    </div>
+  <div class="form__wrapper">
+    <%= render partial: "meeting_form", locals: { form: form } %>
+  </div>
 
-    <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-      <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
-        <%= icon "arrow-left-line" %>
-        <%= t("back", scope: "decidim.meetings.meetings.new") %>
-      <% end %>
-      <%= form.submit t("create", scope: "decidim.meetings.meetings.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
-    </div>
-  <% end %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= link_to :back, class: "button button__sm md:button__lg button__text-secondary" do %>
+      <%= icon "arrow-left-line" %>
+      <%= t("back", scope: "decidim.meetings.meetings.new") %>
+    <% end %>
+    <%= form.submit t("create", scope: "decidim.meetings.meetings.new"), class: "button button__sm md:button__lg button__secondary", data: { disable: true } %>
+  </div>
+<% end %>
 
 <%= decidim_form_for(@form, html: { class: "posts_form new_post" }) do |form| %>
   <%= form.label :body, t("decidim.components.feeds.newFeed.text"), class: 'sr-only' %>

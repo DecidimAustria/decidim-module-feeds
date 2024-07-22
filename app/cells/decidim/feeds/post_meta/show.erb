@@ -6,7 +6,7 @@
       <%= cell "decidim/endorsers_list", post, layout: :full %>
     <% end %>
     <div class="feeds__feed_actions_submenu">
-      <button type="button" aria-expanded="false" aria-controls="<%= post.id %>#feeds__feed_actions_submenu" id="<%= post.id %>#feeds__feed_actions_submenuButton" class="flex">
+      <button type="button" aria-expanded="false" aria-controls="<%= post.id %>#feeds__feed_actions_submenu" id="<%= post.id %>#feeds__feed_actions_submenuButton" class="flex openButton">
         <span class="sr-only">Open Menu</span>
         <span aria-hidden="true">...</span>
       </button>
@@ -15,27 +15,21 @@
           <%= cell("decidim/report_button", post, button_classes: "hover:text-black dropdown__item flex-row-reverse", modal_id: "flagModalPost#{post.id}") %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
-          <%= link_to '#', class:'hover:text-black' do %>
-          <span>
+          <%= link_to '#', class:'hover:text-black dropdown__item' do %>
             <%= icon "translate-2-line" %>
-            Übersetzen
-          </span>
+            <span>Übersetzen</span>
           <% end %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
-          <%= link_to '#', class:'hover:text-black' do %>
-          <span>
+          <%= link_to '#', class:'hover:text-black dropdown__item' do %>
             <%= icon "pencil-line" %>
-            Editieren
-          </span>
+            <span>Editieren</span>
           <% end %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
-          <%= link_to '#', class:'hover:text-black' do %>
-          <span>
+          <%= link_to '#', class:'hover:text-black dropdown__item' do %>
             <%= icon "delete-bin-line" %>
-            Löschen
-          </span>
+            <span>Löschen</span>
           <% end %>
         </li>
       </ul>

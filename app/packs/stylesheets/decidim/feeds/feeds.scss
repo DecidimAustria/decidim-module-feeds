@@ -91,7 +91,7 @@
 					}
 					.feeds__feed_actions_submenu {
 						@apply relative self-start;
-						button {
+						button.openButton {
 							span {
 								@apply leading-[0];
 							}
