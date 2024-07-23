@@ -177,8 +177,8 @@
 							@apply rotate-0 motion-safe:transition-transform;
 						}
 					}
-					form {
-						@apply flex flex-col gap-4 opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+					.category-selection {
+						@apply flex gap-1 flex-wrap justify-center opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
 					}
 				}
 				.circle {
@@ -187,8 +187,17 @@
 						@apply w-[36px] h-[36px] fill-feeds-sidebar rotate-45 motion-safe:transition-transform;
 					}
 				}
+				.category-selection {
+					@apply hidden opacity-0 scale-0;
+					button.active {
+						@apply bg-primary text-white focus:outline-primary;
+					}
+				}
 				form {
 					@apply hidden opacity-0 scale-0 motion-safe:transition-transform motion-safe:transition-opacity;
+					&.open {
+						@apply flex flex-col gap-4 opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+					}
 					.feeds__feed_newElement_Body {
 						@apply border-0 bg-feeds-formBody;
 					}

@@ -5,35 +5,54 @@ document.addEventListener('DOMContentLoaded', function () {
 	console.log('js loaded');
 
 	const newFeed = document.querySelector('.feeds__feed_newElement');
-	const newFeedOpener = document.querySelector(
+	const newFeedOpener = document.querySelectorAll(
 		'.feeds__feed_newElement-opener'
 	);
 
-	newFeedOpener.addEventListener('click', function () {
-		let isExpanded = newFeedOpener.getAttribute('aria-expanded') === 'true';
-		newFeedOpener.setAttribute('aria-expanded', !isExpanded);
-		newFeed.classList.toggle('open');
+	newFeedOpener.forEach(function (opener) {
+		opener.addEventListener('click', function () {
+			// Scroll to the top if not already at the top and the feed is not already open
+			if (window.scrollY > 0) {
+				window.scrollTo({
+					top: 0,
+				});
+			}
+			let isExpanded = opener.getAttribute('aria-expanded') === 'true';
+			opener.setAttribute('aria-expanded', !isExpanded);
+			newFeed.classList.toggle('open');
+		});
 	});
 
-	const newFeedForm = document.querySelector('.feeds__feed_newElement .posts_form');
-	const newFeedFormPostType = newFeedForm.querySelectorAll(
-		'.postType input[type="radio"]'
+	const categoryButtons = document.querySelectorAll(
+		'.category-selection button'
 	);
+	const meetingForm = document.querySelector('.meetings_form');
+	const postForm = document.querySelector('.posts_form');
+	const surveyDiv = document.getElementById('extraFieldsForSurvey');
 
-	const newFeedCalendarForm = document.getElementById('extraFieldsForCalendar');
-	const newFeedSurveyForm = document.getElementById('extraFieldsForSurvey');
+	function hideAllForms() {
+		meetingForm.classList.remove('open');
+		postForm.classList.remove('open');
+		surveyDiv.classList.remove('open');
+		categoryButtons.forEach((button) => button.classList.remove('active'));
+	}
 
-	newFeedFormPostType.forEach(function (radio) {
-		radio.addEventListener('change', function () {
-			// Hide all forms
-			newFeedCalendarForm.classList.remove('open');
-			newFeedSurveyForm.classList.remove('open');
+	categoryButtons.forEach((button) => {
+		button.addEventListener('click', function () {
+			hideAllForms(); // Clear active states before setting the new one
+			this.classList.add('active'); // Mark the clicked button as active
 
-			// Display the extra fields for the selected radio button
-			if (this.value === 'calendar') {
-				newFeedCalendarForm.classList.add('open');
-			} else if (this.value === 'survey') {
-				newFeedSurveyForm.classList.add('open');
+			const category = this.getAttribute('data-category');
+
+			if (category === 'calendar') {
+				meetingForm.classList.add('open');
+			} else if (category === 'survey') {
+				postForm.classList.add('open');
+				surveyDiv.classList.add('open');
+				document.getElementById('post_category').value = category;
+			} else {
+				postForm.classList.add('open');
+				document.getElementById('post_category').value = category;
 			}
 		});
 	});
