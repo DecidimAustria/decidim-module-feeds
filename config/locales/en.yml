@@ -34,7 +34,7 @@ en:
             component: Feed to display
         newFeed:
           title: New Feed
-          text: Please insert a post
+          text: Post
           category: Choose a category
           action: Submit
           newSurvey:

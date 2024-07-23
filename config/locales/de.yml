@@ -34,7 +34,7 @@ de:
             component: Anzuzeigender Feed
         newFeed:
           title: Neues Beitrag
-          text: Bitte füge einen Beitrag ein
+          text: Beitrag
           category: Wähle eine Kategorie
           action: Senden
           newSurvey:

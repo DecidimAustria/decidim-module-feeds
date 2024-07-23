@@ -198,6 +198,13 @@
 					&.open {
 						@apply flex flex-col gap-4 opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
 					}
+					label {
+						font-size: 1rem;
+					}
+					input,
+					textarea {
+						margin-block-start: 0;
+					}
 					.feeds__feed_newElement_Body {
 						@apply border-0 bg-feeds-formBody;
 					}
@@ -224,9 +231,15 @@
 						}
 					}
 					.feeds__feed_newElement_Media {
-						@apply bg-feeds-bg p-2;
+						@apply bg-feeds-bg px-2 pb-2 pt-0;
 						svg {
 							@apply w-[24px] h-auto;
+						}
+						.active-uploads {
+							@apply mt-0 pb-2;
+						}
+						button {
+							@apply mt-0;
 						}
 					}
 					.sndBtn {

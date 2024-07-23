@@ -3,49 +3,13 @@
 <%= form.hidden_field :registration_type, value: 'registration_disabled' %>
 <%= form.text_field :title, autofocus: true, class: "js-hashtags", hashtaggable: true %>
 <%= text_editor_for(form, :description, hashtaggable: true) %>
-<%= form.text_area :location, help_text: t(".location_help") %>
-<%= form.text_area :location_hints, help_text: t(".location_hints_help") %>
+<%= form.text_area :location %>
 <%= form.datetime_field :start_time %>
 <%= form.datetime_field :end_time %>
-<div class="field hashtags__container">
-  
-</div>
-
-<div class="field">
-  
-</div>
-
-<div class="field">
-  
-</div>
-
-<div class="field" >
-  
-</div>
-
-<div class="field">
-  
-</div>
-
-<div class="field">
-  
-</div>
-
-<div class="field">
-  
-</div>
-
-<div class="row column">
-  
-</div>
-
-<div class="field">
-  <%= form.select(
+<%= form.select(
     :user_group_id,
     Decidim::UserGroups::ManageableUserGroups.for(current_user).verified.map { |g| [g.name, g.id] },
     prompt: current_user.name,
     label: t(".create_as")
   ) %>
-</div>
-
 <%= append_javascript_pack_tag "decidim_meetings" %>

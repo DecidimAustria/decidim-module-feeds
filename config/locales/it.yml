@@ -20,7 +20,7 @@ it:
             component: Feed to display
         newFeed:
           title: Nuovo feed
-          text: Inserisci un post
+          text: Post
           category: Scegli una categoria
           action: Spedisci
           newSurvey:

@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				controlledDiv.style.height = 'auto';
 				controlledDiv.style.visibility = 'visible';
 				controlledDiv.style.marginTop = '8px';
-				controlledDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				controlledDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
 			}
 		});
 	});
