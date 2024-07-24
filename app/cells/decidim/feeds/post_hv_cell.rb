@@ -26,7 +26,7 @@ module Decidim
       # 2 erledigt
 
       def post_status
-        nil
+        2
       end
 
       def status_class
@@ -35,8 +35,15 @@ module Decidim
             'warning'
           when 2
             'success'
-          else
-            ''
+          end
+      end
+
+      def post_status_text
+        case post_status
+          when 1
+            I18n.t('decidim.feeds.posts.hv.status.processing')
+          when 2
+            I18n.t('decidim.feeds.posts.hv.status.done')
           end
       end
 

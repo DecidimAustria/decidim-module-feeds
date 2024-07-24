@@ -6,6 +6,10 @@ de:
         feeds:
           name: Feed
       posts:
+        hv:
+          status:
+            processing: In Bearbeitung
+            done: Erledigt
         create:
           success: Beitrag erfolgreich erstellt
         meeting_form:

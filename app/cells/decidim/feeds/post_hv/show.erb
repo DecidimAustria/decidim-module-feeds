@@ -1,19 +1,25 @@
 <div class="card__grid feeds__feed <%= 'hv-highlight' if post_highlighted %>" data-content="<%=post_category%>">
-  <%= icon "home-gear-line", class: 'hv-icon' %>
-  <%= cell("decidim/feeds/post_meta", post) %>
-  <%= cell("decidim/feeds/post_attachments", post) %>
+  <% unless post_highlighted %>
+    <%= icon "home-gear-line", class: 'hv-icon' %>
+    <%= cell("decidim/feeds/post_meta", post) %>
+    <%= cell("decidim/feeds/post_attachments", post) %>
+  <% end %>
   <div class="card__grid-text">
     <%= post_body %>
   </div>
   <% if post_status %>
     <div class="bg-white rounded-2xl border-4 border-<%= status_class %> flex-col justify-between items-center inline-flex">
       <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
-        <div class="">25.04.2024, 09:00</div>
+        <div class="p-2 font-bold text-lg ">25.04.2024, 09:00</div>
       </div>
       <div class="self-stretch grow shrink basis-0 bg-<%= status_class %> rounded-lg justify-center items-center gap-2 inline-flex">
-        <div class="">IN BEARBEITUNG</div>
+        <div class="p-2 text-xl font-bold uppercase text-black"><%= post_status_text %></div>
       </div>
     </div>
   <% end %>
-  <%= cell("decidim/feeds/post_comment", post) %>
+  <% unless post_highlighted || post_status %>
+    <% if post_commentable %>
+      <%= cell("decidim/feeds/post_comment", post) %>
+    <% end %>
+  <% end %>
 </div>
