@@ -26,15 +26,19 @@ module Decidim
       # 2 erledigt
 
       def post_status
-        2
+        model.status
       end
 
       def status_class
         case post_status
+          when 0
+            nil
           when 1
             'warning'
           when 2
             'success'
+          else
+            nil
           end
       end
 
@@ -48,7 +52,7 @@ module Decidim
       end
 
       def post_highlighted
-        false
+        model.highlighted
       end
 
       def post_commentable

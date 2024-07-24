@@ -83,6 +83,7 @@ module Decidim
       def reported_searchable_content_extras
         [author.name]
       end
+      
     end
   end
 end
