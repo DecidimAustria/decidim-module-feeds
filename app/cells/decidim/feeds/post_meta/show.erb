@@ -13,10 +13,11 @@
       <ul id="<%= post.id %>#feeds__feed_actions_submenu" role="menu" aria-orientation="vertical" aria-labelledby="<%= post.id %>#feeds__feed_actions_submenuButton" class="absolute right-0 mt-6 px-4 py-2 bg-white divide-y divide-dashed divide-gray-100 rounded-md shadow-feedMenu overflow-hidden hidden">
         <li class="text-right py-2 text-feeds-sidebar">
           <%= cell("decidim/report_button", post, button_classes: "hover:text-black dropdown__item flex-row-reverse", modal_id: "flagModalPost#{post.id}") %>
+          <%= t("decidim.shared.flag_modal.report") %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
           <%= link_to '#', class:'hover:text-black dropdown__item' do %>
-            <%= icon "translate-2-line" %>
+            <%= icon "translate" %>
             <span>Übersetzen</span>
           <% end %>
         </li>

@@ -61,3 +61,8 @@ de:
           date_separator: bis
           start_time: Von
           end_time: bis
+    shared:
+      flag_modal:
+        report: Melden
+    endorsement_buttons_cell:
+      already_endorsed: Gefällt mir

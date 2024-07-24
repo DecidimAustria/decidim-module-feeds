@@ -45,3 +45,6 @@ it:
           date_separator: fino al
           start_time: Alle
           end_time: Fino a
+    shared:
+      flag_modal:
+        report: Segnala

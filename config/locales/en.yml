@@ -61,3 +61,6 @@ en:
           date_separator: to
           start_time: At
           end_time: Until
+    shared:
+      flag_modal:
+        report: Report
