@@ -15,4 +15,20 @@
   </div>
   <%= render partial: "decidim/feeds/posts/sidebar.html" %>
 </main>
+
+<dialog id="confirmationModal" class="p-4 shadow-md rounded-md ring-1 ring-feeds-hv" aria-labelledby="confirmationModalLabel" aria-modal="true">
+  <div id="confirmationModalLabel" class="flex flex-col gap-4">
+    <p>Das Status der Beitrag wird geändert und die Kommentarfunktion geschlossen.</p>
+    <div class="flex p-4 gap-4 justify-center">
+      <button id="confirmButton" class="button button__sm button__transparent-primary">
+        JA 
+        <%= icon('check-line') %>
+      </button>
+      <button id="cancelButton" class="button button__sm button__transparent-primary">
+        Abbrechen
+        <%= icon('close-line') %>
+      </button>
+    </div>
+  </div>
+</dialog>
 <%= append_javascript_pack_tag "decidim_feeds" %>

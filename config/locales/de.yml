@@ -36,6 +36,11 @@ de:
             description: Ein Feed mit Beiträgen, Ereignissen und anderen Inhalten.
           feeds_settings_form:
             component: Anzuzeigender Feed
+        actions:
+          openMenu: Menü öffnen
+          edit: Bearbeiten
+          translate: Übersetzen
+          delete: Löschen
         newFeed:
           title: Neues Beitrag
           text: Beitrag

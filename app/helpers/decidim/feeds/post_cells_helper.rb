@@ -25,6 +25,11 @@ module Decidim
       def current_component
         model.component
       end
+
+      def participatory_space
+        @participatory_space ||= current_component.participatory_space
+      end
+
     end
   end
 end

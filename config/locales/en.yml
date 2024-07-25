@@ -32,6 +32,11 @@ en:
             description: A feed of posts, events, and other content.
           feeds_settings_form:
             component: Feed to display
+        actions:
+          openMenu: Open menu
+          edit: Edit
+          translate: Translate
+          delete: Delete
         newFeed:
           title: New Feed
           text: Post

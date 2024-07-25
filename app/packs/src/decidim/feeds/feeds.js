@@ -130,3 +130,43 @@ document.addEventListener('DOMContentLoaded', function () {
 	initSurvey();
 	carousel.init();
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+	const changeStatusButtons = document.querySelectorAll('.changeStatusButton');
+	changeStatusButtons.forEach(function (button) {
+		button.addEventListener('click', function () {
+			const postId = button.dataset.postId;
+			const newStatus = button.dataset.postStatus;
+
+			const confirmationModal = document.getElementById('confirmationModal');
+			confirmationModal.showModal();
+
+			const confirmButton = document.getElementById('confirmButton');
+			const cancelButton = document.getElementById('cancelButton');
+
+			confirmButton.addEventListener('click', function () {
+				// If user confirms, proceed with AJAX request
+				const params = new URLSearchParams({
+					id: postId,
+					status: newStatus,
+				});
+				Rails.ajax({
+					url: '/feeds/change_status/?' + params.toString(),
+					type: 'GET',
+					success: function (response) {
+						console.log('Status changed successfully');
+						// Optionally update the UI based on the response
+					},
+					error: function (error) {
+						console.error('Error changing status:', error);
+					},
+				});
+				confirmationModal.close();
+			});
+
+			cancelButton.addEventListener('click', function () {
+				confirmationModal.close();
+			});
+		});
+	});
+});

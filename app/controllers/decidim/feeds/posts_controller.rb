@@ -66,6 +66,19 @@ module Decidim
         end
       end
 
+      def change_status
+        
+        enforce_permission_to :update, :post
+
+        @post = Decidim::Feeds::Post.find(params[:id])
+        if @post.update(status: params[:status], enable_comments: false)
+          render json: { message: 'Status updated successfully' }, status: :ok
+        else
+          render json: { error: 'Failed to update status' }, status: :unprocessable_entity
+        end
+
+      end
+
       private
 
       def post
@@ -88,6 +101,7 @@ module Decidim
       def meeting_form
         form(Decidim::Meetings::MeetingForm).from_params(params)
       end
+
     end
   end
 end

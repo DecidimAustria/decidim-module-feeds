@@ -4,6 +4,10 @@ module Decidim
   module Feeds
     class PostHvCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
+      include PostCellsHelper
+
+      delegate :allowed_to?, to: :controller, prefix: false
+
       def show
         render :show
       end
@@ -21,7 +25,7 @@ module Decidim
       end
 
       # post status / for HV post
-      # nil default
+      # 0 default
       # 1 bearbeitung
       # 2 erledigt
 
@@ -58,6 +62,11 @@ module Decidim
       def post_commentable
         model.enable_comments?
       end
+
+      def official_post
+        participatory_space.admins.exists?(id: post.author.id)
+      end
+
     end
   end
 end

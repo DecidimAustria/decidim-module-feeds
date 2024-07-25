@@ -1,6 +1,8 @@
-<div class="card__grid feeds__feed <%= 'hv-highlight' if post_highlighted %>" data-content="<%=post_category%>">
+<div id="feeds_post-<%= post.id %>" class="card__grid feeds__feed <%= 'hv-highlight' if post_highlighted %>" data-content="<%=post_category%>">
   <% unless post_highlighted %>
-    <%= icon "home-gear-line", class: 'hv-icon' %>
+    <% if official_post %>
+      <%= icon "home-gear-line", class: 'hv-icon' %>
+    <% end %>
     <%= cell("decidim/feeds/post_meta", post) %>
     <%= cell("decidim/feeds/post_attachments", post) %>
   <% end %>
@@ -10,18 +12,48 @@
   <% if status_class %>
     <div class="bg-white rounded-2xl border-4 border-<%= status_class %> flex-col justify-between items-center inline-flex">
       <div class="self-stretch px-2 py-1 justify-start items-center gap-2 inline-flex">
-        <div class="p-2 font-bold text-lg ">
-          <%= post.updated_at %>
-        </div>
+        <time class="p-2 font-bold text-lg"><%= post.updated_at %></time>
       </div>
       <div class="self-stretch grow shrink basis-0 bg-<%= status_class %> rounded-lg justify-center items-center gap-2 inline-flex">
         <div class="p-2 text-xl font-bold uppercase text-black"><%= post_status_text %></div>
       </div>
     </div>
   <% end %>
-  <% unless post_highlighted || post_status %>
+
+  <% unless post_highlighted || status_class %>
     <% if post_commentable %>
       <%= cell("decidim/feeds/post_comment", post) %>
     <% end %>
   <% end %>
+
+  <% if participatory_space.admins.exists?(id:current_user.id) && !official_post %>
+    <% %>
+    <div class="flex flex-col py-4 px-2 justify-center items-center gap-4">
+      <% if post_status != 2 %>
+        <% if post_status != 1 %>
+          <button class="button button__sm button__transparent-primary changeStatusButton" data-post-status="1" data-post-id="<%= post.id %>" aria-controls="confirmationModal" aria-haspopup="dialog">
+            <%= t('decidim.feeds.posts.hv.status.processing') %>
+            <%= icon('arrow-right-line') %>
+          </button>
+        <% else %>
+          <p>SET:</p>
+          <time class="p-2 font-bold text-lg"><%= post.updated_at %></time>
+          <p><%= t('decidim.feeds.posts.hv.status.processing') %></p>
+        <% end %>
+        <button class="button button__sm button__transparent-primary changeStatusButton" data-post-status="2" data-post-id="<%= post.id %>" aria-controls="confirmationModal" aria-haspopup="dialog">
+          <%= t('decidim.feeds.posts.hv.status.done') %>
+          <%= icon('arrow-right-line') %>
+        </button>
+      <% else %>
+        <time class="p-2 font-bold text-lg"><%= post.updated_at %></time>
+        <%= t('decidim.feeds.posts.hv.status.closed') %>
+      <% end %>
+    </div>
+  <% end %>
+  <!--
+  participatory_space.user_roles(:admin).where(user:current_user).any?
+  participatory_space.admins.exists?(id:current_user.id)
+  allowed_to? :read, :admin_dashboard
+  allowed_to?(:enter, :space_area, space_name: :assemblies)
+  -->
 </div>

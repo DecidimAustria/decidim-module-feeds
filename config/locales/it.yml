@@ -18,6 +18,11 @@ it:
             description: Un feed di post, eventi e altri contenuti.
           feeds_settings_form:
             component: Feed to display
+        actions:
+          openMenu: Apri menu
+          edit: Modifica
+          translate: Traduci
+          delete: Elimina
         newFeed:
           title: Nuovo feed
           text: Post
