@@ -6,6 +6,14 @@ it:
         feeds:
           name: Feed
       posts:
+        hv:
+          status:
+            yes: SI
+            cancel: Annulla
+            processing: In Bearbeitung
+            done: Erledigt
+            dialogBodyMsg: Das Status der Meldung wird geändert und die Kommentarfunktion geschlossen
+            dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
         create:
           success: Post creato con successo
     components:

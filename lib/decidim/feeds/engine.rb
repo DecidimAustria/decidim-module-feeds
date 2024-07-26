@@ -20,16 +20,11 @@ module Decidim
         resources :posts
         resources :meetings, only: %i[new create]
         # get "/test" => "posts#test"
-        get '/change_status', to: 'posts#change_status', as: 'change_post_status'
+        get 'change_status', to: 'posts#change_status', as: 'change_post_status'
+        get 'delete_post', to: 'posts#delete', as: 'delete_post'
       end
 
       isolate_namespace Decidim::Feeds
-
-      initializer "Feeds.mount_routes" do
-        Decidim::Core::Engine.routes do
-          mount Decidim::Feeds::Engine, at: "/feeds", as: "decidim_feeds"
-        end
-      end
 
       # initializer "decidim_feeds.overrides", after: "decidim.action_controller" do
       #   config.to_prepare do

@@ -36,7 +36,7 @@ export function initSurvey() {
 
 		const label = document.createElement('label');
 		label.htmlFor = `question${questionContainer.children.length + 1}`;
-		label.textContent = window.translations.questionTitle;
+		label.textContent = window.translations.survey.questionTitle;
 		questionTitleDiv.appendChild(label);
 
 		const input = document.createElement('input');
@@ -51,7 +51,7 @@ export function initSurvey() {
 		// Create fieldset with radio inputs
 		const fieldset = document.createElement('fieldset');
 		const legend = document.createElement('legend');
-		legend.textContent = window.translations.answerType;
+		legend.textContent = window.translations.survey.answerType;
 		fieldset.appendChild(legend);
 		[
 			window.translations.singleChoice,
@@ -79,7 +79,7 @@ export function initSurvey() {
 		answersContainer.className = 'feeds__feed_newSurvey_answers';
 		answerContainer.appendChild(answersContainer);
 		const button = document.createElement('button');
-		button.textContent = window.translations.newAnswer;
+		button.textContent = window.translations.survey.newAnswer;
 		button.type = 'button';
 		button.className = 'button button__sm button__transparent-primary';
 		answerContainer.appendChild(button);
@@ -96,7 +96,7 @@ export function initSurvey() {
 		// Append new question to the questions container
 		questionContainer.appendChild(newQuestionDiv);
 
-		liveRegion.textContent = window.translations.newQuestionResponse;
+		liveRegion.textContent = window.translations.survey.newQuestionResponse;
 
 		// Add event listeners to the radio buttons
 		fieldset
@@ -138,6 +138,6 @@ export function initSurvey() {
 		// Append new answer to the answer container
 		answersContainer.appendChild(newAnswerDiv);
 
-		liveRegion.textContent = window.translations.newQuestionResponse;
+		liveRegion.textContent = window.translations.survey.newQuestionResponse;
 	}
 }

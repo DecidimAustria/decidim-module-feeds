@@ -9,18 +9,20 @@ module Decidim
         case permission_action.subject
         when :post
           case permission_action.action
-          when :create
-            allow! if can_create_posts?
-          when :update
-            allow! if can_update_post?
-          when :read
-            allow! if can_access?
-          end
+            when :create
+              allow! if can_create_posts?
+            when :update
+              allow! if can_update_post?
+            when :read
+              allow! if can_access?
+            when :change_post_status
+              allow! if change_post_status?
+            end
         when :meeting
           case permission_action.action
-          when :create
-            allow! if can_create_posts?
-          end
+            when :create
+              allow! if can_create_posts?
+            end
         end
 
         permission_action
@@ -40,6 +42,10 @@ module Decidim
 
       def can_update_post?
         post.authored_by?(user)
+      end
+
+      def change_post_status?
+        participatory_space.admins.exists?(id: user.id)
       end
 
       def public_space_or_member?

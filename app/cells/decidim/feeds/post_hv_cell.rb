@@ -4,6 +4,7 @@ module Decidim
   module Feeds
     class PostHvCell < Decidim::ViewModel
       include Cell::ViewModel::Partial
+      include ActiveModel::Conversion
       include PostCellsHelper
 
       delegate :allowed_to?, to: :controller, prefix: false

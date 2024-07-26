@@ -8,8 +8,12 @@ de:
       posts:
         hv:
           status:
+            si: JA
+            cancel: Abbrechen
             processing: In Bearbeitung
             done: Erledigt
+            dialogBodyMsg: Das Status der Meldung wird geändert und die Kommentarfunktion geschlossen
+            dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
         create:
           success: Beitrag erfolgreich erstellt
         meeting_form:

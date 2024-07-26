@@ -68,11 +68,12 @@ module Decidim
 
       def change_status
         
-        enforce_permission_to :update, :post
-
         @post = Decidim::Feeds::Post.find(params[:id])
+        
+        #enforce_permission_to :change_post_status, post: @post
+
         if @post.update(status: params[:status], enable_comments: false)
-          render json: { message: 'Status updated successfully' }, status: :ok
+          render json: { message: 'Status updated successfully', new_content: cell("decidim/feeds/post_hv", @post).call(:show) }, status: :ok
         else
           render json: { error: 'Failed to update status' }, status: :unprocessable_entity
         end
@@ -80,10 +81,6 @@ module Decidim
       end
 
       private
-
-      def post
-        @post ||= Post.where(component: current_component).find_by(id: params[:id])
-      end
 
       def post_creation_params
         #params[:post].merge(body_template: translated_proposal_body_template)
