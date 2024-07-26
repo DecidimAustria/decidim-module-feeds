@@ -1,6 +1,7 @@
-<main class="feeds__container p-4">
+<main class="feeds__container">
+  
   <div class="feeds__body">
-    <div class="card__grid-home w-full">
+    <div class="card__grid-home w-full lg:grid-cols-8 xl:grid-cols-12">
       <% if current_user %>
         <div class="card__grid feeds__feed feeds__feed_newElement">
           <button class="btn circle feeds__feed_newElement-opener" aria-expanded="false" aria-controls="newElementForm" type="button">
