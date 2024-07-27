@@ -8,7 +8,7 @@ en:
       posts:
         hv:
           status:
-            yes: Yes
+            confirm: Yes
             cancel: Cancel
             processing: In Bearbeitung
             done: Erledigt
