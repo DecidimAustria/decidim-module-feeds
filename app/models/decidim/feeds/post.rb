@@ -25,8 +25,8 @@ module Decidim
 
       # belongs_to :organization, class_name: "Decidim::Organization"
 
-      has_many :questions, class_name: "Decidim::Feeds::Question", dependent: :destroy
-      accepts_nested_attributes_for :questions, reject_if: ->(attributes){ attributes['name'].blank? }, allow_destroy: true
+      has_many :questions, class_name: "Decidim::Feeds::Question", dependent: :destroy, foreign_key: "decidim_feeds_post_id"
+      # accepts_nested_attributes_for :questions, reject_if: ->(attributes){ attributes['name'].blank? }, allow_destroy: true
 
       component_manifest_name "feeds"
 

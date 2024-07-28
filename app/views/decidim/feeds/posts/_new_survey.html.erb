@@ -10,5 +10,11 @@
       <%= render partial: "decidim/feeds/posts/new_survey_question", locals: { form: question_form } %>
     <% end %>
   </template>
+  <template id="answer_template">
+    <%#= form.fields_for :answers, @form.answers.new, child_index: "NEW_RECORD" do |answer_form| %>
+    <%= fields_for "post[questions][QUESTION_RECORD][answers][NEW_RECORD]", Decidim::Feeds::Answer.new do |answer_form| %>
+      <%= render partial: "decidim/feeds/posts/new_survey_answer", locals: { form: answer_form } %>
+    <% end %>
+  </template>
 
 </div>

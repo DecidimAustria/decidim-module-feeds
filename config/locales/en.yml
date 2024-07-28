@@ -16,6 +16,8 @@ en:
             dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
         create:
           success: Post created successfully
+        form:
+          question_too_short: The question is too short
         meeting_form:
           address_help: 'Address: used by Geocoder to find the location'
           available_slots_help: Leave it to 0 if you have unlimited slots available
@@ -53,10 +55,15 @@ en:
           newSurvey:
             newQuestion: New Question
             questionTitle: Enter question
+            questionType: Question type
+            questionTypes:
+              multiple_choice: Multiple choice
+              single_choice: Single choice
             answerType: Answer type
             multipleChoice: Multiple choice
             singleChoice: Single choice
             newAnswer: New answer
+            answerTitle: Enter answer
             deleteQuestion: Delete question
             deleteAnswer: Delete answer
         filter:

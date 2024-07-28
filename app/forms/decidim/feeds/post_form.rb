@@ -26,6 +26,7 @@ module Decidim
       attachments_attribute :documents
 
       validates :body, presence: true#, etiquette: true
+      validate :questions_validator
       # validates :body, length: { in: 15..150 }
       # validates :body, proposal_length: {
       #   minimum: 15,
@@ -45,8 +46,8 @@ module Decidim
         self.body = translated_attribute(model.body)
         # @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
-        presenter = ProposalPresenter.new(model)
-        self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
+        # presenter = ProposalPresenter.new(model)
+        # self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
         # self.user_group_id = model.user_groups.first&.id
         # self.category_id = model.categorization.decidim_category_id if model.categorization
@@ -121,6 +122,12 @@ module Decidim
       # is lost, so we need a way to inform the user of this problem.
       def notify_missing_attachment_if_errored
         errors.add(:add_documents, :needs_to_be_reattached) if errors.any? && add_documents.present?
+      end
+
+      def questions_validator
+        @questions_validator ||= questions.reject(&:deleted).each do |question|
+          errors.add(:questions, I18n.t("decidim.feeds.posts.form.question_too_short")) if question.title.length <= 3
+        end.map(&:title).uniq
       end
 
       # def ordered_hashtag_list(string)

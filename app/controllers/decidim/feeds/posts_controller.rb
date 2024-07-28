@@ -61,7 +61,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.feeds")
-            render action: "new"
+            redirect_to posts_path
           end
         end
       end

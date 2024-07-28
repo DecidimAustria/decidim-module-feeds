@@ -15,8 +15,25 @@ export function initSurvey() {
 			var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime());
 			
 			questionContainer.insertAdjacentHTML('beforeend', content);
-			
-	});
+		});
+
+	// TODO: this does not work as the button does not exist yet and there will be multiple buttons
+	document
+		.addEventListener('click', (event) => {
+			if (event.target.classList.contains('feeds__feed_newAnswer-btn')) {
+				// get div with class feeds__feed_newSurvey_answersContainer inside the same container as the clicked button
+				const answerContainer = event.target.parentElement.querySelector('.feeds__feed_newSurvey_answersContainer')
+				// get data-question-id from answerContainer
+				const questionId = answerContainer.getAttribute('data-question-id');
+
+				// copy content from question_template to questionContainer
+				const template = document.getElementById('answer_template');
+				var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime());
+				content = content.replace(/QUESTION_RECORD/g, questionId);
+				
+				answerContainer.insertAdjacentHTML('beforeend', content);
+			}
+		});
 
 	function createNewQuestion_old() {
 		const questionContainer = document.getElementById(

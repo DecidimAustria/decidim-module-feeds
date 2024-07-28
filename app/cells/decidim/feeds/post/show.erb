@@ -1,9 +1,12 @@
 <%= cell("decidim/feeds/post_meta", post) %>
 <%= cell("decidim/feeds/post_attachments", post) %>
+
 <div class="card__grid-text">
   <%= post_body %>
 </div>
+
 <% if post_category == 'survey' %>
-  <%= render partial: "decidim/feeds/content_blocks/feeds/survey.html" %>
+  <%= render :survey %>
 <% end %>
+
 <%= cell("decidim/feeds/post_comment", post) %>

@@ -16,6 +16,8 @@ de:
             dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
         create:
           success: Beitrag erfolgreich erstellt
+        form:
+          question_too_short: Die Frage ist zu kurz
         meeting_form:
           address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
           available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
@@ -53,10 +55,15 @@ de:
           newSurvey:
             newQuestion: Neue Frage
             questionTitle: Frage eingeben
+            questionType: Fragetyp
+            questionTypes:
+              multiple_choice: Mehrfachauswahl
+              single_choice: Einzelwahl
             answerType: Antworttyp
             multipleChoice: Mehrfachauswahl
             singleChoice: Einzelwahl
             newAnswer: Neue Antwort
+            answerTitle: Antwort eingeben
             deleteQuestion: Frage löschen
             deleteAnswer: Antwort löschen
         filter:

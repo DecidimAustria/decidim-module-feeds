@@ -16,6 +16,22 @@ it:
             dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
         create:
           success: Post creato con successo
+        form:
+          question_too_short: La domanda è troppo corta
+        meeting_form:
+          address_help: 'Indirizzo: utilizzato da Geocoder per trovare la posizione'
+          available_slots_help: Lasciarlo a 0 se hai slot illimitati disponibili
+          create_as: Crea riunione come
+          disclaimer: 'Disclaimer: Utilizzando un sistema di registrazione esterno, sei consapevole che gli organizzatori di %{organization} non sono responsabili dei dati forniti dagli utenti al servizio esterno.'
+          iframe_embed_type_html: "Solo alcuni servizi consentono l'incorporamento in una riunione o evento dal vivo dai seguenti domini: %{domains}"
+          location_help: 'Posizione: messaggio diretto agli utenti che implica il punto di incontro'
+          location_hints_help: "Suggerimenti sulla posizione: informazioni aggiuntive. Esempio: il piano dell'edificio se si tratta di una riunione in presenza, o la password della riunione se si tratta di una riunione online con accesso limitato."
+          online_meeting_url_help: 'Link: consentire ai partecipanti di connettersi direttamente alla tua riunione'
+          registration_url_help: 'Link: consentire ai partecipanti di andare sul servizio esterno che stai utilizzando per le registrazioni'
+          select_a_category: Seleziona una categoria
+          select_a_meeting_type: Seleziona un tipo di riunione
+          select_a_registration_type: Seleziona un tipo di registrazione
+          select_an_iframe_access_level: Seleziona un livello di accesso all'iframe
     components:
       feeds:
         name: Feeds
@@ -39,10 +55,17 @@ it:
           newSurvey:
             newQuestion: Nuova domanda
             questionTitle: Inserisci la domanda
+            questionType: Tipo di domanda
+            questionTypes:
+              multiple_choice: Scelta multipla
+              single_choice: Scelta singola
             answerType: Tipo di risposta
             multipleChoice: Scelta multipla
             singleChoice: Scelta singola
             newAnswer: Nuova risposta
+            answerTitle: Inserisci risposta
+            deleteQuestion: Elimina domanda
+            deleteAnswer: Elimina risposta
         filter:
           all: Tutti
           title: Filtro
