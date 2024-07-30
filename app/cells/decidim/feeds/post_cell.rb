@@ -33,6 +33,7 @@ module Decidim
       def has_image?
         resource_image_path.present?
       end
+
     end
   end
 end

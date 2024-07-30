@@ -11,6 +11,7 @@ module Decidim
       enum question_type: { single_choice: 0, multiple_choice: 1 }
 
       translatable_fields :title
+
     end
   end
 end

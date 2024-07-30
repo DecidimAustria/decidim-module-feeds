@@ -1,5 +1,7 @@
 <div class="feeds__feed_survey">
-  <span class="text-right py-2">X user haben teilgenommen</span>
+  <span class="text-right py-2">
+    <%= post.survey_responses_count %> user haben teilgenommen
+  </span>
   <form class="feeds__feed_survey-questions">
     <% post.questions.each do |question| %>
       <% if question.question_type == "single_choice" %>

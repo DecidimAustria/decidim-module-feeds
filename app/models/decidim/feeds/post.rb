@@ -83,6 +83,10 @@ module Decidim
       def reported_searchable_content_extras
         [author.name]
       end
+
+      def survey_responses_count
+        questions.joins(:answers).where.not(decidim_feeds_answers: { tot_answers: nil }).distinct.count('decidim_feeds_answers.id')
+      end
       
     end
   end
