@@ -54,8 +54,9 @@ en:
           action: Submit
           newSurvey:
             newQuestion: New Question
+            newQuestionResponse: A new question has been added
             questionTitle: Enter question
-            questionType: Question type
+            questionType: Question typello
             questionTypes:
               multiple_choice: Multiple choice
               single_choice: Single choice
@@ -63,6 +64,7 @@ en:
             multipleChoice: Multiple choice
             singleChoice: Single choice
             newAnswer: New answer
+            newAnswerResponse: A new answer has been added
             answerTitle: Enter answer
             deleteQuestion: Delete question
             deleteAnswer: Delete answer

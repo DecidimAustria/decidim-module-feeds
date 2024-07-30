@@ -12,28 +12,40 @@ export function initSurvey() {
 
 			// copy content from question_template to questionContainer
 			const template = document.getElementById('question_template');
-			var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime());
-			
+			var content = template.innerHTML.replace(
+				/NEW_RECORD/g,
+				new Date().getTime()
+			);
 			questionContainer.insertAdjacentHTML('beforeend', content);
+			liveRegion.textContent =
+				window.translations.newSurvey.newQuestionResponse;
 		});
 
 	// TODO: this does not work as the button does not exist yet and there will be multiple buttons
-	document
-		.addEventListener('click', (event) => {
-			if (event.target.classList.contains('feeds__feed_newAnswer-btn')) {
-				// get div with class feeds__feed_newSurvey_answersContainer inside the same container as the clicked button
-				const answerContainer = event.target.parentElement.querySelector('.feeds__feed_newSurvey_answersContainer')
-				// get data-question-id from answerContainer
-				const questionId = answerContainer.getAttribute('data-question-id');
+	document.addEventListener('click', (event) => {
+		if (event.target.classList.contains('feeds__feed_newAnswer-btn')) {
+			const questionId = event.target.dataset.questionId;
+			// get div with class feeds__feed_newSurvey_answersContainer inside the same container as the clicked button
+			const answerContainer = document.getElementById(
+				`feeds__feed_newSurvey_answersContainer-${questionId}`
+			);
 
-				// copy content from question_template to questionContainer
-				const template = document.getElementById('answer_template');
-				var content = template.innerHTML.replace(/NEW_RECORD/g, new Date().getTime());
-				content = content.replace(/QUESTION_RECORD/g, questionId);
-				
-				answerContainer.insertAdjacentHTML('beforeend', content);
-			}
-		});
+			const questionAnswers = answerContainer.children.length + 1;
+			// answerContainer.dataset.questionAnswers = questionAnswers;
+
+			// copy content from question_template to questionContainer
+			const template = document.getElementById('answer_template');
+			var content = template.innerHTML.replace(
+				/NEW_RECORD/g,
+				new Date().getTime()
+			);
+			content = content.replace(/QUESTION_RECORD/g, questionId);
+			content = content.replace(/ANSWER_NR/g, questionAnswers);
+
+			answerContainer.insertAdjacentHTML('beforeend', content);
+			liveRegion.textContent = window.translations.newSurvey.newAnswerResponse;
+		}
+	});
 
 	function createNewQuestion_old() {
 		const questionContainer = document.getElementById(
@@ -116,14 +128,12 @@ export function initSurvey() {
 		liveRegion.textContent = window.translations.survey.newQuestionResponse;
 
 		// Add event listeners to the radio buttons
-		fieldset
-			.querySelectorAll('input[type="radio"]')
-			.forEach((radioButton) => {
-				radioButton.addEventListener('change', () => {
-					// Show the answer container when a radio button is selected
-					answerContainer.style.display = 'block';
-				});
+		fieldset.querySelectorAll('input[type="radio"]').forEach((radioButton) => {
+			radioButton.addEventListener('change', () => {
+				// Show the answer container when a radio button is selected
+				answerContainer.style.display = 'block';
 			});
+		});
 
 		// Add event listener to the new answer button
 		button.addEventListener('click', () => {

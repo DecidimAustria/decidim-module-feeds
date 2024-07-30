@@ -3,7 +3,7 @@
 @import '_variables.scss';
 
 .feeds__container {
-	@apply flex gap-4 justify-between flex-nowrap max-w-screen-2xl mx-auto p-4 lg:p-16;
+	@apply flex gap-4 justify-between flex-nowrap w-full max-w-screen-2xl mx-auto p-4 lg:p-16;
 	.feeds__body {
 		@apply flex-grow flex flex-wrap gap-4;
 		.feeds__feed {

@@ -54,6 +54,7 @@ de:
           action: Senden
           newSurvey:
             newQuestion: Neue Frage
+            newQuestionResponse: Eine neue Frage wurde hinzugefügt
             questionTitle: Frage eingeben
             questionType: Fragetyp
             questionTypes:
@@ -63,6 +64,7 @@ de:
             multipleChoice: Mehrfachauswahl
             singleChoice: Einzelwahl
             newAnswer: Neue Antwort
+            newAnswerResponse: Eine neue Antwort wurde hinzugefügt
             answerTitle: Antwort eingeben
             deleteQuestion: Frage löschen
             deleteAnswer: Antwort löschen

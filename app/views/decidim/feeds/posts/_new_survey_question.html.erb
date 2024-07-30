@@ -1,17 +1,16 @@
-<div>
-  <%= form.label :title, t("decidim.components.feeds.newFeed.newSurvey.questionTitle"), class: 'sr-only' %>
-  <%= form.text_field :title, class: 'form-control', placeholder: t("decidim.components.feeds.newFeed.newSurvey.questionTitle") %>
-  <%= form.label :question_type, t("decidim.components.feeds.newFeed.newSurvey.questionType"), class: 'sr-only' %>
-  <%= form.select :question_type, options_for_select(Decidim::Feeds::Question.question_types.keys.map { |key| [t("decidim.components.feeds.newFeed.newSurvey.questionTypes.#{key}"), key] }), {}, class: 'form-control' %>
-
-  <button class="feeds__feed_newAnswer-btn" type="button" aria-haspopup="true" aria-controls="newAnswer-1">
-    <%= t("decidim.components.feeds.newFeed.newSurvey.newAnswer") %>
-    <%= icon "add-line" %>
-  </button>
-  <div id="feeds__feed_newSurvey_liveRegion" aria-live="polite" class="sr-only"></div>
-
-  <div class="feeds__feed_newSurvey_answersContainer" data-question-id="NEW_RECORD"></div>
-  
+<div id="feeds__feed_newSurvey_Question-NEW_RECORD" class="p-2 flex flex-col gap-2">
+  <%= form.label :title, '', class: 'flex flex-col gap-2 py-2' do %>
+    <%= content_tag(:span, t("decidim.components.feeds.newFeed.newSurvey.questionTitle"), class: "post_label font-bold") %>
+    <%= form.text_field :title, class: 'form-control', label: false,  placeholder: t("decidim.components.feeds.newFeed.newSurvey.questionTitle") %>
+  <% end %>
+  <div class="flex gap-2 justify-betwee py-2">
+    <%= form.select :question_type, options_for_select(Decidim::Feeds::Question.question_types.keys.map { |key| [t("decidim.components.feeds.newFeed.newSurvey.questionTypes.#{key}"), key] }), {}, class: 'form-control' %>
+    <button class="feeds__feed_newAnswer-btn button button__sm button__transparent-primary ml-auto" type="button" aria-haspopup="true" aria-controls="feeds__feed_newSurvey_answersContainer" data-question-id="NEW_RECORD">
+      <%= t("decidim.components.feeds.newFeed.newSurvey.newAnswer") %>
+      <%= icon "add-line" %>
+    </button>
+  </div>
+  <div id="feeds__feed_newSurvey_answersContainer-NEW_RECORD" class="feeds__feed_newSurvey_answersContainer" aria-live="polite" ></div>
   <small>
     <%#= link_to t("decidim.components.feeds.newFeed.newSurvey.deleteQuestion"), "#" %>
   </small>

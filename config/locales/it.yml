@@ -54,6 +54,7 @@ it:
           action: Spedisci
           newSurvey:
             newQuestion: Nuova domanda
+            newQuestionResponse: È stata aggiunta una nuova domanda
             questionTitle: Inserisci la domanda
             questionType: Tipo di domanda
             questionTypes:
@@ -63,6 +64,7 @@ it:
             multipleChoice: Scelta multipla
             singleChoice: Scelta singola
             newAnswer: Nuova risposta
+            newAnswerResponse: È stata aggiunta una nuova risposta
             answerTitle: Inserisci risposta
             deleteQuestion: Elimina domanda
             deleteAnswer: Elimina risposta

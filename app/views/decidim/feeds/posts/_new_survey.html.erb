@@ -1,9 +1,9 @@
-<button class="feeds__feed_newSurvey-btn" type="button" aria-haspopup="true" aria-controls="newQuestion-1">
+<button class="feeds__feed_newSurvey-btn" type="button" aria-haspopup="true" aria-controls="feeds__feed_newSurvey_questionsContainer">
   <%= t("decidim.components.feeds.newFeed.newSurvey.newQuestion") %>
   <%= icon "add-line" %>
 </button>
 <div id="feeds__feed_newSurvey_liveRegion" aria-live="polite" class="sr-only"></div>
-<div id="feeds__feed_newSurvey_questionsContainer">
+<div id="feeds__feed_newSurvey_questionsContainer" aria-live="polite">
   <template id="question_template">
     <%#= form.fields_for :questions, @form.questions.new, child_index: "NEW_RECORD" do |question_form| %>
     <%= fields_for "post[questions][NEW_RECORD]", Decidim::Feeds::Question.new do |question_form| %>
