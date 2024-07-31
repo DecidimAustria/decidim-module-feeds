@@ -1,0 +1,30 @@
+<% if participatory_space.admins.exists?(id:current_user.id) %>
+  <div class="bg-feeds-bg p-2 rounded-md flex flex-col">
+      <div class="toggle__switch-trigger p-2">
+        <%= form.label :highlighted, '', class: 'toggle__switch-toggle' do %>
+          <span>
+            <%= form.check_box :highlighted, label: false, checked: false %>
+            <span class="toggle__switch-toggle-content"></span>
+            <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+            <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          </span>
+          <span class="toggle__switch-trigger-text pl-2 font-bold">
+            <%= t("decidim.components.feeds.newFeed.highlighted") %>
+          </span>
+        <% end %>
+      </div>
+      <div class="toggle__switch-trigger p-2">
+        <%= form.label :fixed, '', class: 'toggle__switch-toggle' do %>
+          <span>
+            <%= form.check_box :fixed, label: false, checked: false %>
+            <span class="toggle__switch-toggle-content"></span>
+            <%= icon "check-line", class: "toggle__switch-toggle-icon" %>
+            <%= icon "close-line", class: "toggle__switch-toggle-icon" %>
+          </span>
+          <span class="toggle__switch-trigger-text pl-2 font-bold">
+            <%= t("decidim.components.feeds.newFeed.fixed") %>
+          </span>
+        <% end %>
+      </div>
+  </div>
+<% end %>

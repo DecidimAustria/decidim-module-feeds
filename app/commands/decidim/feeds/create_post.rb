@@ -58,7 +58,9 @@ module Decidim
           enable_comments: form.enable_comments,
           body: { I18n.locale => form.body },
           author: form.current_user,
-          component: form.current_component
+          component: form.current_component,
+          highlighted: form.highlighted,
+          fixed: form.fixed
         )
 
         form.questions.each do |question_form|

@@ -16,12 +16,17 @@ module Decidim
         #     resources :exports, only: [:create]
         #   end
         # end
+        # 
+        # survey user answer
+        # 
+  
         root to: "posts#index"
         resources :posts
         resources :meetings, only: %i[new create]
         # get "/test" => "posts#test"
         get 'change_status', to: 'posts#change_status', as: 'change_post_status'
         get 'delete_post', to: 'posts#delete', as: 'delete_post'
+        get 'user_answers', to: 'user_answers#create', as: 'user_answers'
       end
 
       isolate_namespace Decidim::Feeds

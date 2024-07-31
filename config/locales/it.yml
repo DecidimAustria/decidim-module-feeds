@@ -51,6 +51,8 @@ it:
           title: Nuovo feed
           text: Post
           category: Scegli una categoria
+          highlighted: Evidenzia
+          fixed: Fissa in alto
           action: Spedisci
           newSurvey:
             newQuestion: Nuova domanda

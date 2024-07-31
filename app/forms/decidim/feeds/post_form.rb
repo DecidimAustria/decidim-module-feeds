@@ -22,6 +22,8 @@ module Decidim
       attribute :attachment, AttachmentForm
       #attribute :suggested_hashtags, Array[String]
       attribute :questions, Array[QuestionForm]
+      attribute :highlighted, Boolean
+      attribute :fixed, Boolean
 
       attachments_attribute :documents
 

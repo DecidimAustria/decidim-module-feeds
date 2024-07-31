@@ -51,6 +51,8 @@ de:
           title: Neues Beitrag
           text: Beitrag
           category: Wähle eine Kategorie
+          highlighted: Hervorheben
+          fixed: Oben Fixieren
           action: Senden
           newSurvey:
             newQuestion: Neue Frage

@@ -51,6 +51,8 @@ en:
           title: New Feed
           text: Post
           category: Choose a category
+          highlighted: Highlight
+          fixed: Fix on top
           action: Submit
           newSurvey:
             newQuestion: New Question

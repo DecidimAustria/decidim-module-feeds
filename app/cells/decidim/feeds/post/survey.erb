@@ -11,8 +11,38 @@
             <div class="feeds__feed_survey-question-answer">
               <div class="feeds__feed_survey-question-answerInput">
                 <label class="form__wrapper-checkbox-label">
-                  <input type="radio" name="question1" value="1">
+                  <input type="radio" name="question<%= question.id %>" value="<%= answer.id %>" data-question-id="<%= question.id %>" data-answer-id="<%= answer.id %>" class="survey-answer-checkbox">
                   <%= translated_attribute answer.title %>
+                </label>
+              </div>
+              <%
+              #answer_count = Answer.where(id: answer.id).count
+              #total_users = Answer.where(question_id: question.id).distinct.count(:user_id)
+              answer_count = 2;
+              total_users = 4;
+              percentage = (answer_count.to_f / total_users) * 100
+              %>
+              <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
+                  <div class="w-full bg-background rounded-full">
+                      <div class="bg-success h-full rounded-full shadow-md" style="width: <%= percentage %>%"></div>
+                  </div>
+                  <span class="text-sm shrink-0 px-2">
+                      <%= answer_count %> / <%= total_users %>
+                      <span class="sr-only">haben geantwortet</span>
+                  </span>
+              </div>
+            </div>
+          <% end %>
+        </fieldset>
+      <% elsif question.question_type == "multiple_choice" %>
+        <fieldset class="feeds__feed_survey-question">
+          <legend><%= translated_attribute question.title %></legend>
+          <% question.answers.each do |answer| %>
+            <div class="feeds__feed_survey-question-answer">
+              <div class="feeds__feed_survey-question-answerInput">
+                <label class="form__wrapper-checkbox-label">
+                    <input type="checkbox" name="question<%= question.id %>" value="<%= answer.id %>" data-question-id="<%= question.id %>" data-answer-id="<%= answer.id %>" class="survey-answer-checkbox">
+                    <%= translated_attribute answer.title %>
                 </label>
               </div>
               <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
@@ -27,30 +57,62 @@
             </div>
           <% end %>
         </fieldset>
-      <% elsif question.question_type == "multiple_choice" %>
-        <fieldset class="feeds__feed_survey-question">
-          <legend><%= translated_attribute question.title %></legend>
-          <% question.answers.each do |answer| %>
-            <div class="feeds__feed_survey-question-answer">
-              <div class="feeds__feed_survey-question-answerInput">
-                <label class="form__wrapper-checkbox-label">
-                    <input type="checkbox" name="question1" value="1">
-                    <%= translated_attribute answer.title %>
-                </label>
-              </div>
-              <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
-                <div class="w-full bg-background rounded-full">
-                  <div class="bg-success h-full rounded-full shadow-md" style="width: 75%"></div>
-                </div>
-                <span class="text-sm shrink-0 px-2">
-                  X / Y 
-                  <span class="sr-only">haben geantwortet</span> 
-                </span>
-              </div>
-            </div>
-          <% end %>
-        </fieldset>
       <% end %>
     <% end %>
   </form>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.survey-answer-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('change', (event) => {
+        const answerId = event.target.dataset.answerId;
+        const checked = event.target.checked;
+        console.log(questionId, answerId, checked);
+        Rails.ajax({
+          url: 'user_answers/',
+          type: 'GET',
+            data: new URLSearchParams({
+            question_id: questionId,
+            answer_id: answerId,
+            checked: checked
+            }),
+          success: function(response) {
+            console.log(response);
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr, status, error);
+          }
+        });
+      });
+    });
+  });
+</script>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.survey-answer-checkbox').forEach(checkbox => {
+      checkbox.addEventListener('change', (event) => {
+        const answerId = event.target.dataset.answerId;
+        const checked = event.target.checked;
+        console.log(questionId, answerId, checked);
+        Rails.ajax({
+          url: 'user_answers/',
+          type: 'GET',
+            data: new URLSearchParams({
+            question_id: questionId,
+            answer_id: answerId,
+            checked: checked
+            }),
+          success: function(response) {
+            console.log(response);
+          },
+          error: function(xhr, status, error) {
+            console.log(xhr, status, error);
+          }
+        });
+      });
+    });
+  });
+</script>
