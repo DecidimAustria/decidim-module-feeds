@@ -1,6 +1,6 @@
-<div class="feeds__feed_survey">
+<div class="feeds__feed_survey" id="post_<%=post.id%>_survey">
   <span class="text-right py-2">
-    <%= post.survey_responses_count %> user haben teilgenommen
+    Teilgenommen: <%= post.survey_responses_count %> user
   </span>
   <form class="feeds__feed_survey-questions">
     <% post.questions.each do |question| %>
@@ -16,10 +16,8 @@
                 </label>
               </div>
               <%
-              #answer_count = Answer.where(id: answer.id).count
-              #total_users = Answer.where(question_id: question.id).distinct.count(:user_id)
               answer_count = 2;
-              total_users = 4;
+              total_users = 5;
               percentage = (answer_count.to_f / total_users) * 100
               %>
               <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
@@ -61,34 +59,6 @@
     <% end %>
   </form>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.survey-answer-checkbox').forEach(checkbox => {
-      checkbox.addEventListener('change', (event) => {
-        const answerId = event.target.dataset.answerId;
-        const checked = event.target.checked;
-        console.log(questionId, answerId, checked);
-        Rails.ajax({
-          url: 'user_answers/',
-          type: 'GET',
-            data: new URLSearchParams({
-            question_id: questionId,
-            answer_id: answerId,
-            checked: checked
-            }),
-          success: function(response) {
-            console.log(response);
-          },
-          error: function(xhr, status, error) {
-            console.log(xhr, status, error);
-          }
-        });
-      });
-    });
-  });
-</script>
-
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
