@@ -5,7 +5,7 @@ import { hv_status } from './hv_status.js';
 document.addEventListener('DOMContentLoaded', function () {
 	console.log('js loaded');
 
-	const newFeed = document.querySelector('.feeds__feed_newElement');
+	const newFeed = document.getElementById('feeds__feed_newElement');
 	const newFeedOpener = document.querySelectorAll(
 		'.feeds__feed_newElement-opener'
 	);
@@ -21,6 +21,21 @@ document.addEventListener('DOMContentLoaded', function () {
 			let isExpanded = opener.getAttribute('aria-expanded') === 'true';
 			opener.setAttribute('aria-expanded', !isExpanded);
 			newFeed.classList.toggle('open');
+			if (!isExpanded) {
+				newFeed.showModal(); // Open newFeed as a dialog
+			} else {
+				newFeed.close(); // Close the dialog if it's already open
+			}
+
+			// Close the dialog when clicked outside
+			document.addEventListener('click', function (event) {
+				if (
+					!newFeed.contains(event.target) &&
+					newFeed.classList.contains('open')
+				) {
+					newFeed.close();
+				}
+			});
 		});
 	});
 
