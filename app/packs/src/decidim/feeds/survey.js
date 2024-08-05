@@ -3,9 +3,9 @@ export function initSurvey() {
 	const liveRegion = document.getElementById(
 		'feeds__feed_newSurvey_liveRegion'
 	);
-	document
-		.querySelector('.feeds__feed_newSurvey-btn')
-		.addEventListener('click', () => {
+	const newSurveyButton = document.querySelector('.feeds__feed_newSurvey-btn');
+	if (newSurveyButton)
+		newSurveyButton.addEventListener('click', () => {
 			const questionContainer = document.getElementById(
 				'feeds__feed_newSurvey_questionsContainer'
 			);
@@ -45,6 +45,40 @@ export function initSurvey() {
 			answerContainer.insertAdjacentHTML('beforeend', content);
 			liveRegion.textContent = window.translations.newSurvey.newAnswerResponse;
 		}
+	});
+
+	document.querySelectorAll('.survey-answer-checkbox').forEach(checkbox => {
+		checkbox.addEventListener('change', (event) => {
+			const questionId = event.target.dataset.questionId;
+			const answerId = event.target.dataset.answerId;
+			const checked = event.target.checked;
+			console.log(questionId, answerId, checked);
+			Rails.ajax({
+				url: 'user_answers/',
+				type: 'GET',
+					data: new URLSearchParams({
+					question_id: questionId,
+					answer_id: answerId,
+					checked: checked
+					}),
+				success: function(response) {
+					console.log(response);
+					for (const [answerId, counter] of Object.entries(response.user_answers)) {
+						// for each user_answer, change the width of the progress bar
+						const progressBar = document.getElementById(`answer-${answerId}-progressbar`);
+						const percentage = response.survey_responses_count > 0 ? (counter / response.survey_responses_count * 100) : 0;
+						progressBar.style.width = `${percentage}%`;
+						const counterSpan = document.getElementById(`answer-${answerId}-counter`);
+						counterSpan.textContent = counter;
+						const totalSpan = document.getElementById(`answer-${answerId}-total`);
+						totalSpan.textContent = `${response.survey_responses_count}`;
+					}
+				},
+				error: function(xhr, status, error) {
+					console.log(xhr, status, error);
+				}
+			});
+		});
 	});
 
 	function createNewQuestion_old() {

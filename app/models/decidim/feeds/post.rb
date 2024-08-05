@@ -85,9 +85,10 @@ module Decidim
       end
 
       def survey_responses_count
-        1
+        # questions.includes(answers: :user_answers).map(&:answers).flatten.map(&:user_answers).flatten.pluck(:decidim_user_id).uniq.count
+        answer_ids = questions.includes(:answers).map(&:answers).flatten.pluck(:id)
+        @survey_responses_count ||= UserAnswer.where(decidim_feeds_answer_id: answer_ids).distinct.count(:decidim_user_id)
       end
-      
     end
   end
 end

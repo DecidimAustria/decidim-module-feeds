@@ -32,6 +32,8 @@ en:
           select_a_meeting_type: Please select a meeting type
           select_a_registration_type: Please select a registration type
           select_an_iframe_access_level: Please select an iframe access level
+      survey:
+        participated: "%{count} responses"
     components:
       feeds:
         name: Feeds

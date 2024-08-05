@@ -1,88 +1,66 @@
-<div class="feeds__feed_survey" id="post_<%=post.id%>_survey">
+<div class="feeds__feed_survey" id="post_<%= post.id %>_survey">
   <span class="text-right py-2">
-    Teilgenommen: <%= post.survey_responses_count %> user
+    <%= t("decidim.feeds.survey.participated", count: post.survey_responses_count) %>
   </span>
-  <form class="feeds__feed_survey-questions">
-    <% post.questions.each do |question| %>
-      <% if question.question_type == "single_choice" %>
-        <fieldset class="feeds__feed_survey-question">
-          <legend><%= translated_attribute question.title %></legend>
-          <% question.answers.each do |answer| %>
-            <div class="feeds__feed_survey-question-answer">
-              <div class="feeds__feed_survey-question-answerInput">
-                <label class="form__wrapper-checkbox-label">
-                  <input type="radio" name="question<%= question.id %>" value="<%= answer.id %>" data-question-id="<%= question.id %>" data-answer-id="<%= answer.id %>" class="survey-answer-checkbox">
-                  <%= translated_attribute answer.title %>
-                </label>
-              </div>
-              <%
-              answer_count = 2;
-              total_users = 5;
-              percentage = (answer_count.to_f / total_users) * 100
-              %>
-              <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
-                  <div class="w-full bg-background rounded-full">
-                      <div class="bg-success h-full rounded-full shadow-md" style="width: <%= percentage %>%"></div>
-                  </div>
-                  <span class="text-sm shrink-0 px-2">
-                      <%= answer_count %> / <%= total_users %>
-                      <span class="sr-only">haben geantwortet</span>
-                  </span>
-              </div>
+  <% post.questions.each do |question| %>
+    <% if question.question_type == "single_choice" %>
+      <fieldset class="feeds__feed_survey-question">
+        <legend><%= translated_attribute question.title %></legend>
+        <% question.answers.each do |answer| %>
+          <div class="feeds__feed_survey-question-answer">
+            <div class="feeds__feed_survey-question-answerInput">
+              <%= radio_button_tag "post[questions][#{question.id}]", answer.id, answer.user_answers.find_by(decidim_feeds_answer_id: answer.id, decidim_user_id: current_user.id).present?, class: "survey-answer-checkbox", data: { question_id: question.id, answer_id: answer.id } %>
+              <%= label_tag "post_questions_#{question.id}_#{answer.id}" do %>
+                <%= translated_attribute answer.title %>
+              <% end %>
             </div>
-          <% end %>
-        </fieldset>
-      <% elsif question.question_type == "multiple_choice" %>
-        <fieldset class="feeds__feed_survey-question">
-          <legend><%= translated_attribute question.title %></legend>
-          <% question.answers.each do |answer| %>
-            <div class="feeds__feed_survey-question-answer">
-              <div class="feeds__feed_survey-question-answerInput">
-                <label class="form__wrapper-checkbox-label">
-                    <input type="checkbox" name="question<%= question.id %>" value="<%= answer.id %>" data-question-id="<%= question.id %>" data-answer-id="<%= answer.id %>" class="survey-answer-checkbox">
-                    <%= translated_attribute answer.title %>
-                </label>
+            <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
+              <div class="w-full bg-background rounded-full">
+                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>%"></div>
               </div>
-              <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
-                  <div class="w-full bg-background rounded-full">
-                      <div class="bg-success h-full rounded-full shadow-md" style="width: 37.5%"></div>
-                  </div>
-                  <span class="text-sm shrink-0 px-2">
-                      X / Y
-                      <span class="sr-only">haben geantwortet</span>
-                  </span>
-              </div>
+              <span class="text-sm shrink-0 px-2">
+                <span id="answer-<%= answer.id %>-counter">
+                  <%= answer.user_answers.count %>
+                </span>
+                /
+                <span id="answer-<%= answer.id %>-total">
+                  <%= post.survey_responses_count %>
+                </span>
+                <span class="sr-only">haben geantwortet</span>
+              </span>
             </div>
-          <% end %>
-        </fieldset>
-      <% end %>
+          </div>
+        <% end %>
+      </fieldset>
+    <% elsif question.question_type == "multiple_choice" %>
+      <fieldset class="feeds__feed_survey-question">
+        <legend><%= translated_attribute question.title %></legend>
+        <% question.answers.each do |answer| %>
+          <div class="feeds__feed_survey-question-answer">
+            <div class="feeds__feed_survey-question-answerInput">
+              <%= check_box_tag "post[questions][#{question.id}][#{answer.id}]", answer.id, answer.user_answers.find_by(decidim_feeds_answer_id: answer.id, decidim_user_id: current_user.id).present?, class: "survey-answer-checkbox", data: { question_id: question.id, answer_id: answer.id } %>
+              <%= label_tag "post_questions_#{question.id}_#{answer.id}" do %>
+                <%= translated_attribute answer.title %>
+              <% end %>
+            </div>
+            <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
+              <div class="w-full bg-background rounded-full">
+                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>%"></div>
+              </div>
+              <span class="text-sm shrink-0 px-2">
+                <span id="answer-<%= answer.id %>-counter">
+                  <%= answer.user_answers.count %>
+                </span>
+                /
+                <span id="answer-<%= answer.id %>-total">
+                  <%= post.survey_responses_count %>
+                </span>
+                <span class="sr-only">haben geantwortet</span>
+              </span>
+            </div>
+          </div>
+        <% end %>
+      </fieldset>
     <% end %>
-  </form>
+  <% end %>
 </div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.survey-answer-checkbox').forEach(checkbox => {
-      checkbox.addEventListener('change', (event) => {
-        const answerId = event.target.dataset.answerId;
-        const checked = event.target.checked;
-        console.log(questionId, answerId, checked);
-        Rails.ajax({
-          url: 'user_answers/',
-          type: 'GET',
-            data: new URLSearchParams({
-            question_id: questionId,
-            answer_id: answerId,
-            checked: checked
-            }),
-          success: function(response) {
-            console.log(response);
-          },
-          error: function(xhr, status, error) {
-            console.log(xhr, status, error);
-          }
-        });
-      });
-    });
-  });
-</script>
