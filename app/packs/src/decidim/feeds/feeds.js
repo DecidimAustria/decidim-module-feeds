@@ -41,12 +41,17 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
+	function closeDialog() {
+		newFeed.close();
+		newFeedOpener.forEach(function (opener) {
+			opener.setAttribute('aria-expanded', 'false');
+			newFeed.classList.remove('open');
+		});
+	}
+
 	document.querySelectorAll('#feeds__feed_newElement .close-button button').forEach(function (closeBtn) {
 		closeBtn.addEventListener('click', function () {
-			newFeed.close();
-			newFeedOpener.forEach(function (opener) {
-				opener.setAttribute('aria-expanded', 'false');
-			});
+			closeDialog();
 		});
 	});
 
@@ -64,25 +69,31 @@ document.addEventListener('DOMContentLoaded', function () {
 		categoryButtons.forEach((button) => button.classList.remove('active'));
 	}
 
+	function activateCategory(button) {
+		hideAllForms(); // Clear active states before setting the new one
+		button.classList.add('active'); // Mark the clicked button as active
+
+		const category = button.getAttribute('data-category');
+
+		if (category === 'calendar') {
+			meetingForm.classList.add('open');
+		} else if (category === 'survey') {
+			postForm.classList.add('open');
+			surveyDiv.classList.add('open');
+			document.getElementById('post_category').value = category;
+		} else {
+			postForm.classList.add('open');
+			document.getElementById('post_category').value = category;
+		}
+	}
+
 	categoryButtons.forEach((button) => {
 		button.addEventListener('click', function () {
-			hideAllForms(); // Clear active states before setting the new one
-			this.classList.add('active'); // Mark the clicked button as active
-
-			const category = this.getAttribute('data-category');
-
-			if (category === 'calendar') {
-				meetingForm.classList.add('open');
-			} else if (category === 'survey') {
-				postForm.classList.add('open');
-				surveyDiv.classList.add('open');
-				document.getElementById('post_category').value = category;
-			} else {
-				postForm.classList.add('open');
-				document.getElementById('post_category').value = category;
-			}
+			activateCategory(this);
 		});
 	});
+
+	activateCategory(categoryButtons[1]);
 
 	document
 		.querySelectorAll('.feeds__feed_actions_submenu > button')

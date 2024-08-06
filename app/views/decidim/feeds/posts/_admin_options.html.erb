@@ -1,4 +1,4 @@
-<% if participatory_space.admins.exists?(id:current_user.id) %>
+<% if participatory_space.admins.exists?(id: current_user.id) %>
   <div class="bg-feeds-bg p-2 rounded-md flex flex-col">
       <div class="toggle__switch-trigger p-2">
         <%= form.label :highlighted, '', class: 'toggle__switch-toggle' do %>

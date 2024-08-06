@@ -56,6 +56,8 @@ en:
           highlighted: Highlight
           fixed: Fix on top
           action: Submit
+          login: Please sign in to create a new post
+          loginLink: Sign in
           newSurvey:
             newQuestion: New Question
             newQuestionResponse: A new question has been added

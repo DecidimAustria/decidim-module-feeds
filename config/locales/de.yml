@@ -56,6 +56,8 @@ de:
           highlighted: Hervorheben
           fixed: Oben Fixieren
           action: Senden
+          login: Bitte melden Sie sich an, um einen neuen Beitrag zu erstellen
+          loginLink: Anmelden
           newSurvey:
             newQuestion: Neue Frage
             newQuestionResponse: Eine neue Frage wurde hinzugefügt

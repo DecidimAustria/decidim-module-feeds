@@ -7,7 +7,7 @@ module Decidim
     module ApplicationHelper
       include PaginateHelper
       include SanitizeHelper
-      include Decidim::Feeds::PostsHelper
+      # include Decidim::Feeds::PostsHelper
       include ::Decidim::EndorsableHelper
       include ::Decidim::FollowableHelper
       include Decidim::Comments::CommentsHelper

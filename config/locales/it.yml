@@ -56,6 +56,8 @@ it:
           highlighted: Evidenzia
           fixed: Fissa in alto
           action: Spedisci
+          login: Accedi per creare un nuovo post
+          loginLink: Accedi
           newSurvey:
             newQuestion: Nuova domanda
             newQuestionResponse: È stata aggiunta una nuova domanda
