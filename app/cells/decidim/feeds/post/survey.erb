@@ -16,7 +16,8 @@
             </div>
             <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
               <div class="w-full bg-background rounded-full">
-                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>%"></div>
+                <% percentage = post.survey_responses_count.zero? ? 0 : (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>
+                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= percentage %>%"></div>
               </div>
               <span class="text-sm shrink-0 px-2">
                 <span id="answer-<%= answer.id %>-counter">
@@ -45,7 +46,8 @@
             </div>
             <div class="feeds__feed_survey-question-answerProgressbar flex justify-between p-1 border border-gray rounded-full shadow-md">
               <div class="w-full bg-background rounded-full">
-                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>%"></div>
+                <% percentage = post.survey_responses_count.zero? ? 0 : (answer.user_answers.count.to_f / post.survey_responses_count) * 100 %>
+                <div id="answer-<%= answer.id %>-progressbar" class="bg-success h-full rounded-full shadow-md" style="width: <%= percentage %>%"></div>
               </div>
               <span class="text-sm shrink-0 px-2">
                 <span id="answer-<%= answer.id %>-counter">
