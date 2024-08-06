@@ -12,7 +12,8 @@
     <button type="button" class="button button__sm button__transparent-primary" data-category="survey">Survey</button>
   </div>
 
-  <%= decidim_form_for(@meeting_form, url: meetings_path, html: { class: "meetings_form new_meeting" }) do |form| %>
+  <% target_participatory_space = Decidim::Component.find_by(manifest_name: "feeds").participatory_space %>
+  <%= decidim_form_for(@meeting_form, url: Decidim::Feeds::Engine.routes.url_helpers.meetings_path(assembly_slug: target_participatory_space.slug, component_id: target_participatory_space.components.find_by(manifest_name: "meetings").id), html: { class: "meetings_form new_meeting" }) do |form| %>
     <div class="form__wrapper p-0 gap-4">
       <%= render partial: "meeting_form", locals: { form: form } %>
     </div>
