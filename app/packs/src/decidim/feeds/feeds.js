@@ -27,14 +27,25 @@ document.addEventListener('DOMContentLoaded', function () {
 				newFeed.close(); // Close the dialog if it's already open
 			}
 
-			// Close the dialog when clicked outside
-			document.addEventListener('click', function (event) {
-				if (
-					!newFeed.contains(event.target) &&
-					newFeed.classList.contains('open')
-				) {
-					newFeed.close();
-				}
+			// this always closed the dialog instantly after opening it
+			// document.addEventListener('click', function (event) {
+			// 	if (
+			// 		!newFeed.contains(event.target) &&
+			// 		newFeed.classList.contains('open')
+			// 	) {
+			// 		newFeed.close();
+			// 		// Remove event listener after closing the dialog
+			// 		document.removeEventListener('click', this);
+			// 	}
+			// });
+		});
+	});
+
+	document.querySelectorAll('#feeds__feed_newElement .close-button button').forEach(function (closeBtn) {
+		closeBtn.addEventListener('click', function () {
+			newFeed.close();
+			newFeedOpener.forEach(function (opener) {
+				opener.setAttribute('aria-expanded', 'false');
 			});
 		});
 	});
