@@ -2,6 +2,87 @@
 
 @import '_variables.scss';
 
+dialog#feeds__feed_newElement {
+	--tw-ring-color: theme('colors.white');
+	@apply gap-4;
+	&.open {
+		--tw-ring-color: theme('colors.feeds.sidebar');
+		.circle {
+			svg {
+				@apply rotate-0 motion-safe:transition-transform;
+			}
+		}
+		.category-selection {
+			@apply flex gap-1 flex-wrap justify-center opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+		}
+	}
+	.circle {
+		@apply w-[52px] h-[52px] p-2 bg-white rounded-[52px] shadow-feedMenu justify-center items-center inline-flex text-black;
+		svg {
+			@apply w-[36px] h-[36px] fill-feeds-sidebar rotate-45 motion-safe:transition-transform;
+		}
+	}
+	.category-selection {
+		@apply hidden opacity-0 scale-0;
+		button.active {
+			@apply bg-primary text-white focus:outline-primary;
+		}
+	}
+	form {
+		@apply hidden opacity-0 scale-0 motion-safe:transition-transform motion-safe:transition-opacity;
+		&.open {
+			@apply flex flex-col gap-4 opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+		}
+		label {
+			font-size: 1rem;
+		}
+		input,
+		textarea {
+			margin-block-start: 0;
+		}
+		.feeds__feed_newElement_Body {
+			@apply border-0 bg-feeds-formBody;
+		}
+		.postType {
+			@apply flex gap-2 flex-wrap justify-center;
+
+			input[type='radio']:checked + label {
+				@apply bg-primary text-white focus:outline-primary;
+			}
+		}
+		.feeds__feed_newElement_Xtra {
+			@apply relative hidden opacity-0 scale-0 motion-safe:transition-transform motion-safe:transition-opacity;
+			&.open {
+				@apply block opacity-100 scale-100 motion-safe:transition-transform motion-safe:transition-opacity;
+			}
+			&.feeds__feed_newSurvey {
+				.feeds__feed_newSurvey-btn {
+					@apply flex justify-center items-center gap-2 text-black font-medium p-4 bg-feeds-bg w-full rounded;
+				}
+				#newQuestion {
+					--tw-ring-color: theme('colors.feeds.sidebar');
+					@apply top-0 left-0 w-full h-full bg-white p-4 ring-1 rounded;
+				}
+			}
+		}
+		.feeds__feed_newElement_Media {
+			@apply px-2 pb-2 pt-0;
+			svg {
+				@apply w-[24px] h-auto;
+			}
+			.active-uploads {
+				@apply mt-0 pb-2;
+			}
+			button {
+				@apply mt-0;
+			}
+		}
+		.sndBtn {
+			@apply self-end;
+		}
+	}
+}
+
 .feeds__container {
 	@apply flex gap-4 justify-between flex-nowrap w-full max-w-screen-2xl mx-auto p-4 lg:p-16;
 	.feeds__body {
