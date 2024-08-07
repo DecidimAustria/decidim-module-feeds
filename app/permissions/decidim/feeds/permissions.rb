@@ -11,7 +11,7 @@ module Decidim
           case permission_action.action
             when :create
               allow! if can_create_posts?
-            when :update
+            when :edit
               allow! if can_update_post?
             when :read
               allow! if can_access?
@@ -29,6 +29,10 @@ module Decidim
       end
 
       private
+
+      def post
+        @post ||= context.fetch(:post, nil) || context.fetch(:resource, nil)
+      end
 
       def can_access?
         user.present?

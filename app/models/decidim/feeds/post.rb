@@ -69,6 +69,10 @@ module Decidim
         truncated_body
       end
 
+      def editable_by?(user)
+        user == author
+      end
+
       # Public: Overrides the `reported_content_url` Reportable concern method.
       def reported_content_url
         ResourceLocatorPresenter.new(self).url

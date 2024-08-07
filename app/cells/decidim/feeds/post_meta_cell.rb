@@ -11,7 +11,11 @@ module Decidim
 
       def post
         model
-      end      
+      end
+
+      def edit_post_path
+        Decidim::Feeds::Engine.routes.url_helpers.edit_post_path(assembly_slug: post.component.participatory_space.slug, component_id: post.component.id, id: post)
+      end
     end
   end
 end

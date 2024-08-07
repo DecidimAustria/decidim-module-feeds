@@ -1,0 +1,12 @@
+Edit post
+
+<%= decidim_form_for(@form, url: Decidim::Feeds::Engine.routes.url_helpers.post_path(assembly_slug: @post.component.participatory_space.slug, component_id: @post.component.id, id: @post.id), method: :patch, html: { class: "posts_form new_post" }) do |form| %>
+  <div class="form__wrapper p-0">
+    <%= render partial: "decidim/feeds/posts/post_form", locals: { form: form } %>
+  </div>
+  <%= render partial: "decidim/feeds/posts/attachment.html", locals: { form: form } %>
+  <%= render partial: "decidim/feeds/posts/admin_options.html", locals: { form: form, participatory_space: @post.component.participatory_space } %>
+  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
+    <%= form.submit "#{t("decidim.components.feeds.newFeed.action")} #{icon('send-plane-line')}".html_safe, data: { disable: true }, class: "sndBtn button button__sm button__transparent-primary" %>
+  </div>
+<% end %>

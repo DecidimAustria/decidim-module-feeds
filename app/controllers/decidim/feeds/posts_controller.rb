@@ -19,14 +19,8 @@ module Decidim
                  .includes(:attachments)
                  .limit(10)
 
-        extra_context = {
-          current_component: current_component,
-          current_organization: current_component.organization,
-          current_user:,
-          current_participatory_space: participatory_space
-        }
-        @form = form(Decidim::Feeds::PostForm).from_params(params, extra_context)
-        @meeting_form = meeting_form
+        # @form = form(Decidim::Feeds::PostForm).from_params(params, extra_context)
+        # @meeting_form = meeting_form
 
         @meetings = if params[:filter_post_category].blank? || params[:filter_post_category] == 'calendar'
                 meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component)
@@ -38,10 +32,14 @@ module Decidim
       end
 
       def show
-        raise ActionController::RoutingError, "Not Found" unless post
+        enforce_permission_to :read, :post
+
+        @post =Post.find(params[:id])
+        raise ActionController::RoutingError, "Not Found" unless @post
       end
 
       def new
+        enforce_permission_to :create, :post
         @form = form(PostForm).from_params(post_creation_params)
       end
 
@@ -66,10 +64,34 @@ module Decidim
         end
       end
 
+      def edit
+        @post =Post.find(params[:id])
+        enforce_permission_to :edit, :post, post: @post
+        @form = Decidim::Feeds::PostForm.from_model(@post).with_context(context)
+      end
+
+      def update
+        @post =Post.find(params[:id])
+        enforce_permission_to :edit, :post, post: @post
+
+        @form = form(PostForm).from_params(params)
+        UpdatePost.call(@form, current_user, @post) do
+          on(:ok) do |post|
+            flash[:notice] = I18n.t("posts.update.success", scope: "decidim")
+            redirect_to posts_path
+            # redirect_to Decidim::ResourceLocatorPresenter.new(@post).path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("posts.update.error", scope: "decidim")
+            render :edit
+          end
+        end
+      end
+
       def change_status
-        
         @post = Decidim::Feeds::Post.find(params[:id])
-        
+
         #enforce_permission_to :change_post_status, post: @post
 
         if @post.update(status: params[:status], enable_comments: false)
@@ -95,8 +117,17 @@ module Decidim
         @meetings_component ||= participatory_space.components.find_by(manifest_name: "meetings")
       end
 
-      def meeting_form
-        form(Decidim::Meetings::MeetingForm).from_params(params)
+      # def meeting_form
+      #   form(Decidim::Meetings::MeetingForm).from_params(params)
+      # end
+
+      def context
+        {
+          current_component: current_component,
+          current_organization: current_component.organization,
+          current_user:,
+          current_participatory_space: participatory_space
+        }
       end
 
     end
