@@ -12,8 +12,8 @@ de:
             cancel: Abbrechen
             processing: In Bearbeitung
             done: Erledigt
-            dialogBodyMsg: Das Status der Meldung wird geändert und die Kommentarfunktion geschlossen
-            dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
+            dialogBodyMsg: Der Status der Meldung wird geändert und die Kommentarfunktion geschlossen
+            dialogBodyResponse: Bitte warten, der Beitragsstatus wird geändert...
         create:
           success: Beitrag erfolgreich erstellt
         form:
@@ -50,7 +50,7 @@ de:
           translate: Übersetzen
           delete: Löschen
         newFeed:
-          title: Neues Beitrag
+          title: Neuer Beitrag
           text: Beitrag
           category: Wähle eine Kategorie
           highlighted: Hervorheben
@@ -65,10 +65,10 @@ de:
             questionType: Fragetyp
             questionTypes:
               multiple_choice: Mehrfachauswahl
-              single_choice: Einzelwahl
+              single_choice: Einzelauswahl
             answerType: Antworttyp
             multipleChoice: Mehrfachauswahl
-            singleChoice: Einzelwahl
+            singleChoice: Einzelauswahl
             newAnswer: Neue Antwort
             newAnswerResponse: Eine neue Antwort wurde hinzugefügt
             answerTitle: Antwort eingeben
@@ -80,7 +80,7 @@ de:
           menuAriaLabel: Feeds filtern
           post: Beitrag
           posts: Beiträge
-          sharecare: Share&Care
+          sharecare: Share & Care
           hv: HV
           calendar: Kalender
           survey: Umfrage
