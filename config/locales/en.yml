@@ -12,7 +12,7 @@ en:
             cancel: Cancel
             processing: Processing
             done: Done
-            dialogBodyMsg: The status of the message is changed and the comment function is closed
+            dialogBodyMsg: The status of the message was changed and the comment function is closed
             dialogBodyResponse: Please wait, the status of the message is being changed
         create:
           success: Post created successfully
