@@ -16,6 +16,10 @@ de:
             dialogBodyResponse: Bitte warten, der Beitragsstatus wird geändert...
         create:
           success: Beitrag erfolgreich erstellt
+          invalid: Erstellen des Beitrags fehlgeschlagen
+        update:
+          success: Beitrag erfolgreich aktualisiert
+          invalid: Aktualisieren des Beitrags fehlgeschlagen
         form:
           question_too_short: Die Frage ist zu kurz
         meeting_form:

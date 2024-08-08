@@ -50,7 +50,7 @@ module Decidim
 
         CreatePost.call(@form) do
           on(:ok) do |post|
-            flash[:notice] = I18n.t("posts.create.success", scope: "decidim.feeds")
+            flash[:notice] = I18n.t("feeds.posts.create.success", scope: "decidim.feeds")
             # TODO: implement javascript to create a new post without reloading the page
             # redirect_to decidim.root_path
             # redirect_to current_component_path
@@ -58,7 +58,7 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.feeds")
+            flash.now[:alert] = I18n.t("feeds.posts.create.invalid", scope: "decidim.feeds")
             redirect_to posts_path
           end
         end
@@ -77,13 +77,13 @@ module Decidim
         @form = form(PostForm).from_params(params)
         UpdatePost.call(@form, current_user, @post) do
           on(:ok) do |post|
-            flash[:notice] = I18n.t("posts.update.success", scope: "decidim")
+            flash[:notice] = I18n.t("feeds.posts.update.success", scope: "decidim")
             redirect_to posts_path
             # redirect_to Decidim::ResourceLocatorPresenter.new(@post).path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("posts.update.error", scope: "decidim")
+            flash.now[:alert] = I18n.t("feeds.posts.update.error", scope: "decidim")
             render :edit
           end
         end
