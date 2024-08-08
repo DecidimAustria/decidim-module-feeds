@@ -27,7 +27,7 @@
           <% end %>
         </li>
         <li class="text-right py-2 text-feeds-sidebar">
-          <%= link_to '#', class:'hover:text-black dropdown__item' do %>
+          <%= button_to delete_post_path, method: :delete, class: "hover:text-black dropdown__item", data: { confirm: t('decidim.components.feeds.actions.deleteConfirmation') } do %>
             <%= icon "delete-bin-line" %>
             <span><%= t('decidim.components.feeds.actions.delete') %></span>
           <% end %>

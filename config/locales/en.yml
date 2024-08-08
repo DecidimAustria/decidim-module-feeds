@@ -20,6 +20,9 @@ en:
         update:
           success: Post updated successfully
           invalid: Post update failed
+        destroy:
+          success: Post deleted successfully
+          invalid: Post deletion failed
         form:
           question_too_short: The question is too short
         meeting_form:
@@ -53,6 +56,7 @@ en:
           edit: Edit
           translate: Translate
           delete: Delete
+          deleteConfirmation: Are you sure you want to delete this post?
         newFeed:
           title: New Feed
           text: Post

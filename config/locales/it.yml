@@ -20,6 +20,9 @@ it:
         update:
           success: Post aggiornato con successo
           invalid: Aggiornamento del post fallito
+        destroy:
+          success: Post eliminato con successo
+          invalid: Eliminazione del post fallita
         form:
           question_too_short: La domanda è troppo corta
         meeting_form:
@@ -53,6 +56,7 @@ it:
           edit: Modifica
           translate: Traduci
           delete: Elimina
+          deleteConfirmation: Sei sicuro di voler eliminare questo post?
         newFeed:
           title: Nuovo feed
           text: Post

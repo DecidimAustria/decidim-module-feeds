@@ -39,7 +39,6 @@ module Decidim
       searchable_fields(
         {
           participatory_space: { component: :participatory_space },
-          organization_id: :organization_id,
           A: :body,
           datetime: :created_at
         },

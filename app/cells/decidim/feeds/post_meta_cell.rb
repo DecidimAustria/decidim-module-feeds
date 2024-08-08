@@ -16,6 +16,10 @@ module Decidim
       def edit_post_path
         Decidim::Feeds::Engine.routes.url_helpers.edit_post_path(assembly_slug: post.component.participatory_space.slug, component_id: post.component.id, id: post)
       end
+
+      def delete_post_path
+        Decidim::Feeds::Engine.routes.url_helpers.post_path(assembly_slug: post.component.participatory_space.slug, component_id: post.component.id, id: post)
+      end
     end
   end
 end

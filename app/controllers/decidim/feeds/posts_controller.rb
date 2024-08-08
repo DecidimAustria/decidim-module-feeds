@@ -50,7 +50,7 @@ module Decidim
 
         CreatePost.call(@form) do
           on(:ok) do |post|
-            flash[:notice] = I18n.t("feeds.posts.create.success", scope: "decidim.feeds")
+            flash[:notice] = I18n.t("posts.create.success", scope: "decidim.feeds")
             # TODO: implement javascript to create a new post without reloading the page
             # redirect_to decidim.root_path
             # redirect_to current_component_path
@@ -58,33 +58,50 @@ module Decidim
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("feeds.posts.create.invalid", scope: "decidim.feeds")
+            flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.feeds")
             redirect_to posts_path
           end
         end
       end
 
       def edit
-        @post =Post.find(params[:id])
+        @post = Post.find(params[:id])
         enforce_permission_to :edit, :post, post: @post
         @form = Decidim::Feeds::PostForm.from_model(@post).with_context(context)
       end
 
       def update
-        @post =Post.find(params[:id])
+        @post = Post.find(params[:id])
         enforce_permission_to :edit, :post, post: @post
 
         @form = form(PostForm).from_params(params)
         UpdatePost.call(@form, current_user, @post) do
           on(:ok) do |post|
-            flash[:notice] = I18n.t("feeds.posts.update.success", scope: "decidim")
+            flash[:notice] = I18n.t("posts.update.success", scope: "decidim.feeds")
             redirect_to posts_path
             # redirect_to Decidim::ResourceLocatorPresenter.new(@post).path
           end
 
           on(:invalid) do
-            flash.now[:alert] = I18n.t("feeds.posts.update.error", scope: "decidim")
+            flash.now[:alert] = I18n.t("posts.update.invalid", scope: "decidim.feeds")
             render :edit
+          end
+        end
+      end
+
+      def destroy
+        @post = Post.find(params[:id])
+        enforce_permission_to :edit, :post, post: @post
+
+        DestroyPost.call(@post, current_user) do
+          on(:ok) do
+            flash[:notice] = I18n.t("posts.destroy.success", scope: "decidim.feeds")
+            redirect_to posts_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("posts.destroy.invalid", scope: "decidim.feeds")
+            redirect_to posts_path
           end
         end
       end
