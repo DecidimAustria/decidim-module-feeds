@@ -10,10 +10,10 @@ en:
           status:
             confirm: Yes
             cancel: Cancel
-            processing: In Bearbeitung
-            done: Erledigt
-            dialogBodyMsg: Das Status der Meldung wird geändert und die Kommentarfunktion geschlossen
-            dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
+            processing: Processing
+            done: Done
+            dialogBodyMsg: The status of the message is changed and the comment function is closed
+            dialogBodyResponse: Please wait, the status of the message is being changed
         create:
           success: Post created successfully
         form:
