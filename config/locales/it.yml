@@ -10,12 +10,16 @@ it:
           status:
             confirm: SI
             cancel: Annulla
-            processing: In Bearbeitung
-            done: Erledigt
-            dialogBodyMsg: Das Status der Meldung wird geändert und die Kommentarfunktion geschlossen
-            dialogBodyResponse: Bitte warten, das Beitragsstatus wird geändert...
+            processing: In elaborazione
+            done: Fatto
+            dialogBodyMsg: Lo stato del messaggio è stato modificato e la funzione di commento è chiusa
+            dialogBodyResponse: Attendere, lo stato del messaggio viene modificato
         create:
           success: Post creato con successo
+          invalid: Creazione del post fallita
+        update:
+          success: Post aggiornato con successo
+          invalid: Aggiornamento del post fallito
         form:
           question_too_short: La domanda è troppo corta
         meeting_form:

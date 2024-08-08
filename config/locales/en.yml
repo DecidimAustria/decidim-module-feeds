@@ -16,6 +16,10 @@ en:
             dialogBodyResponse: Please wait, the status of the message is being changed
         create:
           success: Post created successfully
+          invalid: Post creation failed
+        update:
+          success: Post updated successfully
+          invalid: Post update failed
         form:
           question_too_short: The question is too short
         meeting_form:
