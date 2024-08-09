@@ -28,7 +28,9 @@ module Decidim
                 []
               end
 
-        @all_objects = (@posts + @meetings).sort_by(&:created_at).reverse
+        @fixed_objects = @posts.select(&:fixed).sort_by(&:created_at).reverse
+        @non_fixed_posts = @posts.reject(&:fixed)
+        @non_fixed_objects = (@non_fixed_posts + @meetings).sort_by(&:created_at).reverse
       end
 
       def show

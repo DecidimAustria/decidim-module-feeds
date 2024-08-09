@@ -1,0 +1,11 @@
+<% if post.is_a?(Decidim::Feeds::Post) %>
+  <div id="feeds_post-<%= post.id %>" class="card__grid feeds__feed <%= 'hv-highlight' if post.highlighted %>" data-content="<%=post.category%>" <%= 'aria-live="polite"' if post.category == 'hv' %>>
+    <% if post.category == 'hv' %>
+      <%= cell("decidim/feeds/post_hv", post) %>
+    <% else %>
+      <%= cell("decidim/feeds/post", post) %>
+    <% end %>
+  </div>
+<% elsif post.is_a?(Decidim::Meetings::Meeting) %>
+  <%= cell("decidim/feeds/meeting", post) %>
+<% end %>

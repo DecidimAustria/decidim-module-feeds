@@ -1,8 +1,10 @@
+<%= cell("decidim/feeds/post_meta", post) %>
+
 <% unless post_highlighted %>
   <% if official_post %>
     <%= icon "home-gear-line", class: 'hv-icon' %>
   <% end %>
-  <%= cell("decidim/feeds/post_meta", post) %>
+  
   <%= cell("decidim/feeds/post_attachments", post) %>
 <% end %>
 <div class="card__grid-text">

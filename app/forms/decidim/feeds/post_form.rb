@@ -46,17 +46,19 @@ module Decidim
 
       def map_model(model)
         self.body = translated_attribute(model.body)
+        self.highlighted = model.highlighted
+        self.fixed = model.fixed
+        self.category = model.category
+        self.enable_comments = model.enable_comments
+
+        self.questions = model.questions.map do |question|
+          QuestionForm.from_model(question)
+        end
+
         # @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
         # presenter = ProposalPresenter.new(model)
         # self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
-
-        # self.user_group_id = model.user_groups.first&.id
-        # self.category_id = model.categorization.decidim_category_id if model.categorization
-
-        # The scope attribute is with different key (decidim_scope_id), so it
-        # has to be manually mapped.
-        # self.scope_id = model.scope.id if model.scope
 
         self.documents = model.attachments
       end

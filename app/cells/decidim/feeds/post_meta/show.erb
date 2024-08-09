@@ -1,7 +1,11 @@
 <div class="card__grid-metadata">
-  <%= cell "decidim/author", Decidim::UserPresenter.new(post.author), layout: :compact %>
+  <% if post.is_a?(Decidim::Feeds::Post) && post.highlighted %>
+    <div></div>
+  <% else %>
+    <%= cell "decidim/author", Decidim::UserPresenter.new(post.author), layout: :compact %>
+  <% end %>
   <div class="feeds__feed_actions">
-    <% if post.is_a?(Decidim::Feeds::Post) %>
+    <% if post.is_a?(Decidim::Feeds::Post) && !post.highlighted %>
       <%= endorsement_buttons_cell(post) %>
       <%= cell "decidim/endorsers_list", post, layout: :full %>
     <% end %>

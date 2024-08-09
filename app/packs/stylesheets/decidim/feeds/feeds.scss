@@ -101,8 +101,8 @@ dialog#feeds__feed_newElement {
 			&[data-content='hv'] {
 				--tw-ring-color: theme('colors.feeds.hv');
 				&.hv-highlight {
-					@apply bg-alert text-white font-medium;
-					* {
+					@apply bg-alert font-medium;
+					.card__grid-text {
 						@apply text-white;
 					}
 				}
