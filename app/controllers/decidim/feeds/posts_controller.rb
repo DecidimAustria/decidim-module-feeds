@@ -23,7 +23,7 @@ module Decidim
         # @meeting_form = meeting_form
 
         @meetings = if params[:filter_post_category].blank? || params[:filter_post_category] == 'calendar'
-                meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component)
+                meetings_component.blank? ? [] : Decidim::Meetings::Meeting.where(component: meetings_component).except_withdrawn
               else
                 []
               end

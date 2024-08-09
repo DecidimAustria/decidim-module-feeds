@@ -22,6 +22,10 @@ module Decidim
           case permission_action.action
             when :create
               allow! if can_create_posts?
+            when :update
+              allow! if can_update_meeting?
+            when :withdraw
+              allow! if can_withdraw_meeting?
             end
         end
 
@@ -32,6 +36,10 @@ module Decidim
 
       def post
         @post ||= context.fetch(:post, nil) || context.fetch(:resource, nil)
+      end
+
+      def meeting
+        @meeting ||= context.fetch(:meeting, nil) || context.fetch(:resource, nil)
       end
 
       def can_access?
@@ -63,6 +71,17 @@ module Decidim
         return false unless user
 
         participatory_space.participatory_space_private_users.exists?(decidim_user_id: user.id)
+      end
+
+      def can_update_meeting?
+        meeting.authored_by?(user) &&
+          !meeting.closed?
+      end
+
+      def can_withdraw_meeting?
+        meeting.authored_by?(user) &&
+          !meeting.withdrawn? &&
+          !meeting.past?
       end
     end
   end

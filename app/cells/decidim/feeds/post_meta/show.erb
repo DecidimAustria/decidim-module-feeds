@@ -11,27 +11,33 @@
         <span aria-hidden="true">...</span>
       </button>
       <ul id="<%= post.id %>#feeds__feed_actions_submenu" role="menu" aria-orientation="vertical" aria-labelledby="<%= post.id %>#feeds__feed_actions_submenuButton" class="absolute right-0 mt-6 px-4 py-2 bg-white divide-y divide-dashed divide-gray-100 rounded-md shadow-feedMenu overflow-hidden hidden">
+        <% if post.author != current_user %>
         <li class="text-right py-2 text-feeds-sidebar">
           <%= cell("decidim/report_button", post, button_classes: "hover:text-black dropdown__item flex-row-reverse", modal_id: "flagModalPost#{post.id}") %>
         </li>
+        <% end %>
+        <% if false # disable for now %>
         <li class="text-right py-2 text-feeds-sidebar">
           <%= link_to '#', class:'hover:text-black dropdown__item' do %>
             <%= icon "translate" %>
             <span><%= t('decidim.components.feeds.actions.translate') %></span>
           <% end %>
         </li>
-        <li class="text-right py-2 text-feeds-sidebar">
-          <%= link_to edit_post_path, class: "hover:text-black dropdown__item" do %>
-            <%= icon "pencil-line" %>
-            <span><%= t('decidim.components.feeds.actions.edit') %></span>
-          <% end %>
-        </li>
-        <li class="text-right py-2 text-feeds-sidebar">
-          <%= button_to delete_post_path, method: :delete, class: "hover:text-black dropdown__item", data: { confirm: t('decidim.components.feeds.actions.deleteConfirmation') } do %>
-            <%= icon "delete-bin-line" %>
-            <span><%= t('decidim.components.feeds.actions.delete') %></span>
-          <% end %>
-        </li>
+        <% end %>
+        <% if post_editable_by?(current_user) %>
+          <li class="text-right py-2 text-feeds-sidebar">
+            <%= link_to edit_post_path, class: "hover:text-black dropdown__item" do %>
+              <%= icon "pencil-line" %>
+              <span><%= t('decidim.components.feeds.actions.edit') %></span>
+            <% end %>
+          </li>
+          <li class="text-right py-2 text-feeds-sidebar">
+            <%= button_to delete_post_path, method: delete_method, class: "hover:text-black dropdown__item", data: { confirm: t('decidim.components.feeds.actions.deleteConfirmation') } do %>
+              <%= icon "delete-bin-line" %>
+              <span><%= t('decidim.components.feeds.actions.delete') %></span>
+            <% end %>
+          </li>
+        <% end %>
       </ul>
     </div>
   </div>

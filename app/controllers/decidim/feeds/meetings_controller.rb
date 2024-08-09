@@ -38,7 +38,7 @@ module Decidim
 
           on(:invalid) do
             flash.now[:alert] = I18n.t("meetings.create.invalid", scope: "decidim.meetings")
-            rendirect_to posts_path
+            redirect_to posts_path
           end
         end
       end
@@ -46,7 +46,15 @@ module Decidim
       def edit
         enforce_permission_to(:update, :meeting, meeting:)
 
-        @form = meeting_form.from_model(meeting)
+        @context = {
+          current_organization: @controller.try(:current_organization),
+          current_component: @controller.try(:current_component),
+          current_user: @controller.try(:current_user),
+          current_participatory_space: @controller.try(:current_participatory_space)
+        }
+        @feeds_component = Decidim::Component.find_by(manifest_name: "feeds")
+        @target_participatory_space = @feeds_component.participatory_space
+        @form = meeting_form.from_model(meeting).with_context(@context)
       end
 
       def update
@@ -54,10 +62,10 @@ module Decidim
 
         @form = meeting_form.from_params(params)
 
-        UpdateMeeting.call(@form, current_user, meeting) do
+        Decidim::Meetings::UpdateMeeting.call(@form, current_user, meeting) do
           on(:ok) do |meeting|
             flash[:notice] = I18n.t("meetings.update.success", scope: "decidim.meetings")
-            redirect_to Decidim::ResourceLocatorPresenter.new(meeting).path
+            redirect_to posts_path
           end
 
           on(:invalid) do
@@ -70,14 +78,14 @@ module Decidim
       def withdraw
         enforce_permission_to(:withdraw, :meeting, meeting:)
 
-        WithdrawMeeting.call(@meeting, current_user) do
+        Decidim::Meetings::WithdrawMeeting.call(@meeting, current_user) do
           on(:ok) do
             flash[:notice] = I18n.t("meetings.withdraw.success", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+            redirect_to posts_path
           end
           on(:invalid) do
             flash[:alert] = I18n.t("meetings.withdraw.error", scope: "decidim")
-            redirect_to Decidim::ResourceLocatorPresenter.new(@meeting).path
+            redirect_to posts_path
           end
         end
       end
@@ -85,7 +93,7 @@ module Decidim
       private
 
       def meeting
-        @meeting ||= Decidim::Meetings::Meeting.not_hidden.where(component: current_component).find_by(id: params[:id])
+        @meeting ||= Decidim::Meetings::Meeting.not_hidden.where(component: current_component.participatory_space.components.find_by(manifest_name: "meetings")).find_by(id: params[:id])
       end
 
       def nav_paths

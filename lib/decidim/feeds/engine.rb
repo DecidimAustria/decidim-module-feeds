@@ -22,7 +22,11 @@ module Decidim
   
         root to: "posts#index"
         resources :posts
-        resources :meetings, only: %i[new create]
+        resources :meetings do
+          member do
+            put :withdraw
+          end
+        end
         # get "/test" => "posts#test"
         get 'change_status', to: 'posts#change_status', as: 'change_post_status'
         get 'delete_post', to: 'posts#delete', as: 'delete_post'
