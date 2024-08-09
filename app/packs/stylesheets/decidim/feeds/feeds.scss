@@ -2,10 +2,34 @@
 
 @import '_variables.scss';
 
-dialog#feeds__feed_newElement {
+.feeds__feed_newElement_modal {
+	position: fixed; /* Fixed to the viewport */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: none; /* Hidden by default */
+  justify-content: center;
+  align-items: center;
+  z-index: 40; /* High z-index to appear on top */
+}
+
+.feeds__feed_newElement_modal_content {
+	background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  max-width: 500px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+div#feeds__feed_newElement {
 	--tw-ring-color: theme('colors.white');
 	@apply gap-4;
 	&.open {
+		display: block;
 		--tw-ring-color: theme('colors.feeds.sidebar');
 		.circle {
 			svg {

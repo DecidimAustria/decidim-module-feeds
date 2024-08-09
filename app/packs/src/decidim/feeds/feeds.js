@@ -22,9 +22,9 @@ document.addEventListener('DOMContentLoaded', function () {
 			opener.setAttribute('aria-expanded', !isExpanded);
 			newFeed.classList.toggle('open');
 			if (!isExpanded) {
-				newFeed.showModal(); // Open newFeed as a dialog
+				// newFeed.showModal(); // Open newFeed as a dialog
 			} else {
-				newFeed.close(); // Close the dialog if it's already open
+				// newFeed.close(); // Close the dialog if it's already open
 			}
 
 			// this always closed the dialog instantly after opening it
