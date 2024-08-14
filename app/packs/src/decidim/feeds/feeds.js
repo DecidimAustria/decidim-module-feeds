@@ -129,41 +129,66 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	newCommentBtns.forEach((newCommentBtn) => {
 		newCommentBtn.addEventListener('click', function () {
-			const controlledDivId = newCommentBtn.getAttribute('aria-controls');
+			const postId = newCommentBtn.getAttribute('data-post-id');
+			const showCommentBtnId = `comments-for-Post-${postId}`;
+			const modelType = newCommentBtn.getAttribute('data-model-type');
+			const controlledDivId = `new_comment_for_${modelType}_${postId}`;
+			const commentsDivId = `comments-for-Post-${postId}-threads`;
+			const showCommentBtn = document.getElementById(showCommentBtnId);
+
+			const wasExpanded = newCommentBtn.getAttribute('aria-expanded') === 'true';
+			const showCommentsWasExpanded = showCommentBtn.getAttribute('aria-expanded') === 'true';
+			const controlledDivIds = newCommentBtn.getAttribute('aria-controls').split(' ');
+
 			const controlledDiv = document.getElementById(controlledDivId);
-			const isExpanded = newCommentBtn.getAttribute('aria-expanded') === 'true';
-			newCommentBtn.setAttribute('aria-expanded', !isExpanded);
-			if (isExpanded) {
-				controlledDiv.style.height = '0';
-				controlledDiv.style.visibility = 'hidden';
-				controlledDiv.style.marginTop = '0';
-			} else {
-				controlledDiv.style.height = 'auto';
-				controlledDiv.style.visibility = 'visible';
-				controlledDiv.style.marginTop = '8px';
+			newCommentBtn.setAttribute('aria-expanded', !wasExpanded);
+			showCommentBtn.setAttribute('aria-expanded', !showCommentsWasExpanded);
+
+			toggleCommentsVisibility(controlledDivId);
+			
+			if (!wasExpanded) {
+				showDiv(commentsDivId);
 				controlledDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			} else {
+				hideDiv(commentsDivId);
 			}
 		});
 	});
 
 	showCommentsBtns.forEach((showCommentsBtn) => {
 		showCommentsBtn.addEventListener('click', function () {
-			const controlledDivId = showCommentsBtn.getAttribute('aria-controls');
-			const controlledDiv = document.getElementById(controlledDivId);
-			const isExpanded =
-				showCommentsBtn.getAttribute('aria-expanded') === 'true';
-			showCommentsBtn.setAttribute('aria-expanded', !isExpanded);
-			if (isExpanded) {
-				controlledDiv.style.height = '0';
-				controlledDiv.style.visibility = 'hidden';
-				controlledDiv.style.marginTop = '0';
-			} else {
-				controlledDiv.style.height = 'auto';
-				controlledDiv.style.visibility = 'visible';
-				controlledDiv.style.marginTop = '8px';
-			}
+			const controlledDivIds = showCommentsBtn.getAttribute('aria-controls').split(' ');
+			controlledDivIds.forEach((controlledDivId) => {
+				const isExpanded = showCommentsBtn.getAttribute('aria-expanded') === 'true';
+				showCommentsBtn.setAttribute('aria-expanded', !isExpanded);
+				toggleCommentsVisibility(controlledDivId);
+			});
 		});
 	});
+
+	function toggleCommentsVisibility(controlledDivId) {
+		const controlledDiv = document.getElementById(controlledDivId);
+		
+		if (controlledDiv.style.visibility === 'visible') {
+			hideDiv(controlledDivId);
+		} else {
+			showDiv(controlledDivId);
+		}
+	}
+
+	function showDiv(id) {
+		const div = document.getElementById(id);
+		div.style.height = 'auto';
+		div.style.visibility = 'visible';
+		div.style.marginTop = '8px';
+	}
+
+	function hideDiv(id) {
+		const div = document.getElementById(id);
+		div.style.height = '0';
+		div.style.visibility = 'hidden';
+		div.style.marginTop = '0';
+	}
 
 	initSurvey();
 	carousel.init();
