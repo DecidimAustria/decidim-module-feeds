@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 
 	function closeDialog() {
-		newFeed.close();
+		// newFeed.close();
 		newFeedOpener.forEach(function (opener) {
 			opener.setAttribute('aria-expanded', 'false');
 			newFeed.classList.remove('open');
