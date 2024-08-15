@@ -34,9 +34,10 @@ module Decidim
       end
 
       def show
+        @post = Post.find(params[:id])
+
         enforce_permission_to :read, :post
 
-        @post =Post.find(params[:id])
         raise ActionController::RoutingError, "Not Found" unless @post
       end
 
@@ -124,7 +125,6 @@ module Decidim
       private
 
       def post_creation_params
-        #params[:post].merge(body_template: translated_proposal_body_template)
         params[:post]
       end
 
