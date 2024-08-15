@@ -1,6 +1,5 @@
 module Decidim
   module Feeds
-    # The data store for a Proposal in the Decidim::Proposals component.
     class Answer < Feeds::ApplicationRecord
       include Decidim::TranslatableResource
       include Decidim::TranslatableAttributes

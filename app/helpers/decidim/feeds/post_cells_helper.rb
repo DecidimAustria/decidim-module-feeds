@@ -3,8 +3,8 @@
 module Decidim
   module Feeds
     module PostCellsHelper
-      include Decidim::Proposals::ApplicationHelper
-      include Decidim::Proposals::Engine.routes.url_helpers
+      include Decidim::Feeds::ApplicationHelper
+      include Decidim::Feeds::Engine.routes.url_helpers
       include Decidim::LayoutHelper
       include Decidim::ApplicationHelper
       include Decidim::TranslationsHelper

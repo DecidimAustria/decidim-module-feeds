@@ -2,7 +2,6 @@
 
 module Decidim
   module Feeds
-    # A command with all the business logic when a user destroys a draft proposal.
     class DestroyPost < Decidim::Command
       def initialize(post, current_user)
         @post = post

@@ -2,7 +2,6 @@
 
 module Decidim
   module Feeds
-    # A form object to be used when public users want to create a proposal.
     class PostForm < Decidim::Form
       include Decidim::TranslatableAttributes
       include Decidim::AttachmentAttributes
@@ -28,15 +27,9 @@ module Decidim
       attachments_attribute :documents
 
       validates :body, presence: true#, etiquette: true
-      validate :questions_validator
       # validates :body, length: { in: 15..150 }
-      # validates :body, proposal_length: {
-      #   minimum: 15,
-      #   maximum: ->(record) { record.component.settings.proposal_length }
-      # }
-      # validates :category, presence: true, if: ->(form) { form.category_id.present? }
-      # validates :scope, presence: true, if: ->(form) { form.scope_id.present? }
-      # validates :scope_id, scope_belongs_to_component: true, if: ->(form) { form.scope_id.present? }
+      validates :category, presence: true
+      validate :questions_validator
 
       # validate :body_is_not_bare_template
       validate :notify_missing_attachment_if_errored
@@ -57,7 +50,7 @@ module Decidim
 
         # @suggested_hashtags = Decidim::ContentRenderers::HashtagRenderer.new(body).extra_hashtags.map(&:name).map(&:downcase)
 
-        # presenter = ProposalPresenter.new(model)
+        # presenter = PostPresenter.new(model)
         # self.body = presenter.editor_body(all_locales: body.is_a?(Hash))
 
         self.documents = model.attachments
@@ -68,20 +61,6 @@ module Decidim
       # Returns a Decidim::Category
       # def category
       #   @category ||= categories.find_by(id: category_id)
-      # end
-
-      # Finds the Scope from the given scope_id, uses participatory space scope if missing.
-      #
-      # Returns a Decidim::Scope
-      # def scope
-      #   @scope ||= @attributes["scope_id"].value ? current_component.scopes.find_by(id: @attributes["scope_id"].value) : current_component.scope
-      # end
-
-      # Scope identifier
-      #
-      # Returns the scope identifier related to the proposal
-      # def scope_id
-      #   super || scope&.id
       # end
 
       # def extra_hashtags

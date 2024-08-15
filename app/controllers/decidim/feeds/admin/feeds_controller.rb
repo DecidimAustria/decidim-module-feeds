@@ -3,7 +3,7 @@
 module Decidim
   module Feeds
     module Admin
-      # This controller allows admins to manage proposals in a participatory process.
+      # This controller allows admins to manage posts in a participatory space.
       class FeedsController < Admin::ApplicationController
         include Decidim::ApplicationHelper
 
@@ -25,10 +25,10 @@ module Decidim
           enforce_permission_to :create, :post
           @form = form(Decidim::Feeds::Admin::PostForm).from_params(params)
 
-          Admin::CreateProposal.call(@form) do
+          Admin::CreatePost.call(@form) do
             on(:ok) do
               flash[:notice] = I18n.t("posts.create.success", scope: "decidim.feeds.admin")
-              redirect_to proposals_path
+              redirect_to posts_path
             end
 
             on(:invalid) do
@@ -51,7 +51,7 @@ module Decidim
           Admin::UpdatePost.call(@form, @post) do
             on(:ok) do |_post|
               flash[:notice] = t("feeds.update.success", scope: "decidim")
-              redirect_to proposals_path
+              redirect_to posts_path
             end
 
             on(:invalid) do

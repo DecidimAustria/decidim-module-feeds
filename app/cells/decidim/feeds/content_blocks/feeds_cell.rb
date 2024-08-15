@@ -42,7 +42,6 @@ module Decidim
         end
 
         def post_creation_params
-          # params[:post].merge(body_template: translated_proposal_body_template)
           params[:post]
         end
       end

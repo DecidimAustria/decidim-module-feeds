@@ -1,6 +1,5 @@
 module Decidim
   module Feeds
-    # A form object to be used when public users want to create a proposal.
     class QuestionForm < Decidim::Form
       include Decidim::TranslatableAttributes
 

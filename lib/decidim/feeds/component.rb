@@ -42,9 +42,9 @@ Decidim.register_component(:feeds) do |component|
   # end
   component.register_resource(:post) do |resource|
     resource.model_class_name = "Decidim::Feeds::Post"
-    # resource.template = "decidim/proposals/proposals/linked_proposals"
-    # resource.card = "decidim/proposals/proposal"
-    # resource.reported_content_cell = "decidim/proposals/reported_content"
+    # resource.template = "decidim/feeds/posts/linked_posts"
+    # resource.card = "decidim/feeds/posts"
+    # resource.reported_content_cell = "decidim/posts/reported_content"
     # resource.actions = %w(endorse vote amend comment vote_comment)
     # resource.searchable = true
   end

@@ -103,9 +103,9 @@ module Decidim
       # end
       
       def first_attachment_weight
-        return 1 if proposal.documents.count.zero?
+        return 1 if post.documents.count.zero?
 
-        proposal.documents.count
+        post.documents.count
       end
     end
   end
