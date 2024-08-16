@@ -3,6 +3,8 @@
 require "rails"
 require "decidim/core"
 
+require "decidim/feeds/menu"
+
 require_relative "content_blocks/content_blocks_homepage"
 
 module Decidim

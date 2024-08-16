@@ -1,0 +1,17 @@
+<% add_secondary_root_menu(:admin_feed_menu) %>
+
+<% add_decidim_page_title(translated_attribute(current_participatory_space.title)) %>
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <%= link_to decidim_feeds.feed_path(current_participatory_space), class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link", target: "_blank", data: { "external-link": false } do %>
+      <%= icon "eye-line" %>
+      <span>
+        <%= t("see_feed", scope: "decidim.admin.menu.feeds_submenu") %>
+      </span>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>
