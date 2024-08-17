@@ -3,84 +3,86 @@
 module Decidim
   module Feeds
     module Admin
-      # This controller allows admins to manage posts in a participatory space.
-      class FeedsController < Admin::ApplicationController
-        include Decidim::ApplicationHelper
+      # Controller that allows managing feeds.
+      #
+      class FeedsController < Decidim::Feeds::Admin::ApplicationControllerParticipatorySpace
+        include Decidim::Admin::ParticipatorySpaceAdminBreadcrumb
+        helper_method :current_feed, :current_participatory_space
+        layout "decidim/admin/feeds"
 
-        helper Feeds::ApplicationHelper
-        # helper Decidim::Messaging::ConversationHelper
-        # helper_method :posts, :query, :form_presenter, :post, :post_ids
-
-        def show
+        def index
+          enforce_permission_to :read, :feed_list
+          @feeds = Feed.all
         end
 
         def new
-          enforce_permission_to :create, :post
-          # @form = form(Decidim::Feeds::Admin::PostForm).from_params(
-          #   attachment: form(AttachmentForm).from_params({})
-          # )
+          enforce_permission_to :create, :feed
+          @form = form(FeedForm).instance
         end
 
         def create
-          enforce_permission_to :create, :post
-          @form = form(Decidim::Feeds::Admin::PostForm).from_params(params)
+          enforce_permission_to :create, :feed
+          @form = form(FeedForm).from_params(params)
 
-          Admin::CreatePost.call(@form) do
-            on(:ok) do
-              flash[:notice] = I18n.t("posts.create.success", scope: "decidim.feeds.admin")
-              redirect_to posts_path
+          CreateFeed.call(@form) do
+            on(:ok) do |feed|
+              flash[:notice] = I18n.t("feeds.create.success", scope: "decidim.admin")
+              redirect_to feeds_path
             end
 
             on(:invalid) do
-              flash.now[:alert] = I18n.t("posts.create.invalid", scope: "decidim.feeds.admin")
-              render action: "new"
+              flash.now[:alert] = I18n.t("feeds.create.error", scope: "decidim.admin")
+              render :new
             end
           end
         end
 
         def edit
-          enforce_permission_to(:edit, :post, post:)
-          @form = form(Admin::PostForm).from_model(post)
+          enforce_permission_to :update, :feed, feed: current_feed
+          @form = form(FeedForm).from_model(current_feed)
+          render layout: "decidim/admin/feed"
         end
 
         def update
-          enforce_permission_to(:edit, :post, post:)
+          enforce_permission_to :update, :feed, feed: current_feed
+          @form = form(FeedForm).from_params(
+            feed_params,
+            feed_id: current_feed.id
+          )
 
-          @form = form(Admin::PostForm).from_params(params)
-
-          Admin::UpdatePost.call(@form, @post) do
-            on(:ok) do |_post|
-              flash[:notice] = t("feeds.update.success", scope: "decidim")
-              redirect_to posts_path
+          UpdateFeed.call(current_feed, @form) do
+            on(:ok) do |feed|
+              flash[:notice] = I18n.t("feeds.update.success", scope: "decidim.admin")
+              redirect_to edit_feed_path(feed)
             end
 
             on(:invalid) do
-              flash.now[:alert] = t("feeds.update.error", scope: "decidim")
-              render :edit
+              flash.now[:alert] = I18n.t("feeds.update.error", scope: "decidim.admin")
+              render :edit, layout: "decidim/admin/feed"
             end
           end
+        end
+
+        def copy
+          enforce_permission_to :create, :feed
         end
 
         private
 
         def collection
-          @collection ||= Post.where(component: current_component).not_hidden.published
+          @collection ||= OrganizationFeeds.new(current_user.organization).query
         end
 
-        def posts
-          @posts ||= filtered_collection
+        def current_feed
+          @current_feed ||= collection.where(slug: params[:slug]).or(
+            collection.where(id: params[:slug])
+          ).first
         end
 
-        def post
-          @post ||= collection.find(params[:id])
-        end
+        alias current_participatory_space current_feed
 
-        def post_ids
-          @post_ids ||= params[:post_ids]
-        end
-
-        def form_presenter
-          @form_presenter ||= present(@form, presenter_class: Decidim::Feeds::PostPresenter)
+        def feed_params
+          { id: params[:slug] }.merge(params[:feed].to_unsafe_h)
         end
       end
     end

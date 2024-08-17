@@ -27,6 +27,22 @@ module Decidim
             when :withdraw
               allow! if can_withdraw_meeting?
             end
+        when :feed
+          case permission_action.action
+            when :read
+              allow! if user.present?
+            when :create
+              allow! if user.admin?
+            when :update
+              allow! if user.admin?
+            when :list
+              allow! if user.admin?
+            end
+        when :feed_list
+          case permission_action.action
+            when :read
+              allow! if user.admin?
+            end
         end
 
         permission_action

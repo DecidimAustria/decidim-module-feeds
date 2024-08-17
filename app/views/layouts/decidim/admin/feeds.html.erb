@@ -1,0 +1,17 @@
+<% content_for :breadcrumb_context_menu do %>
+  <div class="process-title-content-breadcrumb-container-right">
+    <% if allowed_to? :create, :feed %>
+      <%= link_to new_feed_path, class: "button button__sm button__transparent process-title-content-breadcrumb-container-right-link" do %>
+        <%= icon "add-line", class: "w-4 h-4" %>
+        <span>
+          <%= t("actions.new_feed", scope: "decidim.admin") %>
+        </span>
+      <% end %>
+    <% end %>
+    <%= render partial: "layouts/decidim/admin/manage_feeds" %>
+  </div>
+<% end %>
+
+<%= render "layouts/decidim/admin/application" do %>
+  <%= yield %>
+<% end %>
