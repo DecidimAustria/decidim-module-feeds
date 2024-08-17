@@ -14,12 +14,14 @@ module Decidim
 
       routes do
         # Add admin engine routes here
-        # resources :feeds do
-        #   collection do
-        #     resources :exports, only: [:create]
-        #   end
-        # end
-        root to: "feeds#index"
+        resources :feeds, param: :slug, except: [:show, :destroy] do
+          # collection do
+          #   resources :exports, only: [:create]
+          # end
+        end
+
+        resources :posts
+        root to: "posts#index"
 
         scope "/feeds/:feed_slug" do
           # resources :categories, except: [:show]
@@ -59,15 +61,20 @@ module Decidim
           # end
         end
 
-        scope "/feeds/:feed_slug/components/:component_id/manage" do
-          Decidim.component_manifests.each do |manifest|
-            next unless manifest.admin_engine
+        # TODO: The following doesn't work because decidim-feeds is a component and a participatory space
+        #       so mounting the AdminEngine creates a loop
+        # scope "/feeds/:feed_slug/components/:component_id/manage" do
+        #   Decidim.component_manifests.each do |manifest|
+        #     next unless manifest.admin_engine
 
-            constraints CurrentComponent.new(manifest) do
-              mount manifest.admin_engine, at: "/", as: "decidim_admin_feed_#{manifest.name}"
-            end
-          end
-        end
+        #     constraints CurrentComponent.new(manifest) do
+        #       puts "Current manifest: #{manifest.admin_engine}"
+        #       mount manifest.admin_engine, at: "/", as: "decidim_admin_feed_#{manifest.name}"
+        #       puts "last line"
+        #       byebug
+        #     end
+        #   end
+        # end
       end
 
       def load_seed

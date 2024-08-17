@@ -2,6 +2,11 @@
 en:
   decidim:
     feeds:
+      admin:
+        feeds:
+          form:
+            title: Title
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         feeds:
           name: Feed
@@ -100,3 +105,31 @@ en:
     shared:
       flag_modal:
         report: Report
+    admin:
+      feeds:
+        new:
+          title: New Feed
+          create: Create Feed
+        create:
+          success: Feed created successfully
+          invalid: Feed creation failed
+        edit:
+          title: Edit Feed
+          update: Update Feed
+      menu:
+        feeds: Feeds
+        feeds_submenu:
+          components: Components
+          info: About this feed
+          moderations: Moderations
+          see_feed: See feed
+      titles:
+        feeds: Feeds
+      actions:
+        new_feed: New Feed
+      models:
+        feed:
+          fields:
+            title: Title
+            created_at: Created at
+            actions: Actions

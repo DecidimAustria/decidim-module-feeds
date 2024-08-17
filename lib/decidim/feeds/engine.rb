@@ -29,6 +29,8 @@ module Decidim
             put :withdraw
           end
         end
+        resources :feeds, only: [:index, :show], param: :slug, path: "feeds" do
+        end
         # get "/test" => "posts#test"
         get 'change_status', to: 'posts#change_status', as: 'change_post_status'
         get 'delete_post', to: 'posts#delete', as: 'delete_post'

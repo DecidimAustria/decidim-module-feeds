@@ -2,6 +2,11 @@
 it:
   decidim:
     feeds:
+      admin:
+        feeds:
+          form:
+            title: Titolo
+            slug_help_html: 'Gli URL slugs vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
       content_blocks:
         feeds:
           name: Feed
@@ -100,3 +105,31 @@ it:
     shared:
       flag_modal:
         report: Segnala
+    admin:
+      feeds:
+        new:
+          title: Nuovo feed
+          create: Crea feed
+        create:
+          success: Feed creato con successo
+          invalid: Creazione del feed fallita
+        edit:
+          title: Modifica feed
+          update: Aggiorna feed
+      menu:
+        feeds: Feeds
+        feeds_submenu:
+          components: Componenti
+          info: Informazioni su questo feed
+          moderations: Moderazioni
+          see_feed: Vedi feed
+      titles:
+        feeds: Feeds
+      actions:
+        new_feed: Nuovo feed
+      models:
+        feed:
+          fields:
+            title: Titolo
+            created_at: Creato il
+            actions: Azioni

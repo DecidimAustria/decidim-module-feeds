@@ -1,0 +1,58 @@
+<% add_decidim_page_title(t("feeds", scope: "decidim.admin.titles")) %>
+<div class="card" id="feeds">
+
+  <div class="table-scroll">
+    <table class="table-list">
+      <thead>
+        <tr>
+          <th>
+            <%= t("models.feed.fields.title", scope: "decidim.admin") %>
+          </th>
+          <th>
+            <%= t("models.feed.fields.created_at", scope: "decidim.admin") %>
+          </th>
+          <th>
+            <%= t("models.feed.fields.actions", scope: "decidim.admin") %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @feeds.each do |feed| %>
+          <% next unless allowed_to? :list, :feed, feed: feed %>
+          <tr>
+            <td>
+              <% if allowed_to? :update, :feed, feed: feed %>
+                <%= link_to translated_attribute(feed.title), edit_feed_path(feed) %>
+              <% else %>
+                <%= translated_attribute(feed.title) %>
+              <% end %>
+            </td>
+            <td class="table-list__date">
+              <%= l(feed.created_at, format: :short) %>
+            </td>
+            <td class="table-list__actions">
+              <% if allowed_to? :update, :feed, feed: feed %>
+                <%= icon_link_to "pencil-line", edit_feed_path(feed), t("actions.configure", scope: "decidim.admin"), class: "action-icon--new" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+              <span class="action-space icon"></span>
+              <% if allowed_to? :preview, :feed, feed: feed %>
+                <%= icon_link_to "eye-line", decidim_feeds.feed_path(feed), t("actions.preview", scope: "decidim.admin"), class: "action-icon--preview", target: "_blank", data: { "external-link": false } %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+
+              <% if allowed_to? :read, :moderation, feed: feed %>
+                <%= icon_link_to "flag-line", moderations_path(feed), t("actions.moderate", scope: "decidim.admin"), class: "action-icon--moderate" %>
+              <% else %>
+                <span class="action-space icon"></span>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <%#= decidim_paginate @feeds %>
+</div>

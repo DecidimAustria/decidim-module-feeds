@@ -2,6 +2,11 @@
 de:
   decidim:
     feeds:
+      admin:
+        feeds:
+          form:
+            title: Titel
+            slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf dieses Gremium verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
       content_blocks:
         feeds:
           name: Feed
@@ -102,3 +107,31 @@ de:
         report: Melden
     endorsement_buttons_cell:
       already_endorsed: Gefällt mir
+    admin:
+      feeds:
+        new:
+          title: Neuer Feed
+          create: Feed erstellen
+        create:
+          success: Feed erfolgreich erstellt
+          invalid: Erstellen des Feeds fehlgeschlagen
+        edit:
+          title: Feed bearbeiten
+          update: Feed aktualisieren
+      menu:
+        feeds: Feeds
+        feeds_submenu:
+          components: Komponenten
+          info: Über diesen Feed
+          moderations: Moderationen
+          see_feed: Feed anzeigen
+      titles:
+        feeds: Feeds
+      actions:
+        new_feed: Neuer Feed
+      models:
+        feed:
+          fields:
+            title: Titel
+            created_at: Erstellt am
+            actions: Aktionen

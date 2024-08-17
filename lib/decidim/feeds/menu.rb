@@ -3,27 +3,27 @@
 module Decidim
   module Feeds
     class Menu
-      def self.register_menu!
-        Decidim.menu :menu do |menu|
-          menu.add_item :feeds,
-                        I18n.t("menu.feeds", scope: "decidim"),
-                        decidim_feeds.feeds_path,
-                        position: 2.2,
-                        # if: OrganizationPublishedFeeds.new(current_organization, current_user).any?,
-                        active: :inclusive
-        end
-      end
+      # def self.register_menu!
+      #   Decidim.menu :menu do |menu|
+      #     menu.add_item :feeds,
+      #                   I18n.t("menu.feeds", scope: "decidim"),
+      #                   decidim_feeds.feeds_path,
+      #                   position: 2.2,
+      #                   # if: OrganizationPublishedFeeds.new(current_organization, current_user).any?,
+      #                   active: :inclusive
+      #   end
+      # end
 
-      def self.register_home_content_block_menu!
-        Decidim.menu :home_content_block_menu do |menu|
-          menu.add_item :feeds,
-                        I18n.t("menu.feeds", scope: "decidim"),
-                        decidim_feeds.feeds_path,
-                        position: 20,
-                        # if: OrganizationPublishedFeeds.new(current_organization, current_user).any?,
-                        active: :inclusive
-        end
-      end
+      # def self.register_home_content_block_menu!
+      #   Decidim.menu :home_content_block_menu do |menu|
+      #     menu.add_item :feeds,
+      #                   I18n.t("menu.feeds", scope: "decidim"),
+      #                   decidim_feeds.feeds_path,
+      #                   position: 20,
+      #                   # if: OrganizationPublishedFeeds.new(current_organization, current_user).any?,
+      #                   active: :inclusive
+      #   end
+      # end
 
       def self.register_admin_menu_modules!
         Decidim.menu :admin_menu_modules do |menu|
