@@ -118,6 +118,9 @@ de:
         edit:
           title: Feed bearbeiten
           update: Feed aktualisieren
+        update:
+          success: Feed erfolgreich aktualisiert
+          invalid: Aktualisieren des Feeds fehlgeschlagen
       menu:
         feeds: Feeds
         feeds_submenu:

@@ -116,6 +116,9 @@ en:
         edit:
           title: Edit Feed
           update: Update Feed
+        update:
+          success: Feed updated successfully
+          invalid: Feed update failed
       menu:
         feeds: Feeds
         feeds_submenu:
