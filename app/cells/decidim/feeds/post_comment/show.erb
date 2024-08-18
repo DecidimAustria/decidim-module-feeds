@@ -1,6 +1,0 @@
-<% if post_commentable %>
-  <div class="feeds__feed_comments" data-post-id="<%= post.id %>">
-    <button class="button button__sm button__transparent-primary absolute newCommentBtn" data-post-id="<%= post.id %>" data-model-type="<%= model_type %>" aria-expanded="false" aria-controls="new_comment_for_<%= model_type %>_<%= post.id %> comments-for-Post-<%= post.id %>-threads">Kommentieren</button>
-    <%= comments_for post %>
-  </div>
-<% end %>

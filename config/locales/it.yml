@@ -1,12 +1,12 @@
 ---
 it:
   decidim:
-    feeds:
+    feeds_space:
       admin:
         feeds:
           form:
             title: Titolo
-            slug_help_html: 'Gli URL slugs vengono utilizzati per generare gli URL che puntano a questa assemblea. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
+            slug_help_html: 'Gli URL slugs vengono utilizzati per generare gli URL che puntano a questa feed. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'
       content_blocks:
         feeds:
           name: Feed
@@ -46,68 +46,6 @@ it:
           select_an_iframe_access_level: Seleziona un livello di accesso all'iframe
       survey:
         participated: "%{count} risposte"
-    components:
-      feeds:
-        name: Feeds
-        settings:
-          global:
-            attachments_allowed?: Allegati consentiti
-          step:
-            endorsements_enabled: Abilita le approvazioni
-            endorsements_blocked: Approvazioni bloccate
-        content_blocks:
-          feeds:
-            title: Feed
-            name: Feed
-            description: Un feed di post, eventi e altri contenuti.
-          feeds_settings_form:
-            component: Feed to display
-        actions:
-          openMenu: Apri menu
-          edit: Modifica
-          translate: Traduci
-          delete: Elimina
-          deleteConfirmation: Sei sicuro di voler eliminare questo post?
-        newFeed:
-          title: Nuovo feed
-          text: Post
-          category: Scegli una categoria
-          highlighted: Evidenzia
-          fixed: Fissa in alto
-          action: Spedisci
-          login: Accedi per creare un nuovo post
-          loginLink: Accedi
-          newSurvey:
-            newQuestion: Nuova domanda
-            newQuestionResponse: È stata aggiunta una nuova domanda
-            questionTitle: Inserisci la domanda
-            questionType: Tipo di domanda
-            questionTypes:
-              multiple_choice: Scelta multipla
-              single_choice: Scelta singola
-            answerType: Tipo di risposta
-            multipleChoice: Scelta multipla
-            singleChoice: Scelta singola
-            newAnswer: Nuova risposta
-            newAnswerResponse: È stata aggiunta una nuova risposta
-            answerTitle: Inserisci risposta
-            deleteQuestion: Elimina domanda
-            deleteAnswer: Elimina risposta
-        filter:
-          all: Tutti
-          title: Filtro
-          menuAriaLabel: Filter feeds
-          post: Post
-          posts: Posts
-          sharecare: Share&Care
-          hv: HV
-          calendar: Calendario
-          survey: Questionario
-          help: Aiuto
-        calendar:
-          date_separator: fino al
-          start_time: Alle
-          end_time: Fino a
     shared:
       flag_modal:
         report: Segnala

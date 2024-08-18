@@ -1,7 +1,7 @@
 {
   "name": "decidim-feeds",
   "version": "0.0.1",
-  "description": "Feeds component for Decidim",
+  "description": "Feeds participatory space for Decidim",
   "private": true,
   "license": "AGPL-3.0",
   "scripts": {

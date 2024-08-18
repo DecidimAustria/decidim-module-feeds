@@ -1,20 +1,19 @@
-# Decidim::Feeds component (under development)
+# Decidim::FeedsSpace participatory space (under development)
 
-This Feeds component adds social posts functionality to Decidim.
+This FeedsSpace module adds a simple Feeds Participatory Space to hold a feed component.
 
 **The module is currently in development and not yet ready.**
 
 ## Usage
 
-Feeds will be available as a Component for a Participatory
-Space.
+Feeds will be available as a Participatory Space.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-feeds"
+gem "decidim-feeds_space"
 ```
 
 And then execute:

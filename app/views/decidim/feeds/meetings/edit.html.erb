@@ -1,8 +1,0 @@
-<%= decidim_form_for(@form, url: Decidim::Feeds::Engine.routes.url_helpers.meeting_path(assembly_slug: @target_participatory_space.slug, component_id: @feeds_component.id, id: @meeting.id), html: { class: "meetings_form new_meeting" }) do |form| %>
-  <div class="form__wrapper p-0 gap-4">
-    <%= render partial: "decidim/feeds/posts/meeting_form", locals: { form: form } %>
-  </div>
-  <div class="form__wrapper-block flex-col-reverse md:flex-row justify-between">
-    <%= form.submit "#{t("decidim.components.feeds.newFeed.action")} #{icon('send-plane-line')}".html_safe, class: "sndBtn button button__sm button__transparent-primary", data: { disable: true } %>
-  </div>
-<% end %>
