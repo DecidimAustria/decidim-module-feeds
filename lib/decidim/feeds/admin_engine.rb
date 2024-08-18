@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/core"
-require "decidim/feeds/menu"
+# require "decidim/feeds/menu"
 
 module Decidim
   module Feeds
@@ -13,87 +13,12 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        # Add admin engine routes here
-        resources :feeds, param: :slug, except: [:show, :destroy] do
-          # collection do
-          #   resources :exports, only: [:create]
-          # end
-        end
-
         resources :posts
         root to: "posts#index"
-
-        scope "/feeds/:feed_slug" do
-          # resources :categories, except: [:show]
-
-          resources :components do
-            resource :permissions, controller: "component_permissions"
-            member do
-              put :publish
-              put :unpublish
-              get :share
-            end
-            #resources :exports, only: :create
-            #resources :imports, only: [:new, :create] do
-            #  get :example, on: :collection
-            #end
-            #resources :reminders, only: [:new, :create]
-          end
-
-          resources :moderations do
-            member do
-              put :unreport
-              put :hide
-              put :unhide
-            end
-            resources :reports, controller: "moderations/reports", only: [:index, :show]
-          end
-
-          # resources :participatory_space_private_users, controller: "participatory_space_private_users" do
-          #   member do
-          #     post :resend_invitation, to: "participatory_space_private_users#resend_invitation"
-          #   end
-          #   collection do
-          #     resource :participatory_space_private_users_csv_imports, only: [:new, :create], path: "csv_import" do
-          #       delete :destroy_all
-          #     end
-          #   end
-          # end
-        end
-
-        # TODO: The following doesn't work because decidim-feeds is a component and a participatory space
-        #       so mounting the AdminEngine creates a loop
-        # scope "/feeds/:feed_slug/components/:component_id/manage" do
-        #   Decidim.component_manifests.each do |manifest|
-        #     next unless manifest.admin_engine
-
-        #     constraints CurrentComponent.new(manifest) do
-        #       puts "Current manifest: #{manifest.admin_engine}"
-        #       mount manifest.admin_engine, at: "/", as: "decidim_admin_feed_#{manifest.name}"
-        #       puts "last line"
-        #       byebug
-        #     end
-        #   end
-        # end
       end
 
       def load_seed
         nil
-      end
-
-      initializer "decidim_feeds_admin.action_controller" do |app|
-        app.config.to_prepare do
-          ActiveSupport.on_load :action_controller do
-            helper Decidim::Feeds::Admin::FeedsAdminMenuHelper if respond_to?(:helper)
-          end
-        end
-      end
-
-      initializer "decidim_feeds_admin.menu" do
-        Decidim::Feeds::Menu.register_admin_menu_modules!
-        Decidim::Feeds::Menu.register_admin_feeds_components_menu!
-        Decidim::Feeds::Menu.register_admin_feed_menu!
-        Decidim::Feeds::Menu.register_admin_feeds_menu!
       end
     end
   end

@@ -11,6 +11,9 @@ module Decidim
         # helper Decidim::Messaging::ConversationHelper
         # helper_method :posts, :query, :form_presenter, :post, :post_ids
         
+        def index
+        end
+
         def show
         end
 

@@ -6,7 +6,7 @@ en:
         feeds:
           form:
             title: Title
-            slug_help_html: 'URL slugs are used to generate the URLs that point to this assembly. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            slug_help_html: 'URL slugs are used to generate the URLs that point to this feed. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
       content_blocks:
         feeds:
           name: Feed
@@ -49,6 +49,12 @@ en:
     components:
       feeds:
         name: Feeds
+        settings:
+          global:
+            attachments_allowed?: Attachments allowed
+          step:
+            endorsements_enabled: Enable endorsements
+            endorsements_blocked: Endorsements blocked
         content_blocks:
           feeds:
             title: Feed

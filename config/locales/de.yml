@@ -49,6 +49,12 @@ de:
     components:
       feeds:
         name: Feeds
+        settings:
+          global:
+            attachments_allowed?: Anhänge erlaubt
+          step:
+            endorsements_enabled: Unterstützungen aktivieren
+            endorsements_blocked: Unterstützungen blockiert
         content_blocks:
           feeds:
             title: Feed

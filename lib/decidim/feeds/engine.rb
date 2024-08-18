@@ -3,7 +3,7 @@
 require "rails"
 require "decidim/core"
 
-require "decidim/feeds/menu"
+# require "decidim/feeds/menu"
 
 require_relative "content_blocks/content_blocks_homepage"
 
@@ -29,8 +29,7 @@ module Decidim
             put :withdraw
           end
         end
-        resources :feeds, only: [:index, :show], param: :slug, path: "feeds" do
-        end
+        
         # get "/test" => "posts#test"
         get 'change_status', to: 'posts#change_status', as: 'change_post_status'
         get 'delete_post', to: 'posts#delete', as: 'delete_post'
