@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class CreateDecidimFeedsSpaceFeeds < ActiveRecord::Migration[6.1]
+class CreateDecidimFeedsFeeds < ActiveRecord::Migration[6.1]
   def change
     create_table :decidim_feeds_feeds do |t|
       t.string :slug, null: false

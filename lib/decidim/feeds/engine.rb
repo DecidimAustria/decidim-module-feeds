@@ -45,22 +45,22 @@ module Decidim
       #   end
       # end
 
-      initializer "FeedsSpace.snippets" do |app|
+      initializer "Feeds.snippets" do |app|
         app.config.enable_html_header_snippets = true
       end
 
-      initializer "FeedsSpace.add_cells_view_paths" do
+      initializer "Feeds.add_cells_view_paths" do
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Feeds::Engine.root}/app/cells")
         Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Feeds::Engine.root}/app/views")
       end
 
-      initializer "FeedsSpace.webpacker.assets_path" do
+      initializer "Feeds.webpacker.assets_path" do
         Decidim.register_assets_path File.expand_path("app/packs", root)
       end
 
       # initialize_homepage_content_blocks
 
-      initializer "FeedsSpace.register_icons" do
+      initializer "Feeds.register_icons" do
         Decidim.icons.register(name: "function-line", icon: "function-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "home-5-line", icon: "home-5-line", category: "system", description: "", engine: :feeds)
         Decidim.icons.register(name: "recycle-line", icon: "recycle-line", category: "system", description: "", engine: :feeds)

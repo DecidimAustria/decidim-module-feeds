@@ -81,11 +81,6 @@ module Decidim
         []
       end
 
-      # overwrite module_name in participable
-      def self.demodulized_name
-        "FeedsSpace"
-      end
-
       # private
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)

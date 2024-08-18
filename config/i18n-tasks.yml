@@ -4,7 +4,7 @@ base_locale: en
 locales: [en]
 
 ignore_unused:
-  - "decidim.components.feeds.name"
+  - "decidim.components.posts.name"
 
 ignore_missing:
   - decidim.participatory_processes.scopes.global

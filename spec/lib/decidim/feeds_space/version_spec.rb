@@ -3,7 +3,7 @@
 require "spec_helper"
 
 module Decidim
-  describe FeedsSpace do
+  describe Feeds do
     subject { described_class }
 
     it "has version" do
