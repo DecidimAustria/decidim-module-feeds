@@ -1,4 +1,4 @@
-# Decidim::FeedsSpace participatory space (under development)
+# Decidim::Feeds participatory space (under development)
 
 This FeedsSpace module adds a simple Feeds Participatory Space to hold a feed component.
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module FeedsSpace
+  module Feeds
     # This type represents a Feed.
     class FeedType < Decidim::Api::Types::BaseObject
       implements Decidim::Core::ParticipatorySpaceInterface

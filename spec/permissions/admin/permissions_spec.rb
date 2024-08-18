@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-module Decidim::FeedsSpace::Admin
+module Decidim::Feeds::Admin
   describe Permissions do
     subject { described_class.new(user, permission_action, context).permissions.allowed? }
 

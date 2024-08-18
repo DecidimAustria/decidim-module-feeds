@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Decidim
-  module FeedsSpace
+  module Feeds
     # This class infers the current feed we are scoped to by
     # looking at the request parameters and the organization in the request
     # environment, and injects it into the environment.
