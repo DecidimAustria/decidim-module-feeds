@@ -3,7 +3,7 @@
 module Decidim
   module Feeds
     class FeedDropdownMetadataCell < Decidim::ParticipatorySpaceDropdownMetadataCell
-      include FeedsHelper
+      # include FeedsHelper
       include Decidim::ComponentPathHelper
       include ActiveLinkTo
 
