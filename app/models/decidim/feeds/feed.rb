@@ -89,6 +89,10 @@ module Decidim
         false
       end
 
+      def categories
+        []
+      end
+
       # private
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
