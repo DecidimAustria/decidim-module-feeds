@@ -57,6 +57,7 @@ en:
         create:
           success: Feed created successfully
           invalid: Feed creation failed
+          error: Feed creation failed
         edit:
           title: Edit Feed
           update: Update Feed

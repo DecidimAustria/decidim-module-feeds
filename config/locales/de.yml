@@ -59,6 +59,7 @@ de:
         create:
           success: Feed erfolgreich erstellt
           invalid: Erstellen des Feeds fehlgeschlagen
+          error: Erstellen des Feeds fehlgeschlagen
         edit:
           title: Feed bearbeiten
           update: Feed aktualisieren

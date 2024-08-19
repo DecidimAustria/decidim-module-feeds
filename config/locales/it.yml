@@ -57,6 +57,7 @@ it:
         create:
           success: Feed creato con successo
           invalid: Creazione del feed fallita
+          error: Creazione del feed fallita
         edit:
           title: Modifica feed
           update: Aggiorna feed
