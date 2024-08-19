@@ -94,6 +94,10 @@ module Decidim
         false
       end
 
+      def published?
+        true
+      end
+
       # private
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
