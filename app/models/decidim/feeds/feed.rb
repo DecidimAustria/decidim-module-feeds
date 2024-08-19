@@ -85,6 +85,10 @@ module Decidim
         false
       end
 
+      def has_subscopes?
+        false
+      end
+
       # private
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
