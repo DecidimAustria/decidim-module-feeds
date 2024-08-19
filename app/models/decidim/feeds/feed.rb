@@ -81,6 +81,10 @@ module Decidim
         []
       end
 
+      def private_space?
+        false
+      end
+
       # private
 
       # Allow ransacker to search for a key in a hstore column (`title`.`en`)
