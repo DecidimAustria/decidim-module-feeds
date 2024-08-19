@@ -26,6 +26,11 @@ module Decidim
                 class_name: "Decidim::Organization"
 
       has_many :components, as: :participatory_space, dependent: :destroy
+      has_many :categories,
+             foreign_key: "decidim_participatory_space_id",
+             foreign_type: "decidim_participatory_space_type",
+             dependent: :destroy,
+             as: :participatory_space
 
       # has_one_attached :hero_image
       # validates_upload :hero_image, uploader: Decidim::HeroImageUploader
@@ -87,10 +92,6 @@ module Decidim
 
       def has_subscopes?
         false
-      end
-
-      def categories
-        []
       end
 
       # private
