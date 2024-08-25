@@ -12,7 +12,7 @@ module Decidim
 
         def index
           enforce_permission_to :read, :feed_list
-          @feeds = Feed.all
+          @feeds = collection
         end
 
         def new
