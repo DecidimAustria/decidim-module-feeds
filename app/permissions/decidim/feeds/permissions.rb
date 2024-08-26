@@ -28,6 +28,11 @@ module Decidim
             when :read
               allow! if user.present?
             end
+        when :component
+          case permission_action.action
+            when :read
+              allow! if user.present?
+            end
         end
 
         permission_action
