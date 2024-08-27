@@ -8,7 +8,7 @@ module Decidim
       include Decidim::TranslatableResource
       include Decidim::Loggable
       include Decidim::Traceable
-      # include Decidim::Searchable
+      include Decidim::Searchable
       # include Decidim::HasAttachments
       # include Decidim::HasAttachmentCollections
       # include Decidim::Publicable
