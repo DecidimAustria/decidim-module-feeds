@@ -41,17 +41,18 @@ module Decidim
       validates :slug, uniqueness: { scope: :organization }
       validates :slug, presence: true, format: { with: Decidim::Feeds::Feed.slug_format }
 
-      # searchable_fields({
-      #                     scope_id: :decidim_scope_id,
-      #                     participatory_space: :itself,
-      #                     A: :title,
-      #                     B: :subtitle,
-      #                     C: :short_description,
-      #                     D: :description,
-      #                     datetime: :published_at
-      #                   },
-      #                   index_on_create: ->(_feed) { false },
-      #                   index_on_update: ->(feed) { feed.visible? })
+      searchable_fields({
+                          # scope_id: :decidim_scope_id,
+                          participatory_space: :itself,
+                          A: :title,
+                          # B: :subtitle,
+                          # C: :short_description,
+                          # D: :description,
+                          datetime: :created_at
+                        },
+                        index_on_create: true,
+                        index_on_update: true
+      )
 
       # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
       # def self.public_spaces
