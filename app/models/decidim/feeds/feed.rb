@@ -62,6 +62,11 @@ module Decidim
         Decidim::Feeds::AdminLog::FeedPresenter
       end
 
+      # This is required by participable, but Feed is not publicable
+      def self.published
+        all
+      end
+
       # def hashtag
       #   attributes["hashtag"].to_s.delete("#")
       # end
