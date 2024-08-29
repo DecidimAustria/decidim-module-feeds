@@ -89,7 +89,7 @@ module Decidim
       end
 
       def followers
-        []
+        Decidim::User.none
       end
 
       def private_space?
