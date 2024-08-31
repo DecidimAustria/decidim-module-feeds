@@ -10,40 +10,6 @@ de:
       content_blocks:
         feeds:
           name: Feed
-      posts:
-        hv:
-          status:
-            confirm: JA
-            cancel: Abbrechen
-            processing: In Bearbeitung
-            done: Erledigt
-            dialogBodyMsg: Der Status der Meldung wird geändert und die Kommentarfunktion geschlossen
-            dialogBodyResponse: Bitte warten, der Beitragsstatus wird geändert...
-        create:
-          success: Beitrag erfolgreich erstellt
-          invalid: Erstellen des Beitrags fehlgeschlagen
-        update:
-          success: Beitrag erfolgreich aktualisiert
-          invalid: Aktualisieren des Beitrags fehlgeschlagen
-        destroy:
-          success: Beitrag erfolgreich gelöscht
-          invalid: Löschen des Beitrags fehlgeschlagen
-        form:
-          question_too_short: Die Frage ist zu kurz
-        meeting_form:
-          address_help: 'Adresse: wird von Geocoder zur Lokalisierung verwendet'
-          available_slots_help: Belassen Sie es auf 0, wenn Sie unbegrenzte Plätze zur Verfügung haben
-          create_as: Besprechung erstellen als
-          disclaimer: 'Haftungsausschluss: Durch Verwendung eines externen Registrierungsdienstes ist Ihnen bewusst, dass die Organisatoren von %{organization} nicht für die Daten verantwortlich sind, welche die Benutzenden dem externen Dienst zur Verfügung stellen.'
-          iframe_embed_type_html: 'Folgende Dienste erlauben das Einbetten einer Veranstaltung oder eines Livestreams: %{domains}'
-          location_help: 'Ort: an die Benutzer gerichtete Nachricht mit dem Treffpunkt'
-          location_hints_help: 'Standorthinweise: Zusätzliche Informationen. Beispiel: die Etage des Gebäudes, wenn es sich um eine persönliche Sitzung oder das Sitzungspasswort, wenn es sich um ein Online-Meeting mit eingeschränktem Zugriff handelt.'
-          online_meeting_url_help: 'Link: Erlaubt Teilnehmern, sich direkt mit Ihrem Meeting zu verbinden'
-          registration_url_help: 'Link: Erlaubt den Teilnehmern den externen Service zu nutzen, den Sie für die Registrierung verwenden'
-          select_a_category: Bitte wählen sie eine Kategorie
-          select_a_meeting_type: Bitte eine Meeting-Art auswählen
-          select_a_registration_type: Bitte wählen Sie eine Registrierungsart aus
-          select_an_iframe_access_level: Bitte wählen Sie eine iFrame-Zugriffsebene aus
       survey:
         participated: "%{count} Antworten"
     shared:
