@@ -1,0 +1,49 @@
+---
+tr:
+  decidim:
+    feeds:
+      admin:
+        feeds:
+          form:
+            title: Başlık
+            slug_help_html: "URL slugları, bu feed'e işaret eden URL'leri oluşturmak için kullanılır. Sadece harfler, rakamlar ve tireler kabul edilir ve bir harfle başlamalıdır. Örnek: %{url}"
+      content_blocks:
+        feeds:
+          name: Feed
+      survey:
+        participated: "%{count} yanıt"
+    shared:
+      flag_modal:
+        report: Rapor Et
+    admin:
+      feeds:
+        new:
+          title: Yeni Feed
+          create: Feed Oluştur
+        create:
+          success: Feed başarıyla oluşturuldu
+          invalid: Feed oluşturma başarısız oldu
+          error: Feed oluşturma başarısız oldu
+        edit:
+          title: Feed'i Düzenle
+          update: Feed'i Güncelle
+        update:
+          success: Feed başarıyla güncellendi
+          invalid: Feed güncelleme başarısız oldu
+      menu:
+        feeds: Feedler
+        feeds_submenu:
+          components: Bileşenler
+          info: Bu feed hakkında
+          moderations: Moderasyonlar
+          see_feed: Feed'i Görüntüle
+      titles:
+        feeds: Feedler
+      actions:
+        new_feed: Yeni Feed
+      models:
+        feed:
+          fields:
+            title: Başlık
+            created_at: Oluşturulma Tarihi
+            actions: Eylemler

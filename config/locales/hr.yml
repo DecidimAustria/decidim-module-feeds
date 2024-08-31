@@ -1,0 +1,49 @@
+---
+hr:
+  decidim:
+    feeds:
+      admin:
+        feeds:
+          form:
+            title: Naslov
+            slug_help_html: 'URL slugovi se koriste za generiranje URL-ova koji upućuju na ovaj feed. Prihvaća samo slova, brojeve i crtice, i mora početi slovom. Primjer: %{url}'
+      content_blocks:
+        feeds:
+          name: Feed
+      survey:
+        participated: "%{count} odgovora"
+    shared:
+      flag_modal:
+        report: Prijavi
+    admin:
+      feeds:
+        new:
+          title: Novi Feed
+          create: Kreiraj Feed
+        create:
+          success: Feed uspješno kreiran
+          invalid: Kreiranje feeda nije uspjelo
+          error: Kreiranje feeda nije uspjelo
+        edit:
+          title: Uredi Feed
+          update: Ažuriraj Feed
+        update:
+          success: Feed uspješno ažuriran
+          invalid: Ažuriranje feeda nije uspjelo
+      menu:
+        feeds: Feedovi
+        feeds_submenu:
+          components: Komponente
+          info: O ovom feedu
+          moderations: Moderacije
+          see_feed: Pogledaj feed
+      titles:
+        feeds: Feedovi
+      actions:
+        new_feed: Novi Feed
+      models:
+        feed:
+          fields:
+            title: Naslov
+            created_at: Kreirano
+            actions: Akcije
