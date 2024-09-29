@@ -22,6 +22,8 @@ module Decidim
 
         def create
           enforce_permission_to :create, :feed
+
+          params[:created_by] = current_user
           @form = form(FeedForm).from_params(params)
 
           CreateFeed.call(@form) do

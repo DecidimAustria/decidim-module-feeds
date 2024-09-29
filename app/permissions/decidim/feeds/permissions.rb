@@ -12,11 +12,11 @@ module Decidim
             when :read
               allow! if user.present?
             when :create
-              allow! if user.admin?
+              allow! if user.present? # TODO: maybe add a max number of feeds per user
             when :update
-              allow! if user.admin?
+              allow! if can_update?
             when :list
-              allow! if user.admin?
+              allow! if user.present?
             end
         when :feed_list
           case permission_action.action
@@ -42,6 +42,11 @@ module Decidim
 
       def can_access?
         user.present?
+      end
+
+      def can_update?
+        # TODO: allow feed admins to update
+        user.admin? || user == resource.created_by
       end
     end
   end

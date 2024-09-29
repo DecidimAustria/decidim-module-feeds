@@ -2,6 +2,26 @@
 tr:
   decidim:
     feeds:
+      feeds:
+        index:
+          new_feed: Yeni Feed
+        show:
+          show_posts: Gönderileri Göster
+          edit: Düzenle
+          posts_component_not_found: Gönderi bileşeni bulunamadı
+        new:
+          title: Yeni Feed
+          create: Feed Oluştur
+        edit:
+          update: Feed'i Güncelle
+        form:
+          title: Başlık
+        create:
+          error: Feed oluşturma başarısız oldu
+          success: Feed başarıyla oluşturuldu
+        update:
+          success: Feed başarıyla güncellendi
+          error: Feed güncelleme başarısız oldu
       admin:
         feeds:
           form:

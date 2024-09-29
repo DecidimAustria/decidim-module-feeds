@@ -2,6 +2,26 @@
 de:
   decidim:
     feeds:
+      feeds:
+        index:
+          new_feed: Neuer Feed
+        show:
+          show_posts: Beiträge anzeigen
+          edit: Bearbeiten
+          posts_component_not_found: Beitragskomponente nicht gefunden
+        new:
+          title: Neuer Feed
+          create: Feed erstellen
+        edit:
+          update: Feed aktualisieren
+        form:
+          title: Titel
+        create:
+          error: Feed-Erstellung fehlgeschlagen
+          success: Feed erfolgreich erstellt
+        update:
+          success: Feed erfolgreich aktualisiert
+          error: Feed-Aktualisierung fehlgeschlagen
       admin:
         feeds:
           form:

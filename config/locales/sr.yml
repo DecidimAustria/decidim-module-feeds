@@ -2,6 +2,26 @@
 sr:
   decidim:
     feeds:
+      feeds:
+        index:
+          new_feed: Novi Feed
+        show:
+          show_posts: Prikazi postove
+          edit: Uredi
+          posts_component_not_found: Postovi nisu pronađeni
+        new:
+          title: Novi Feed
+          create: Kreiraj Feed
+        edit:
+          update: Ažuriraj Feed
+        form:
+          title: Naslov
+        create:
+          error: Kreiranje feeda nije uspelo
+          success: Feed uspešno kreiran
+        update:
+          success: Feed uspešno ažuriran
+          error: Ažuriranje feeda nije uspelo
       admin:
         feeds:
           form:

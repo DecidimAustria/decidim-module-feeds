@@ -2,6 +2,26 @@
 it:
   decidim:
     feeds:
+      feeds:
+        index:
+          new_feed: Nuovo feed
+        show:
+          show_posts: Mostra post
+          edit: Modifica
+          posts_component_not_found: Componente post non trovato
+        new:
+          title: Nuovo feed
+          create: Crea feed
+        edit:
+          update: Aggiorna feed
+        form:
+          title: Titolo
+        create:
+          error: Creazione del feed fallita
+          success: Feed creato con successo
+        update:
+          success: Feed aggiornato con successo
+          error: Aggiornamento del feed fallito
       admin:
         feeds:
           form:

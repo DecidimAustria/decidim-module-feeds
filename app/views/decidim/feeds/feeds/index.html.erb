@@ -1,0 +1,5 @@
+<% @feeds.each do |feed| %>
+  <%= link_to translated_attribute(feed.title), feed %>
+<% end %>
+
+<%= link_to t(".new_feed"), new_feed_path %>

@@ -12,17 +12,19 @@ module Decidim
     # This is the engine that runs on the public interface of feeds.
     class Engine < ::Rails::Engine
       routes do
+        # redirect feed id to feed slug
         get "feeds/:feed_id", to: redirect { |params, _request|
           feed = Decidim::Feeds::Feed.find(params[:feed_id])
           feed ? "/feeds/#{feed.slug}" : "/404"
         }, constraints: { feed_id: /[0-9]+/ }
 
+        # redirect feed id to feed slug
         get "/feeds/:feed_id/f/:component_id", to: redirect { |params, _request|
           feed = Decidim::Feeds::Feed.find(params[:feed_id])
           feed ? "/feeds/#{feed.slug}/f/#{params[:component_id]}" : "/404"
         }, constraints: { feed_id: /[0-9]+/ }
 
-        resources :feeds, only: [:index, :show], param: :slug, path: "feeds" do
+        resources :feeds, only: [:index, :show, :new, :create, :edit, :update], param: :slug, path: "feeds" do
           resources :feed_members, only: :index, path: "members"
         end
 

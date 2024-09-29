@@ -1,0 +1,10 @@
+<div>
+  <%= decidim_form_for(@form, html: { class: "form form-defaults edit_feed feed_form_admin" }) do |f| %>
+    <%= render partial: "form", object: f %>
+    <div class="item__edit-sticky">
+      <div class="item__edit-sticky-container">
+        <%= f.submit t("feeds.edit.update", scope: "decidim.feeds"), class: "button button__sm button__secondary" %>
+      </div>
+    </div>
+  <% end %>
+</div>

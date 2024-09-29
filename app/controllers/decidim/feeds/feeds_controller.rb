@@ -6,6 +6,7 @@ module Decidim
     class FeedsController < Decidim::Feeds::ApplicationController
       include ParticipatorySpaceContext
       include FeedBreadcrumb
+      include FormFactory
 
       participatory_space_layout only: :show
 
@@ -18,40 +19,84 @@ module Decidim
       def index
         enforce_permission_to :list, :feed
 
-        respond_to do |format|
-          format.html do
-            raise ActionController::RoutingError, "Not Found" if published_feeds.none?
-
-            render "index"
-          end
-
-          format.js do
-            raise ActionController::RoutingError, "Not Found" if published_feeds.none?
-
-            render "index"
-          end
-
-          format.json do
-            render json: published_feeds.query.includes(:children).where(parent: nil).collect { |feed|
-              {
-                name: feed.title[I18n.locale.to_s],
-                children: feed.children.collect do |child|
-                  {
-                    name: child.title[I18n.locale.to_s],
-                    children: child.children.collect { |child_of_child| { name: child_of_child.title[I18n.locale.to_s] } }
-                  }
-                end
-              }
-            }
-          end
-        end
+        @feeds = published_feeds.query
       end
 
       def show
         enforce_permission_to :read, :feed, feed: current_participatory_space
+
+        @posts_component = current_feed.components.find_by(manifest_name: "posts")
+
+        if @posts_component.nil?
+          flash[:alert] = I18n.t("feeds.posts_component_not_found", scope: "decidim.feeds")
+          redirect_to feeds_path
+        end
+
+        # redirect_to decidim_feed_posts_path(current_participatory_space, posts_component) if posts_component
+      end
+
+      def new
+        enforce_permission_to :create, :feed
+
+        @form = form(FeedForm).instance
+      end
+
+      def create
+        enforce_permission_to :create, :feed
+
+        @form = form(FeedForm).from_params(params)
+
+        CreateFeed.call(@form) do
+          on(:ok) do |feed|
+            flash[:notice] = I18n.t("feeds.create.success", scope: "decidim.feeds")
+            redirect_to feeds_path
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("feeds.create.error", scope: "decidim.feeds")
+            render :new
+          end
+        end
+      end
+
+      def edit
+        enforce_permission_to :update, :feed, feed: current_feed
+
+        @form = form(FeedForm).from_model(current_feed)
+      end
+
+      def update
+        enforce_permission_to :update, :feed, feed: current_feed
+
+        @form = form(FeedForm).from_params(
+          feed_params,
+          feed_id: current_feed.id
+        )
+
+        UpdateFeed.call(current_feed, @form) do
+          on(:ok) do |feed|
+            flash[:notice] = I18n.t("feeds.update.success", scope: "decidim.feeds")
+            redirect_to feed
+          end
+
+          on(:invalid) do
+            flash.now[:alert] = I18n.t("feeds.update.error", scope: "decidim.feeds")
+            render :edit
+          end
+        end
       end
 
       private
+
+      def collection
+        @collection ||= OrganizationFeeds.new(current_user.organization).query
+      end
+
+      def current_feed
+        @current_feed ||= collection.where(slug: params[:slug]).or(
+          collection.where(id: params[:slug])
+        ).first
+      end
 
       def search_collection
         Feed.where(organization: current_organization)
@@ -74,20 +119,19 @@ module Decidim
       end
 
       def published_feeds
-        @published_feeds ||= OrganizationFeeds.new(current_organization, current_user)
+        @published_feeds ||= OrganizationFeeds.new(current_organization)
       end
 
       # def collection
       #   @collection ||= paginate(Kaminari.paginate_array(parent_feeds))
       # end
 
-      # def stats
-      #   @stats ||= FeedStatsPresenter.new(feed: current_participatory_space)
-      # end
-
-      # def feed_participatory_processes
-      #   @feed_participatory_processes ||= @current_participatory_space.linked_participatory_space_resources(:participatory_processes, "included_participatory_processes")
-      # end
+      def feed_params
+        # only allow title to be updated
+        title_params = current_organization.available_locales.map { |locale| "title_#{locale}" }
+        permitted_params = params.require(:feed).permit(title_params)
+        { id: params[:slug] }.merge(permitted_params)
+      end
     end
   end
 end
