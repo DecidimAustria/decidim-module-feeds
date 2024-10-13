@@ -24,6 +24,9 @@ tr:
           error: Feed güncelleme başarısız oldu
       admin:
         feeds:
+          index:
+            new_info_page_info: "Feeds UI için \"info\" URL slug'ına sahip bir sayfaya ihtiyacınız var"
+            new_info_page_button: Yeni bilgi sayfası oluştur
           form:
             title: Başlık
             slug_help_html: "URL slugları, bu feed'e işaret eden URL'leri oluşturmak için kullanılır. Sadece harfler, rakamlar ve tireler kabul edilir ve bir harfle başlamalıdır. Örnek: %{url}"

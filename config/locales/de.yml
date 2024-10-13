@@ -24,6 +24,9 @@ de:
           error: Feed-Aktualisierung fehlgeschlagen
       admin:
         feeds:
+          index:
+            new_info_page_info: "Für die Feeds UI benötigen sie eine Seite mit dem URL Slug \"info\""
+            new_info_page_button: Neue Info-Seite erstellen
           form:
             title: Titel
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Feed verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'

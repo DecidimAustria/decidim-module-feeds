@@ -24,6 +24,9 @@ sr:
           error: Ažuriranje feeda nije uspelo
       admin:
         feeds:
+          index:
+            new_info_page_info: "Za Feeds UI, potrebna vam je stranica s URL slugom \"info\""
+            new_info_page_button: Kreiraj novu info stranicu
           form:
             title: Naslov
             slug_help_html: 'URL slugovi se koriste za generisanje URL-ova koji upućuju na ovaj feed. Prihvata samo slova, brojeve i crtice, i mora početi slovom. Primer: %{url}'

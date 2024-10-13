@@ -24,6 +24,9 @@ en:
           error: Feed update failed
       admin:
         feeds:
+          index:
+            new_info_page_info: "For the Feeds UI, you need a page with the URL slug \"info\""
+            new_info_page_button: Create new info page
           form:
             title: Title
             slug_help_html: 'URL slugs are used to generate the URLs that point to this feed. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'

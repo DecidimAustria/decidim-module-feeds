@@ -24,6 +24,9 @@ it:
           error: Aggiornamento del feed fallito
       admin:
         feeds:
+          index:
+            new_info_page_info: "Per l'interfaccia utente dei feed, è necessaria una pagina con lo slug URL \"info\""
+            new_info_page_button: Crea nuova pagina di informazioni
           form:
             title: Titolo
             slug_help_html: 'Gli URL slugs vengono utilizzati per generare gli URL che puntano a questa feed. Accetta solo lettere, numeri e trattini e deve iniziare con una lettera. Esempio: %{url}'

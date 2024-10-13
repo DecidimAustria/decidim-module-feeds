@@ -1,6 +1,13 @@
 <% add_decidim_page_title(t("feeds", scope: "decidim.admin.titles")) %>
-<div class="card" id="feeds">
 
+<% if defined?(Decidim::FeedsUi) && Decidim::StaticPage.find_by(slug: "info").blank? %>
+  <%= cell("decidim/announcement", t(".new_info_page_info"), callout_class: "warning") %>
+  <div class="mb-8">
+    <%= link_to t(".new_info_page_button"), decidim_admin.new_static_page_path, class: "text-xl button button__sm button__text-secondary" %>
+  </div>
+<% end %>
+
+<div class="card" id="feeds">
   <div class="table-scroll">
     <table class="table-list">
       <thead>
