@@ -30,6 +30,9 @@ tr:
           form:
             title: Başlık
             slug_help_html: "URL slugları, bu feed'e işaret eden URL'leri oluşturmak için kullanılır. Sadece harfler, rakamlar ve tireler kabul edilir ve bir harfle başlamalıdır. Örnek: %{url}"
+            sponsor_logos: Sponsor Logoları
+            add_sponsor_logo: Sponsor Logosu Ekle
+            replace_sponsor_logo: Sponsor Logosunu Değiştir
       content_blocks:
         feeds:
           name: Feed

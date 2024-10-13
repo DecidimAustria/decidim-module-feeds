@@ -8,6 +8,7 @@ module Decidim
       #
       class FeedForm < Form
         include TranslatableAttributes
+        include AttachmentAttributes
 
         mimic :feed
 
@@ -15,7 +16,7 @@ module Decidim
 
         attribute :created_by, String
         attribute :slug, String
-        
+        attribute :attachment, AttachmentForm
         # attribute :participatory_processes_ids, Array[Integer]
         # attribute :included_at, Decidim::Attributes::LocalizedDate
 
@@ -23,6 +24,8 @@ module Decidim
         # attribute :hero_image
         # attribute :remove_banner_image, Boolean, default: false
         # attribute :remove_hero_image, Boolean, default: false
+
+        attachments_attribute :documents
 
         validates :slug, presence: true, format: { with: Decidim::Feeds::Feed.slug_format }
 
@@ -38,6 +41,12 @@ module Decidim
 
         alias organization current_organization
 
+        def map_model(model)
+          self.title = model.title # translated_attribute(model.title)
+          self.slug = model.slug
+          self.documents = model.attachments
+        end
+
         # def created_by_for_select
         #   CREATED_BY.map do |creator|
         #     [
@@ -52,6 +61,14 @@ module Decidim
         #                                 &.map { |pp| [translated_attribute(pp.title), pp.id] }
         #                                 &.sort_by { |arr| arr[0] }
         # end
+
+        def has_attachments?
+          feed.has_attachments? && errors[:documents].empty? && documents.present?
+        end
+  
+        def has_error_in_attachments?
+          errors[:documents].present?
+        end
 
         private
 

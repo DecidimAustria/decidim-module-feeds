@@ -30,6 +30,9 @@ de:
           form:
             title: Titel
             slug_help_html: 'URL-Slugs werden zum Generieren der URLs verwendet, die auf diesen Feed verweisen. Akzeptiert werden nur Buchstaben, Zahlen und Bindestriche und es muss mit einem Buchstaben beginnen. Beispiel: %{url}'
+            sponsor_logos: Sponsor-Logos
+            add_sponsor_logo: Sponsor-Logo hinzufügen
+            replace_sponsor_logo: Sponsor-Logo ersetzen
       content_blocks:
         feeds:
           name: Feed

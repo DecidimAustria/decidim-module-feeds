@@ -30,6 +30,9 @@ bs:
           form:
             title: Naslov
             slug_help_html: 'URL slugovi se koriste za generisanje URL-ova koji upućuju na ovaj feed. Prihvata samo slova, brojeve i crtice, i mora početi slovom. Primjer: %{url}'
+            sponsor_logos: Sponsor Logos
+            add_sponsor_logo: Dodaj Sponsor Logo
+            replace_sponsor_logo: Zamijeni Sponsor Logo
       content_blocks:
         feeds:
           name: Feed

@@ -30,6 +30,9 @@ en:
           form:
             title: Title
             slug_help_html: 'URL slugs are used to generate the URLs that point to this feed. Only accepts letters, numbers and dashes, and must start with a letter. Example: %{url}'
+            sponsor_logos: Sponsor Logos
+            add_sponsor_logo: Add Sponsor Logo
+            replace_sponsor_logo: Replace Sponsor Logo
       content_blocks:
         feeds:
           name: Feed

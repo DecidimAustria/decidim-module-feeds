@@ -6,6 +6,8 @@ module Decidim
       # A command with all the business logic when creating a new participatory
       # feed in the system.
       class CreateFeed < Decidim::Command
+        include ::Decidim::MultipleAttachmentsMethods
+
         # Public: Initializes the command.
         #
         # form - A form object with the params.
@@ -21,6 +23,11 @@ module Decidim
         # Returns nothing.
         def call
           return broadcast(:invalid) if form.invalid?
+
+          if process_attachments?
+            build_attachments
+            return broadcast(:invalid) if attachments_invalid?
+          end
 
           if feed.persisted?
             # link_participatory_processes(feed)
@@ -47,6 +54,8 @@ module Decidim
             slug: form.slug,
             created_by: form.created_by
           )
+          @attached_to = @feed
+          @feed
         end
 
         # def add_admins_as_followers(feed)
@@ -69,6 +78,12 @@ module Decidim
         # def link_participatory_processes(feed)
         #   feed.link_participatory_space_resources(participatory_processes(feed), "included_participatory_processes")
         # end
+
+        def first_attachment_weight
+          return 1 if feed.documents.count.zero?
+
+          feed.documents.count
+        end
       end
     end
   end

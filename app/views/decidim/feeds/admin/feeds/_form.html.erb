@@ -22,4 +22,45 @@
     </div>
   </div>
 
+  <div class="card" data-component="accordion" id="accordion-sponsor_logos">
+    <div class="card-divider">
+      <button class="card-divider-button" data-open="true" data-controls="panel-sponsor_logos" type="button">
+        <%= icon "arrow-right-s-line" %>
+        <h2 class="card-title" id="sponsor_logos">
+          <%= t("sponsor_logos", scope: "decidim.feeds.admin.feeds.form") %>
+        </h2>
+      </button>
+    </div>
+
+    <div id="panel-sponsor_logos" class="card-section">
+      <div class="row column">
+        <div class="">
+          <%= form.upload :documents,
+                          titled: true,
+                          label: false,
+                          button_label: t("add_sponsor_logo", scope: "decidim.feeds.admin.feeds.form"),
+                          button_edit_label: I18n.t("replace_sponsor_logo", scope: "decidim.feeds.admin.feeds.form"),
+                          multiple: true,
+                          # modal_only: false,
+                          # show_current: true,
+                          #label: false,
+                          # id: field_id,
+                          # disabled:,
+                          # attribute:,
+                          # resource_name: @object_name,
+                          # resource_class: options[:resource_class]&.to_s || resource_class(attribute),
+                          # show_current: true,
+                          # max_file_size:,
+                          # help: help_messages,
+                          # label: label_for(attribute),
+                          # button_label:,
+                          # button_edit_label: I18n.t("decidim.forms.upload.labels.replace"),
+                          button_class: "button button__sm button__transparent-primary w-full",
+                          required: false %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <%#= append_javascript_pack_tag "decidim_feeds_admin" %>
