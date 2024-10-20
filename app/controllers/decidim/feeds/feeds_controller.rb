@@ -28,7 +28,7 @@ module Decidim
         @posts_component = current_feed.components.find_by(manifest_name: "posts")
 
         if @posts_component.nil?
-          flash[:alert] = I18n.t("feeds.posts_component_not_found", scope: "decidim.feeds")
+          flash[:alert] = I18n.t("feeds.show.posts_component_not_found", scope: "decidim.feeds")
           redirect_to feeds_path
         end
 
