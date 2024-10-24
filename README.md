@@ -13,13 +13,15 @@ Feeds will be available as a Participatory Space.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-feeds_space"
+gem "decidim-feeds", git: "https://github.com/DecidimAustria/decidim-module-feeds.git", branch: "main"
 ```
 
 And then execute:
 
 ```bash
 bundle
+bundle exec rails decidim_feeds:install:migrations
+bundle exec rails db:migrate
 ```
 
 ## Contributing
