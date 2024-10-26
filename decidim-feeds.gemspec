@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
 
   s.files = Dir["{app,config,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
-  s.add_dependency "decidim-core", Decidim::Posts::COMPAT_DECIDIM_VERSION
+  s.add_dependency "decidim-core", Decidim::Feeds::COMPAT_DECIDIM_VERSION
 end
