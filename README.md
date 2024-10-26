@@ -1,19 +1,21 @@
-# Decidim::Feeds participatory space (under development)
+# Decidim::Feeds participatory space
 
 This Feeds module adds a simple Feeds Participatory Space to hold a feed component.
 
-**The module is currently in development and not yet ready.**
-
 ## Usage
 
-Feeds will be available as a Participatory Space.
+Feeds will be available as a Participatory Space. This space is very simple and currently just a container for posts.
+
+Find more information about posts in the README of the [posts module](https://github.com/DecidimAustria/decidim-module-posts)
+
+It is planned to allow users to create groups for their posts and the groups will be implemented as individual feeds. So users should be able to create new feeds including a posts and meetings component. This is currently partly implemented but not finished.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-feeds", git: "https://github.com/DecidimAustria/decidim-module-feeds.git", branch: "main"
+gem "decidim-feeds"
 ```
 
 And then execute:
