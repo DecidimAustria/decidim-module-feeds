@@ -3,8 +3,7 @@
 module Decidim
   # This holds the decidim-meetings version.
   module Feeds
-    def self.version
-      "0.28.1"
-    end
+    VERSION = "1.0.0"
+    COMPAT_DECIDIM_VERSION = [">= 0.28.0", "< 0.29"].freeze
   end
 end
