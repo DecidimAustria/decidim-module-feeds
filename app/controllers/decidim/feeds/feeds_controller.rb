@@ -5,7 +5,7 @@ module Decidim
     # A controller that holds the logic to show Feeds in a public layout.
     class FeedsController < Decidim::Feeds::ApplicationController
       include ParticipatorySpaceContext
-      include FeedBreadcrumb
+      # include FeedBreadcrumb
       include FormFactory
 
       participatory_space_layout only: :show
