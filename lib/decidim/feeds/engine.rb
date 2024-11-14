@@ -76,6 +76,8 @@ module Decidim
         Decidim.icons.register(name: "translate", icon: "translate", category: "editor", description: "", engine: :feeds)
         Decidim.icons.register(name: "file-2-line", icon: "file-2-line", category: "editor", description: "", engine: :feeds)
         Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :feeds)
+        Decidim.icons.register(name: "settings-3-line", icon: "settings-3-line", description: "", category: "action", engine: :feeds)
+        Decidim.icons.register(name: "add-circle-line", icon: "add-circle-line", description: "", category: "action", engine: :feeds)
       end
 
     end

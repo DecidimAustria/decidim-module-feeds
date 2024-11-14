@@ -1,0 +1,27 @@
+<div id="feeds_popup" class="feeds_popup flex gap-2">
+  <div class="flex flex-col">
+    <ul class="flex flex-col gap-2">
+      <li>
+        <%= link_to decidim_feeds.feeds_path, class:'flex flex-col items-center gap-2' do %>
+          <%= icon "group-2-line" %>
+          <span><%= t("decidim.components.feeds_ui.mainMenu.home") %></span>
+        <% end %>
+      </li>
+      <li class="flex flex-col items-center gap-2">
+        <%= link_to decidim_admin.root_path, class:'flex flex-col items-center gap-2' do %>
+          <%= icon "add-circle-line" %>
+          <span><%= t("decidim.feeds.feeds.index.new_feed") %></span>
+        <% end %>
+      </li>
+      <li class="flex flex-col items-center gap-2">
+        <%= link_to "/pages/groups", class:'flex flex-col items-center gap-2' do %>
+          <%= icon "settings-3-line" %>
+          <span><%= t("decidim.feeds.feeds.show.edit") %></span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+  <div class="flex flex-col">
+    MEINE GRUPPEN
+  </div>
+</div>
