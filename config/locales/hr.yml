@@ -3,8 +3,18 @@ hr:
   decidim:
     feeds:
       feeds:
+        nav:
+          back: Nazad
+        menu:
+          all: Sve
+          new: Novo
+          manage: Upravljaj
+          edit: Uredi
+          myGroups: Moje Grupe
         index:
           new_feed: Novi Feed
+          all_feeds: Svi Feedovi
+          my_feeds: Moji Feedovi
         show:
           show_posts: Prikazi postove
           edit: Uredi
@@ -25,7 +35,7 @@ hr:
       admin:
         feeds:
           index:
-            new_info_page_info: "Za Feeds UI, potrebna vam je stranica s URL slugom \"info\""
+            new_info_page_info: 'Za Feeds UI, potrebna vam je stranica s URL slugom "info"'
             new_info_page_button: Kreiraj novu info stranicu
           form:
             title: Naslov
@@ -37,7 +47,7 @@ hr:
         feeds:
           name: Feed
       survey:
-        participated: "%{count} odgovora"
+        participated: '%{count} odgovora'
     shared:
       flag_modal:
         report: Prijavi

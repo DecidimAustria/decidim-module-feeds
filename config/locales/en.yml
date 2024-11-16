@@ -3,8 +3,18 @@ en:
   decidim:
     feeds:
       feeds:
+        nav:
+          back: Back
+        menu:
+          all: All
+          new: New
+          manage: Manage
+          edit: Edit
+          myGroups: My Groups
         index:
           new_feed: New Feed
+          all_feeds: All Feeds
+          my_feeds: My Feeds
         show:
           show_posts: Show posts
           edit: Edit
@@ -25,7 +35,7 @@ en:
       admin:
         feeds:
           index:
-            new_info_page_info: "For the Feeds UI, you need a page with the URL slug \"info\""
+            new_info_page_info: 'For the Feeds UI, you need a page with the URL slug "info"'
             new_info_page_button: Create new info page
           form:
             title: Title
@@ -37,7 +47,7 @@ en:
         feeds:
           name: Feed
       survey:
-        participated: "%{count} responses"
+        participated: '%{count} responses'
     shared:
       flag_modal:
         report: Report

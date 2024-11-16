@@ -78,6 +78,7 @@ module Decidim
         Decidim.icons.register(name: "dislike", icon: "heart-fill", description: "Dislike", category: "action", engine: :feeds)
         Decidim.icons.register(name: "settings-3-line", icon: "settings-3-line", description: "", category: "action", engine: :feeds)
         Decidim.icons.register(name: "add-circle-line", icon: "add-circle-line", description: "", category: "action", engine: :feeds)
+        Decidim.icons.register(name: "arrow-left-circle-line", icon: "arrow-left-circle-line", description: "", category: "action", engine: :feeds)
       end
 
     end

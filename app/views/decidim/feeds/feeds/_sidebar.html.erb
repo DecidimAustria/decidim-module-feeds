@@ -1,0 +1,18 @@
+<aside class="!relative !top-0 !bottom-0 !right-0">
+  <nav>
+    <ul class="flex flex-col gap-4">
+      <li class="flex flex-col items-center gap-1">
+        <%= link_to decidim_feeds.new_feed_path, class:'flex flex-col items-center' do %>
+          <%= icon "add-circle-line", class: 'w-[24px] h-auto' %>
+          <span class="text-sm text-center"><%= t("decidim.feeds.feeds.index.new_feed") %></span>
+        <% end %>
+      </li>
+      <li class="flex flex-col items-center gap-1">
+        <%= link_to decidim_feeds.new_feed_path, class:'flex flex-col items-center' do %>
+          <%= icon "settings-3-line", class: 'w-[24px] h-auto' %>
+          <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.edit") %></span>
+        <% end %>
+      </li>
+    </ul>
+  </nav>    
+</aside>

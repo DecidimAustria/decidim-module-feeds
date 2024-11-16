@@ -1,27 +1,43 @@
-<div id="feeds_popup" class="feeds_popup flex gap-2">
-  <div class="flex flex-col">
-    <ul class="flex flex-col gap-2">
-      <li>
-        <%= link_to decidim_feeds.feeds_path, class:'flex flex-col items-center gap-2' do %>
-          <%= icon "group-2-line" %>
-          <span><%= t("decidim.components.feeds_ui.mainMenu.home") %></span>
-        <% end %>
-      </li>
-      <li class="flex flex-col items-center gap-2">
-        <%= link_to decidim_admin.root_path, class:'flex flex-col items-center gap-2' do %>
-          <%= icon "add-circle-line" %>
-          <span><%= t("decidim.feeds.feeds.index.new_feed") %></span>
-        <% end %>
-      </li>
-      <li class="flex flex-col items-center gap-2">
-        <%= link_to "/pages/groups", class:'flex flex-col items-center gap-2' do %>
-          <%= icon "settings-3-line" %>
-          <span><%= t("decidim.feeds.feeds.show.edit") %></span>
-        <% end %>
-      </li>
-    </ul>
+<% if controller.controller_name == 'feeds' %>
+<div id="feeds_popup" class="feeds_popup flex gap-2 fixed bottom-[5.5rem] left-4 z-[1000]">
+  <div class="flex flex-col rounded-2xl shadow px-2 py-4 bg-white">
+    <nav>
+      <ul class="flex flex-col gap-4 min-w-[80px]">
+        <li class="flex flex-col items-center gap-1">
+          <%= link_to decidim_feeds.feeds_path, class:'flex flex-col items-center' do %>
+            <%= icon "group-2-line", class: 'w-[24px] h-auto' %>
+            <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.all") %></span>
+          <% end %>
+        </li>
+        <li class="flex flex-col items-center gap-1">
+          <%= link_to decidim_feeds.new_feed_path, class:'flex flex-col items-center' do %>
+            <%= icon "add-circle-line", class: 'w-[24px] h-auto' %>
+            <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.new") %></span>
+          <% end %>
+        </li>
+        <li class="flex flex-col items-center gap-1">
+          <%= link_to decidim_feeds.new_feed_path, class:'flex flex-col items-center' do %>
+            <%= icon "settings-3-line", class: 'w-[24px] h-auto' %>
+            <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.manage") %></span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <div class="flex flex-col">
-    MEINE GRUPPEN
+  <div class="flex flex-col gap-2 rounded-2xl shadow px-2 py-4 bg-white">
+    <span class="text-sm font-bold text-center max-w-[80px]">
+      <%= t("decidim.feeds.feeds.menu.myGroups") %>
+    </span>
+    <nav>
+      <ul class="flex flex-col gap-4">
+        <li class="flex flex-col items-center gap-1">
+          <%= link_to '/', class:'flex flex-col items-center' do %>
+            <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+            <span class="text-sm text-center sr-only">NAME</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
   </div>
 </div>
+<% end %>

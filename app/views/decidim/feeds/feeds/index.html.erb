@@ -1,5 +1,21 @@
-<% @feeds.each do |feed| %>
-  <%= link_to translated_attribute(feed.title), feed %>
-<% end %>
-
-<%= link_to t(".new_feed"), new_feed_path %>
+<main class="feeds__main flex w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto p-4 lg:p-16 lg:flex-row lg:gap-4 lg:justify-between">
+  <div class="feeds__container grow min-h-[calc(100vh-72px)]">
+    <section>
+      <h1 class="text-xl font-bold mb-2 uppercase"><%= t("decidim.feeds.feeds.index.all_feeds") %></h1>
+      <ul class="flex gap-2 flex-wrap">
+        <% @feeds.each do |feed| %>
+          <li><%= link_to translated_attribute(feed.title), feed %></li>
+        <% end %>
+      </ul>
+    </section>
+    <section class="mt-6">
+      <h2 class="text-xl mb-2 uppercase"><%= t("decidim.feeds.feeds.index.my_feeds") %></h2>
+      <ul class="flex gap-2 flex-wrap">
+      <% @feeds.each do |feed| %>
+        <li><%= link_to translated_attribute(feed.title), feed %></li>
+      <% end %>
+      </ul>
+    </section>
+  </div>
+  <%= render partial: "decidim/feeds/feeds/sidebar" %>
+</main>

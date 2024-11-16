@@ -1,20 +1,25 @@
-<% add_decidim_page_title(t("feeds.new.title", scope: "decidim.feeds")) %>
-
-<div class="item_show__header">
-  <h1 class="item_show__header-title">
-    <%= t "feeds.new.title", scope: "decidim.feeds" %>
-  </h1>
-</div>
-
-<div class="item__edit item__edit-1col">
-  <div class="item__edit-form">
-    <%= decidim_form_for(@form, html: { class: "form-defaults form new_feed feed_form" }) do |f| %>
-      <%= render partial: "form", object: f %>
-      <div class="item__edit-sticky">
-        <div class="item__edit-sticky-container">
-          <%= f.submit t("feeds.new.create", scope: "decidim.feeds"), class: "button button__sm button__secondary" %>
-        </div>
-      </div>
+<main class="feeds__main w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto p-4 lg:p-16">
+  <% add_decidim_page_title(t("feeds.new.title", scope: "decidim.feeds")) %>
+  <div class="pt-2 pb-4">
+    <%= link_to decidim_feeds.feeds_path, class:'flex items-center gap-1' do %>
+      <%= icon "arrow-left-circle-line", class: 'w-[24px] h-auto' %>
+      <span class="text-sm text-center"><%= t("decidim.feeds.feeds.nav.back") %></span>
     <% end %>
   </div>
-</div>
+  <h1 class="text-xl font-bold mb-2 uppercase">
+    <%= t "feeds.new.title", scope: "decidim.feeds" %>
+  </h1>
+
+  <div class="item__edit item__edit-1col">
+    <div class="item__edit-form">
+      <%= decidim_form_for(@form, html: { class: "form-defaults form new_feed feed_form" }) do |f| %>
+        <%= render partial: "form", object: f %>
+        <div class="item__edit-sticky">
+          <div class="item__edit-sticky-container">
+            <%= f.submit t("feeds.new.create", scope: "decidim.feeds"), class: "button button__sm button__secondary" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</main>

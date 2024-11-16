@@ -3,8 +3,18 @@ tr:
   decidim:
     feeds:
       feeds:
+        nav:
+          back: Geri
+        menu:
+          all: Tümü
+          new: Yeni
+          manage: Yönet
+          edit: Düzenle
+          myGroups: Gruplarım
         index:
           new_feed: Yeni Feed
+          all_feeds: Tüm Feedler
+          my_feeds: Benim Feedlerim
         show:
           show_posts: Gönderileri Göster
           edit: Düzenle
@@ -25,7 +35,7 @@ tr:
       admin:
         feeds:
           index:
-            new_info_page_info: "Feeds UI için \"info\" URL slug'ına sahip bir sayfaya ihtiyacınız var"
+            new_info_page_info: 'Feeds UI için "info" URL slug''ına sahip bir sayfaya ihtiyacınız var'
             new_info_page_button: Yeni bilgi sayfası oluştur
           form:
             title: Başlık
@@ -37,7 +47,7 @@ tr:
         feeds:
           name: Feed
       survey:
-        participated: "%{count} yanıt"
+        participated: '%{count} yanıt'
     shared:
       flag_modal:
         report: Rapor Et
