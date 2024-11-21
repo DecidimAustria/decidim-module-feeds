@@ -3,7 +3,7 @@
     <div class="feeds__body flex-grow flex flex-wrap gap-4 items-start">
       <div class="card__grid-home w-full lg:grid-cols-8 xl:grid-cols-12 gap-6">
         <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
-          <h1 class="text-xl font-bold mb-2 uppercase"><%= t("decidim.feeds.feeds.index.all_feeds") %></h1>
+          <h1 class="text-xl mb-2 uppercase"><%= t("decidim.feeds.feeds.index.all_feeds") %></h1>
           <ul class="flex gap-2 flex-wrap">
             <% @feeds.each do |feed| %>
               <li>
@@ -16,7 +16,7 @@
           </ul>
         </div>
         <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
-          <h2 class="text-xl mb-2 uppercase"><%= t("decidim.feeds.feeds.index.my_feeds") %></h2>
+          <h2 class="text-xl font-bold mb-2 uppercase"><%= t("decidim.feeds.feeds.index.my_feeds") %></h2>
           <ul class="flex gap-2 flex-wrap">
             <% @feeds.each do |feed| %>
               <li>

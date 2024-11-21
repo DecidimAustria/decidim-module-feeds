@@ -13,18 +13,18 @@ de:
           edit: Bearbeiten
           myGroups: Meine Gruppen
         index:
-          new_feed: Neuer Feed
-          all_feeds: Alle Feeds
-          my_feeds: Meine Feeds
+          new_feed: Neue Gruppe
+          all_feeds: Alle Gruppen
+          my_feeds: Meine Gruppen
         show:
           show_posts: Beiträge anzeigen
           edit: Bearbeiten
           posts_component_not_found: Beitragskomponente nicht gefunden
         new:
-          title: Neuer Feed
-          create: Feed erstellen
+          title: Neue Gruppe
+          create: Gruppe erstellen
         edit:
-          update: Feed aktualisieren
+          update: Gruppe aktualisieren
         form:
           title: Titel
         create:
