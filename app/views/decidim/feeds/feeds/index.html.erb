@@ -1,21 +1,36 @@
 <main class="feeds__main flex w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto p-4 lg:p-16 lg:flex-row lg:gap-4 lg:justify-between">
   <div class="feeds__container grow min-h-[calc(100vh-72px)]">
-    <section>
-      <h1 class="text-xl font-bold mb-2 uppercase"><%= t("decidim.feeds.feeds.index.all_feeds") %></h1>
-      <ul class="flex gap-2 flex-wrap">
-        <% @feeds.each do |feed| %>
-          <li><%= link_to translated_attribute(feed.title), feed %></li>
-        <% end %>
-      </ul>
-    </section>
-    <section class="mt-6">
-      <h2 class="text-xl mb-2 uppercase"><%= t("decidim.feeds.feeds.index.my_feeds") %></h2>
-      <ul class="flex gap-2 flex-wrap">
-      <% @feeds.each do |feed| %>
-        <li><%= link_to translated_attribute(feed.title), feed %></li>
-      <% end %>
-      </ul>
-    </section>
+    <div class="feeds__body flex-grow flex flex-wrap gap-4 items-start">
+      <div class="card__grid-home w-full lg:grid-cols-8 xl:grid-cols-12 gap-6">
+        <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
+          <h1 class="text-xl font-bold mb-2 uppercase"><%= t("decidim.feeds.feeds.index.all_feeds") %></h1>
+          <ul class="flex gap-2 flex-wrap">
+            <% @feeds.each do |feed| %>
+              <li>
+                <%= link_to feed, class:'flex flex-col items-center' do %>
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                  <span class="text-sm text-center sr-only"><%=translated_attribute(feed.title)%></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+        <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
+          <h2 class="text-xl mb-2 uppercase"><%= t("decidim.feeds.feeds.index.my_feeds") %></h2>
+          <ul class="flex gap-2 flex-wrap">
+            <% @feeds.each do |feed| %>
+              <li>
+                <%= link_to feed, class:'flex flex-col items-center' do %>
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                  <span class="text-sm text-center sr-only"><%=translated_attribute(feed.title)%></span>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
   <%= render partial: "decidim/feeds/feeds/sidebar" %>
 </main>
+

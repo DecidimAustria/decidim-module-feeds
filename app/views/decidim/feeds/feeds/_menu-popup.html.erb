@@ -1,7 +1,6 @@
-<% if controller.controller_name == 'feeds' %>
-<div id="feeds_popup" class="feeds_popup flex gap-2 fixed bottom-[5.5rem] left-4 z-[1000]">
+<div id="feeds_popup" class="feeds_popup flex gap-2 fixed bottom-[5.5rem] left-4 z-[1000] hidden">
   <div class="flex flex-col rounded-2xl shadow px-2 py-4 bg-white">
-    <nav>
+    <nav aria-label="Gruppenverwaltung">
       <ul class="flex flex-col gap-4 min-w-[80px]">
         <li class="flex flex-col items-center gap-1">
           <%= link_to decidim_feeds.feeds_path, class:'flex flex-col items-center' do %>
@@ -28,7 +27,7 @@
     <span class="text-sm font-bold text-center max-w-[80px]">
       <%= t("decidim.feeds.feeds.menu.myGroups") %>
     </span>
-    <nav>
+    <nav aria-label="Meine Gruppen">
       <ul class="flex flex-col gap-4">
         <li class="flex flex-col items-center gap-1">
           <%= link_to '/', class:'flex flex-col items-center' do %>
@@ -40,4 +39,4 @@
     </nav>
   </div>
 </div>
-<% end %>
+<%= append_javascript_pack_tag "decidim_feeds" %>

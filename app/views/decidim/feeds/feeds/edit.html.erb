@@ -1,10 +1,27 @@
-<div>
-  <%= decidim_form_for(@form, html: { class: "form form-defaults edit_feed feed_form_admin" }) do |f| %>
-    <%= render partial: "form", object: f %>
-    <div class="item__edit-sticky">
-      <div class="item__edit-sticky-container">
-        <%= f.submit t("feeds.edit.update", scope: "decidim.feeds"), class: "button button__sm button__secondary" %>
+<main class="feeds__main w-full xl:max-w-screen-xl 2xl:max-w-screen-2xl mx-auto p-4 lg:p-16">
+  <div class="feeds__container grow min-h-[calc(100vh-72px)]">
+    <div class="feeds__body flex-grow flex flex-wrap gap-4 items-start">
+      <div class="card__grid-home w-full lg:grid-cols-8 xl:grid-cols-12 gap-6">
+        <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
+          <%= link_to decidim_feeds.feeds_path, class:'flex items-center gap-1' do %>
+            <%= icon "arrow-left-circle-line", class: 'w-[24px] h-auto' %>
+            <span class="text-sm text-center"><%= t("decidim.feeds.feeds.nav.back") %></span>
+          <% end %>
+        </div>
+        <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
+          <h1 class="text-xl font-bold mb-2 uppercase">
+            <%= t "feeds.edit.title", scope: "decidim.feeds" %>
+          </h1>
+          <%= decidim_form_for(@form, html: { class: "form form-defaults edit_feed feed_form_admin" }) do |f| %>
+            <%= render partial: "form", object: f %>
+            <div class="item__edit-sticky">
+              <div class="item__edit-sticky-container">
+                <%= f.submit t("feeds.edit.update", scope: "decidim.feeds"), class: "button button__sm button__secondary" %>
+              </div>
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
-  <% end %>
-</div>
+  </div>
+</main>
