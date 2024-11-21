@@ -6,6 +6,7 @@ en:
         nav:
           back: Back
         menu:
+          title: Groups Management
           all: All
           new: New
           manage: Manage

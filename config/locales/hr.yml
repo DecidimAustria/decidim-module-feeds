@@ -6,6 +6,7 @@ hr:
         nav:
           back: Nazad
         menu:
+          title: Upravljanje Feedovima
           all: Sve
           new: Novo
           manage: Upravljaj

@@ -6,6 +6,7 @@ it:
         nav:
           back: Indietro
         menu:
+          title: Gestione dei gruppi
           all: Tutti
           new: Nuovo
           manage: Gestisci

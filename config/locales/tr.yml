@@ -6,6 +6,7 @@ tr:
         nav:
           back: Geri
         menu:
+          title: Feed Yönetimi
           all: Tümü
           new: Yeni
           manage: Yönet
