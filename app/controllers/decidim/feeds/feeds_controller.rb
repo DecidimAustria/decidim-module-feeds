@@ -25,6 +25,8 @@ module Decidim
       def show
         enforce_permission_to :read, :feed, feed: current_participatory_space
 
+        @feed = current_feed
+
         @posts_component = current_feed.components.find_by(manifest_name: "posts")
 
         if @posts_component.nil?

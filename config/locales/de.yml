@@ -25,8 +25,11 @@ de:
           create: Gruppe erstellen
         edit:
           update: Gruppe aktualisieren
+          title: Gruppe bearbeiten
         form:
           title: Titel
+          add_logo: Logo hinzufügen
+          replace_logo: Logo ersetzen
         create:
           error: Feed-Erstellung fehlgeschlagen
           success: Feed erfolgreich erstellt

@@ -15,7 +15,7 @@
               <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
               <span class="text-xl font-bold uppercase">Gruppen Name</span>
             </h1>
-            <%= link_to decidim_feeds.new_feed_path, class:'flex flex-col items-center' do %>
+            <%= link_to decidim_feeds.edit_feed_path(@feed), class:'flex flex-col items-center' do %>
               <%= icon "settings-3-line", class: 'w-[24px] h-auto' %>
               <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.edit") %></span>
             <% end %>

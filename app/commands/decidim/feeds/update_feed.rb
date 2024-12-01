@@ -5,7 +5,7 @@ module Decidim
     # A command with all the business logic when creating a new participatory
     # feed in the system.
     class UpdateFeed < Decidim::Command
-      include ::Decidim::AttachmentAttributesMethods
+      include ::Decidim::MultipleAttachmentsMethods
 
       # Public: Initializes the command.
       #
@@ -14,6 +14,7 @@ module Decidim
       def initialize(feed, form)
         @feed = feed
         @form = form
+        @attached_to = feed
       end
 
       # Executes the command. Broadcasts these events:
@@ -25,8 +26,15 @@ module Decidim
       def call
         return broadcast(:invalid) if form.invalid?
 
+        if process_attachments?
+          build_attachments
+          return broadcast(:invalid) if attachments_invalid?
+        end
+
         update_feed
         # link_participatory_processes(@feed)
+        document_cleanup!(include_all_attachments: true)
+        create_attachments if process_attachments?
 
         if @feed.valid?
           broadcast(:ok, @feed)

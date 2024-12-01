@@ -8,7 +8,11 @@
             <% @feeds.each do |feed| %>
               <li>
                 <%= link_to feed, class:'flex flex-col items-center' do %>
-                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                  <% if feed.attachments.any? %>
+                    <%= image_tag feed.attachments.first.file.url, class: 'w-[48px] h-auto' %>
+                  <% else %>
+                    <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                  <% end %>
                   <span class="text-sm text-center sr-only"><%=translated_attribute(feed.title)%></span>
                 <% end %>
               </li>
@@ -33,4 +37,3 @@
   </div>
   <%= render partial: "decidim/feeds/feeds/sidebar" %>
 </main>
-

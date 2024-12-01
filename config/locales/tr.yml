@@ -25,8 +25,11 @@ tr:
           create: Feed Oluştur
         edit:
           update: Feed'i Güncelle
+          title: Feed'i Düzenle
         form:
           title: Başlık
+          add_logo: Logo Ekle
+          replace_logo: Logo Değiştir
         create:
           error: Feed oluşturma başarısız oldu
           success: Feed başarıyla oluşturuldu

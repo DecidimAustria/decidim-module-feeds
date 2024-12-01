@@ -25,8 +25,11 @@ it:
           create: Crea feed
         edit:
           update: Aggiorna feed
+          title: Modifica feed
         form:
           title: Titolo
+          add_logo: Aggiungi Logo
+          replace_logo: Sostituisci Logo
         create:
           error: Creazione del feed fallita
           success: Feed creato con successo
