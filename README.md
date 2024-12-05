@@ -1,7 +1,6 @@
 # Decidim::Feeds participatory space
 
-This Feeds module adds a simple Feeds Participatory Space to hold a feed component. Its development was funded by DIGIfonds Arbeiterkammer Wien.
-
+This Feeds module adds a simple Feeds Participatory Space to hold a feed component. 
 ## Usage
 
 Feeds will be available as a Participatory Space. This space is very simple and currently just a container for posts.
@@ -39,3 +38,7 @@ Security is very important to us. If you have any issue regarding security, plea
 ## License
 
 This engine is distributed under the GNU AFFERO GENERAL PUBLIC LICENSE.
+
+## FUNDING
+The development was funded by digifonds / Arbeiterkammer Wien: https://wien.arbeiterkammer.at/digifonds
+
