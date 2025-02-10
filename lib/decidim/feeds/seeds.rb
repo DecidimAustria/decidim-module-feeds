@@ -10,9 +10,9 @@ module Decidim
 
         feed = create_feed!
 
-        seed_components_manifests!(participatory_space: current_feed)
+        seed_components_manifests!(participatory_space: feed)
 
-        # Decidim::ContentBlocksCreator.new(current_feed).create_default!
+        # Decidim::ContentBlocksCreator.new(feed).create_default!
       end
 
       # def create_content_block!
