@@ -12,7 +12,7 @@ module Decidim
       include Decidim::HasAttachments
       # include Decidim::HasAttachmentCollections
       # include Decidim::Publicable
-      # include Decidim::ScopableParticipatorySpace
+      include Decidim::ScopableParticipatorySpace
       # include Decidim::Followable
       # include Decidim::HasReference
       # include Decidim::HasPrivateUsers
