@@ -36,6 +36,13 @@ en:
         update:
           success: Feed updated successfully
           error: Feed update failed
+        user:
+          filter:
+            title: Search
+            name: Name
+            interest: Interest
+            block: Staircase / Building / District
+            noUser: No users found
       admin:
         feeds:
           index:

@@ -11,10 +11,12 @@
         </div>
         <div class="p-2 gap-4 md:col-start-1 md:col-end-4 lg:col-start-2 lg:col-end-8 xl:col-start-2 xl:col-end-10">
           <div class="flex justify-between pb-4">
-            <h1 class="mb-2 flex gap-4 align-baseline">
-              <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
-              <span class="text-xl font-bold uppercase">Gruppen Name</span>
-            </h1>
+            <%= link_to decidim_feed_posts_path(current_participatory_space, @posts_component) do %>
+              <h1 class="mb-2 flex gap-4 align-baseline">
+                <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                <span class="text-xl font-bold uppercase"><%= translated_attribute @feed.title %></span>
+              </h1>
+            <% end %>
             <%= link_to decidim_feeds.edit_feed_path(@feed), class:'flex flex-col items-center' do %>
               <%= icon "settings-3-line", class: 'w-[24px] h-auto' %>
               <span class="text-sm text-center"><%= t("decidim.feeds.feeds.menu.edit") %></span>
@@ -22,6 +24,7 @@
           </div>
           <p class="text-pretty py-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sapien ornare vitae amet.</p>
           <div class="flex gap-4 py-4">
+            <%= link_to t(".show_posts"), decidim_feed_posts_path(current_participatory_space, @posts_component), class: "button button__sm button__transparent-primary self-end" %>
             <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
               Gruppe beitreten
               <%= icon "group-line", class: '' %>
@@ -46,7 +49,7 @@
                 </div>
                 <span class="text-feeds-host pl-2 py-2 self-start">Administrator</span>
                 <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
-                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %> FEED NAME
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
                 </span>
               </div>
               <div class="actions flex gap-2 pt-4">
@@ -63,7 +66,7 @@
                   <span>@usernickname</span>
                 </div>
                 <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
-                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %> FEED NAME
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
                 </span>
               </div>
               <div class="actions flex gap-2 pt-4">
@@ -82,23 +85,23 @@
           <h2 class="h3 py-4 flex flex-col gap-2">
             Teilnehmer einladen
             <span class="text-md">
-              (DIESE SOLL EIN EIGENE VIEW SEIN, GERUFEN VON BUTTON OBEN)
+              (DIESE SOLL EIN EIGENE VIEW SEIN, AUFGERUFEN VON BUTTON OBEN)
               <br>
               oder auch ein DIALOG
             </span>
           </h2>
           <div id="feedsUI__user_filter" class="feedsUI__user_filter">
-            <%= form_tag(decidim_feeds_ui.allusers_path, method: :get, id: "feedsUI__user_filterForm", remote: true, class: "flex flex-col gap-4 px-4 pt-0 pb-4") do %>
+            <%= form_tag("#", method: :get, id: "feedsUI__user_filterForm", remote: true, class: "flex flex-col gap-4 px-4 pt-0 pb-4") do %>
               <%= label_tag :name, class: "flex flex-col gap-1" do %>
-                <%= t("decidim.components.feeds_ui.user.filter.name") %>
+                <%= t("decidim.feeds.feeds.user.filter.name") %>
                 <%= text_field_tag :name, params[:name], id: "feedsUI__user_name", class: "reset-defaults p-4 border border-gray rounded-md", autocomplete: "off" %>
               <% end %>
               <%= label_tag :interest, class: "flex flex-col gap-1 hidden" do %>
-                <%= t("decidim.components.feeds_ui.user.filter.interest") %>
+                <%= t("decidim.feeds.feeds.user.filter.interest") %>
                 <%= text_field_tag :interest, params[:interest], id: "feedsUI__user_interest", class: "reset-defaults p-4 border border-gray rounded-md hidden", autocomplete: "off" %>
               <% end %>
               <%= label_tag :apartment, class: "flex flex-col gap-1 hidden" do %>
-                <%= t("decidim.components.feeds_ui.user.filter.block") %>
+                <%= t("decidim.feeds.feeds.user.filter.block") %>
                 <%= text_field_tag :apartment, params[:apartment], id: "feedsUI__user_apartment", class: "reset-defaults p-4 border border-gray rounded-md hidden", autocomplete: "off" %>
               <% end %>
             <% end %>
@@ -109,7 +112,7 @@
               <span>@usernickname</span>
             </div>
             <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
-              <%= icon "group-2-line", class: 'w-[48px] h-auto' %> FEED NAME
+              <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
             </span>
           </div>
           <div class="flex justify-end pl-4 pr-6 py-4">
