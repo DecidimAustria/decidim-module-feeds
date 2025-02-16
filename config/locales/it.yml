@@ -36,6 +36,13 @@ it:
         update:
           success: Feed aggiornato con successo
           error: Aggiornamento del feed fallito
+        user:
+          filter:
+            title: Cerca
+            name: Nome
+            interest: Interesse
+            block: Scala / Edificio / Quartiere
+            noUser: Nessun utente trovato
       admin:
         feeds:
           index:

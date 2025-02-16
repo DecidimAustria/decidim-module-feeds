@@ -36,6 +36,13 @@ de:
         update:
           success: Feed erfolgreich aktualisiert
           error: Feed-Aktualisierung fehlgeschlagen
+        user:
+          filter:
+            title: Suche
+            name: Name
+            interest: Interesse
+            block: Stiege / Gebäude / Bezirk
+            noUser: Keine Benutzer gefunden
       admin:
         feeds:
           index:

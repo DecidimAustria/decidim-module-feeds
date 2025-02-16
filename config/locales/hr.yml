@@ -36,6 +36,13 @@ hr:
         update:
           success: Feed uspješno ažuriran
           error: Ažuriranje feeda nije uspjelo
+        user:
+          filter:
+            title: Pretraga
+            name: Ime
+            interest: Interes
+            block: Stube / Zgrada / Kvart
+            noUser: Nema korisnika
       admin:
         feeds:
           index:

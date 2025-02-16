@@ -36,6 +36,13 @@ tr:
         update:
           success: Feed başarıyla güncellendi
           error: Feed güncelleme başarısız oldu
+        user:
+          filter:
+            title: Ara
+            name: İsim
+            interest: İlgi
+            block: Merdiven / Bina / Mahalle
+            noUser: Kullanıcı bulunamadı
       admin:
         feeds:
           index:
