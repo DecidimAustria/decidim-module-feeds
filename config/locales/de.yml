@@ -79,6 +79,16 @@ de:
         update:
           success: Feed erfolgreich aktualisiert
           invalid: Aktualisieren des Feeds fehlgeschlagen
+      feed_user_roles:
+        index:
+          feed_users_title: Feed-Benutzer
+        new:
+          title: Neuer Admin
+          create: Admin erstellen
+        create:
+          success: Admin erfolgreich hinzugefügt
+          invalid: Hinzufügen des Admins fehlgeschlagen
+          error: Hinzufügen des Admins fehlgeschlagen
       menu:
         feeds: Feeds
         feeds_submenu:
@@ -86,13 +96,25 @@ de:
           info: Über diesen Feed
           moderations: Moderationen
           see_feed: Feed anzeigen
+          feed_members: Feed-Mitglieder
       titles:
         feeds: Feeds
       actions:
         new_feed: Neuer Feed
+        new_feed_user_role: Benutzer hinzufügen
       models:
         feed:
           fields:
             title: Titel
             created_at: Erstellt am
             actions: Aktionen
+        feed_user_role:
+          fields:
+            name: Name
+            email: Email
+            role: Rolle
+          roles:
+            admin: Admin
+            collaborator: Mitglied
+            moderator: Moderator
+            valuator: Bewerter

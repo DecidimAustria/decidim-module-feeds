@@ -15,6 +15,8 @@ module Decidim
 
       attribute :created_by, String
       attribute :attachment, AttachmentForm
+      attribute :private_space, Boolean
+      attribute :is_transparent, Boolean
       
       # attribute :participatory_processes_ids, Array[Integer]
       # attribute :included_at, Decidim::Attributes::LocalizedDate

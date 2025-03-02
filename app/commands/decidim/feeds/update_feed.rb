@@ -65,7 +65,9 @@ module Decidim
 
       def attributes
         {
-          title: form.title
+          title: form.title,
+          private_space: form.private_space,
+          is_transparent: form.is_transparent
         }
       end
 

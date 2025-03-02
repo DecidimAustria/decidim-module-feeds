@@ -41,7 +41,7 @@ module Decidim
 
         def edit
           enforce_permission_to :update, :feed, feed: current_feed
-          @form = form(FeedForm).from_model(current_feed)
+          @form = form(Decidim::Feeds::Admin::FeedForm).from_model(current_feed)
           render layout: "decidim/admin/feed"
         end
 

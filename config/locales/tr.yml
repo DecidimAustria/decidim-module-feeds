@@ -77,6 +77,16 @@ tr:
         update:
           success: Feed başarıyla güncellendi
           invalid: Feed güncelleme başarısız oldu
+      feed_user_roles:
+        index:
+          feed_users_title: Feed Kullanıcıları
+        new:
+          title: Yeni yönetici
+          create: Kullanıcı Ekle
+        create:
+          success: Kullanıcı ekleme başarılı
+          invalid: Kullanıcı ekleme başarısız oldu
+          error: Kullanıcı ekleme başarısız oldu
       menu:
         feeds: Feedler
         feeds_submenu:
@@ -84,13 +94,25 @@ tr:
           info: Bu feed hakkında
           moderations: Moderasyonlar
           see_feed: Feed'i Görüntüle
+          feed_members: Feed Üyeleri
       titles:
         feeds: Feedler
       actions:
         new_feed: Yeni Feed
+        new_feed_user_role: Kullanıcı Ekle
       models:
         feed:
           fields:
             title: Başlık
             created_at: Oluşturulma Tarihi
             actions: Eylemler
+        feed_user_role:
+          fields:
+            name: İsim
+            email: E-posta
+            role: Rol
+          roles:
+            admin: Yönetici
+            collaborator: İşbirlikçi
+            moderator: Moderatör
+            valuator: Değerlendirici

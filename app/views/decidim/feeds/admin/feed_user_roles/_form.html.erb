@@ -1,0 +1,18 @@
+<div class="form__wrapper">
+  <div class="card pt-4">
+    <div class="card-section">
+      <div class="row">
+        <div class="columns">
+          <%= form.text_field :name, readonly: @form.persisted? %>
+        </div>
+        <div class="columns">
+          <%= form.email_field :email, readonly: @form.persisted? %>
+        </div>
+        <div class="columns">
+          <%= form.label :role %>
+          <%= select :feed_user_role, :role, options_for_select(@form.roles, @user_role&.role) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -54,6 +54,8 @@ module Decidim
           organization: form.current_organization,
           title: form.title,
           slug: form.title[I18n.locale.to_s].parameterize,
+          private_space: form.private_space,
+          is_transparent: form.is_transparent,
           created_by: form.current_user # TODO: created_by is a string, that makes no sense
         )
       end

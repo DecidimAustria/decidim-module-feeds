@@ -77,6 +77,16 @@ en:
         update:
           success: Feed updated successfully
           invalid: Feed update failed
+      feed_user_roles:
+        index:
+          feed_users_title: Feed Users
+        new:
+          title: New admin
+          create: Add admin
+        create:
+          success: Admin added successfully
+          invalid: Admin addition failed
+          error: Admin addition failed
       menu:
         feeds: Feeds
         feeds_submenu:
@@ -84,13 +94,25 @@ en:
           info: About this feed
           moderations: Moderations
           see_feed: See feed
+          feed_members: Feed members
       titles:
         feeds: Feeds
       actions:
         new_feed: New Feed
+        new_feed_user_role: Add user
       models:
         feed:
           fields:
             title: Title
             created_at: Created at
             actions: Actions
+        feed_user_role:
+          fields:
+            name: Name
+            email: Email
+            role: Role
+          roles:
+            admin: Admin
+            collaborator: Collaborator
+            moderator: Moderator
+            valuator: Valuator
