@@ -78,13 +78,6 @@ module Decidim
       #   attributes["hashtag"].to_s.delete("#")
       # end
 
-      def user_roles(role_name = nil)
-        roles = Decidim::Feeds::FeedUserRole.where(feed: self)
-        return roles if role_name.blank?
-  
-        roles.where(role: role_name)
-      end
-
       def to_param
         slug
       end

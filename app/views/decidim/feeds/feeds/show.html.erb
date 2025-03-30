@@ -41,32 +41,45 @@
 
           <h2 class="h3 mt-4">Mitglieder</h2>
           <ul>
-            <% @feed.user_roles.each do |user_role| %>
-              <li class="grow shrink basis-0 pl-4 pr-6 py-4 m-4 bg-white rounded-2xl shadow">
-                <div class="justify-start items-center gap-4 flex">
-                  <div class="py-2 flex-col justify-start items-start flex">
-                    <span class="font-semibold"><%= user_role.user.name %></span>
-                    <span>@<%= user_role.user.nickname %></span>
-                  </div>
-                  <span class="text-feeds-host pl-2 py-2 self-start"><% user_role.role %></span>
-                  <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
-                    <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
-                  </span>
+            <li class="grow shrink basis-0 pl-4 pr-6 py-4 m-4 bg-white rounded-2xl shadow">
+              <div class="justify-start items-center gap-4 flex">
+                <div class="py-2 flex-col justify-start items-start flex">
+                  <span class="font-semibold">User Name</span>
+                  <span>@usernickname</span>
                 </div>
-                <div class="actions flex gap-2 pt-4">
-                    <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
-                      User entfernen
-                      <%= icon "delete-bin-line", class: '' %>
-                    <% end %>
-                    <% unless user_role.role == "admin" %>
-                      <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
-                        Zum admin machen
-                        <%= icon "admin-line", class: '' %>
-                      <% end %>
-                    <% end %>
+                <span class="text-feeds-host pl-2 py-2 self-start">Administrator</span>
+                <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                </span>
+              </div>
+              <div class="actions flex gap-2 pt-4">
+                  <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
+                    Admin entfernen
+                    <%= icon "delete-bin-line", class: '' %>
+                  <% end %>
+              </div>
+            </li>
+            <li class="grow shrink basis-0 pl-4 pr-6 py-4 m-4 bg-white rounded-2xl shadow">
+              <div class="justify-start items-center gap-4 flex">
+                <div class="py-2 flex-col justify-start items-start flex">
+                  <span class="font-semibold">User Name</span>
+                  <span>@usernickname</span>
                 </div>
-              </li>
-            <% end %>
+                <span class="rounded-full w-[50px] h-[50px] overflow-hidden ml-auto">
+                  <%= icon "group-2-line", class: 'w-[48px] h-auto' %>
+                </span>
+              </div>
+              <div class="actions flex gap-2 pt-4">
+                <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
+                  User entfernen
+                  <%= icon "delete-bin-line", class: '' %>
+                <% end %>
+                <%= link_to '#', class: "button button__sm button__transparent-primary self-end" do %>
+                  Zum admin machen
+                  <%= icon "admin-line", class: '' %>
+                <% end %>
+              </div>
+            </li>
           </ul>
 
           <h2 class="h3 py-4 flex flex-col gap-2">
