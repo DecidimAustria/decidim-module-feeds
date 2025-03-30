@@ -15,11 +15,6 @@ module Decidim
       routes do
         # Add admin engine routes here
         resources :feeds, param: :slug, except: [:show, :destroy] do
-          resources :user_roles, controller: "feed_user_roles" do
-            member do
-              post :resend_invitation, to: "feed_user_roles#resend_invitation"
-            end
-          end
           # collection do
           #   resources :exports, only: [:create]
           # end

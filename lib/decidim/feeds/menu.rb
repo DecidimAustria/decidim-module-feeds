@@ -71,12 +71,6 @@ module Decidim
                         active: is_active_link?(decidim_admin_feeds.components_path(current_participatory_space), ["decidim/feeds/admin/components", %w(index new edit)]),
                         if: allowed_to?(:read, :component, feed: current_participatory_space),
                         submenu: { target_menu: :admin_feeds_components_menu }
-
-          menu.add_item :feed_user_roles,
-                        I18n.t("feed_members", scope: "decidim.admin.menu.feeds_submenu"),
-                        decidim_admin_feeds.feed_user_roles_path(current_participatory_space),
-                        icon_name: "user-settings-line",
-                        if: allowed_to?(:read, :feed_user_role, feed: current_participatory_space)
         end
       end
 

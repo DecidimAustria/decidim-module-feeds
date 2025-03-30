@@ -68,9 +68,7 @@ module Decidim
           {
             title: form.title,
             slug: form.slug,
-            created_by: form.created_by,
-            private_space: form.private_space,
-            is_transparent: form.is_transparent
+            created_by: form.created_by
           }
         end
 

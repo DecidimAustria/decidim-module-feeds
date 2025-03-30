@@ -13,9 +13,9 @@ module Decidim
       # include Decidim::HasAttachmentCollections
       # include Decidim::Publicable
       include Decidim::ScopableParticipatorySpace
-      include Decidim::Followable
+      # include Decidim::Followable
       # include Decidim::HasReference
-      include Decidim::HasPrivateUsers
+      # include Decidim::HasPrivateUsers
       # include Decidim::HasUploadValidations
       # include Decidim::FilterableResource
 
@@ -31,11 +31,6 @@ module Decidim
              foreign_type: "decidim_participatory_space_type",
              dependent: :destroy,
              as: :participatory_space
-
-      has_many :members,
-             foreign_key: "decidim_feed_id",
-             class_name: "::Decidim::Feeds::FeedMember",
-             dependent: :destroy
 
       # has_one_attached :hero_image
       # validates_upload :hero_image, uploader: Decidim::HeroImageUploader
@@ -61,9 +56,9 @@ module Decidim
       )
 
       # Overwriting existing method Decidim::HasPrivateUsers.public_spaces
-      def self.public_spaces
-        where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
-      end
+      # def self.public_spaces
+      #   where(private_space: false).or(where(private_space: true).where(is_transparent: true)).published
+      # end
 
       def self.log_presenter_class_for(_log)
         Decidim::Feeds::AdminLog::FeedPresenter

@@ -77,16 +77,6 @@ sr:
         update:
           success: Feed uspešno ažuriran
           invalid: Ažuriranje feeda nije uspelo
-      feed_user_roles:
-        index:
-          feed_users_title: Feed Users
-        new:
-          title: Novi amdinistrator
-          create: Dodaj amdinistratora
-        create:
-          success: Feed uspešno kreiran
-          invalid: Kreiranje feeda nije uspelo
-          error: Kreiranje feeda nije uspelo
       menu:
         feeds: Feedovi
         feeds_submenu:
@@ -94,25 +84,13 @@ sr:
           info: O ovom feedu
           moderations: Moderacije
           see_feed: Pogledaj feed
-          feed_members: Članovi feeda
       titles:
         feeds: Feedovi
       actions:
         new_feed: Novi Feed
-        new_feed_user_role: Dodaj korisnika
       models:
         feed:
           fields:
             title: Naslov
             created_at: Kreirano
             actions: Akcije
-        feed_user_role:
-          fields:
-            name: Ime
-            email: Email
-            role: Uloga
-          roles:
-            admin: Admin
-            collaborator: Collaborator
-            moderator: Moderator
-            valuator: Valuator

@@ -77,16 +77,6 @@ it:
         update:
           success: Feed aggiornato con successo
           invalid: Aggiornamento del feed fallito
-      feed_user_roles:
-        index:
-          feed_users_title: Utenti del feed
-        new:
-          title: Nuovo amministratore
-          create: Aggiungi amministratore
-        create:
-          success: Amministratore aggiunto con successo
-          invalid: Aggiunta dell'amministratore fallita
-          error: Aggiunta dell'amministratore fallita
       menu:
         feeds: Feeds
         feeds_submenu:
@@ -94,25 +84,13 @@ it:
           info: Informazioni su questo feed
           moderations: Moderazioni
           see_feed: Vedi feed
-          feed_members: Membri del feed
       titles:
         feeds: Feeds
       actions:
         new_feed: Nuovo feed
-        new_feed_user_role: Aggiungi utente
       models:
         feed:
           fields:
             title: Titolo
             created_at: Creato il
             actions: Azioni
-        feed_user_role:
-          fields:
-            name: Nome
-            email: Email
-            role: Ruolo
-          roles:
-            admin: Amministratore
-            collaborator: Collaboratore
-            moderator: Moderatore
-            valuator: Valutatore

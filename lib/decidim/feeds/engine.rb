@@ -25,7 +25,7 @@ module Decidim
         }, constraints: { feed_id: /[0-9]+/ }
 
         resources :feeds, only: [:index, :show, :new, :create, :edit, :update], param: :slug, path: "feeds" do
-          
+          resources :feed_members, only: :index, path: "members"
         end
 
         scope "/feeds/:feed_slug/f/:component_id" do
