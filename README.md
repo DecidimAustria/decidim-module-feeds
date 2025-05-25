@@ -12,10 +12,16 @@ It is planned to allow users to create groups for their posts and the groups wil
 
 ## Installation
 
+Choose the right version for your Decidim installation:
+
+ - *0.28*: "~> 1.0"
+ - *0.29*: "~> 2.0"
+ - *0.30*: "~> 3.0"
+
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "decidim-feeds"
+gem "decidim-feeds", "~> 3.0"
 ```
 
 And then execute:
