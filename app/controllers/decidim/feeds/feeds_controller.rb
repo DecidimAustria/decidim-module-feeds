@@ -8,7 +8,7 @@ module Decidim
       # include FeedBreadcrumb
       include FormFactory
 
-      participatory_space_layout only: :show
+      #participatory_space_layout only: :show
 
       include FilterResource
       include Paginable
