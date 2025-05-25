@@ -15,21 +15,40 @@ module Decidim
       routes do
         # Add admin engine routes here
         resources :feeds, param: :slug, except: [:show, :destroy] do
-          # collection do
-          #   resources :exports, only: [:create]
-          # end
+          member do
+            patch :soft_delete
+            patch :restore
+          end
+          resources :user_roles, controller: "feed_user_roles" do
+            member do
+              post :resend_invitation, to: "feed_user_roles#resend_invitation"
+            end
+          end
+          collection do
+            get :manage_trash, to: "feeds#manage_trash"
+          end
         end
 
         scope "/feeds/:feed_slug" do
           # resources :categories, except: [:show]
 
           resources :components do
+            collection do
+              put :reorder
+            end
             resource :permissions, controller: "component_permissions"
             member do
               put :publish
               put :unpublish
               get :share
+              patch :soft_delete
+              patch :restore
             end
+            collection do
+              get :manage_trash, to: "components#manage_trash"
+              put :hide
+            end
+            resources :component_share_tokens, except: [:show], path: "share_tokens", as: "share_tokens"
             resources :exports, only: :create
             #resources :imports, only: [:new, :create] do
             #  get :example, on: :collection
@@ -75,6 +94,12 @@ module Decidim
         Decidim::Feeds::Menu.register_admin_feeds_components_menu!
         Decidim::Feeds::Menu.register_admin_feed_menu!
         Decidim::Feeds::Menu.register_admin_feeds_menu!
+      end
+
+      initializer "decidim_feeds_admin.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Feeds::AdminEngine, at: "/admin", as: "decidim_admin_feeds"
+        end
       end
     end
   end

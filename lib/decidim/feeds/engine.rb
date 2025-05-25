@@ -83,6 +83,12 @@ module Decidim
         Decidim.icons.register(name: "admin-line", icon: "admin-line", description: "", category: "action", engine: :feeds)
       end
 
+      initializer "decidim_feeds.mount_routes" do
+        Decidim::Core::Engine.routes do
+          mount Decidim::Feeds::Engine, at: "/", as: "decidim_feeds"
+        end
+      end
+
     end
   end
 end
