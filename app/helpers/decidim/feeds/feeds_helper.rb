@@ -17,14 +17,14 @@ module Decidim
         components = participatory_space.components.published.or(Decidim::Component.where(id: try(:current_component)))
 
         [
-          *(if participatory_space.members.not_ceased.any?
-              [{
-                name: t("feed_member_menu_item", scope: "layouts.decidim.feed_navigation"),
-                url: decidim_feeds.feed_feed_members_path(participatory_space),
-                active: is_active_link?(decidim_feeds.feed_feed_members_path(participatory_space), :inclusive)
-              }]
-            end
-           )
+          # *(if participatory_space.members.not_ceased.any?
+          #     [{
+          #       name: t("feed_member_menu_item", scope: "layouts.decidim.feed_navigation"),
+          #       url: decidim_feeds.feed_feed_members_path(participatory_space),
+          #       active: is_active_link?(decidim_feeds.feed_feed_members_path(participatory_space), :inclusive)
+          #     }]
+          #   end
+          #  )
         ] + components.map do |component|
           {
             name: decidim_escape_translated(component.name),
