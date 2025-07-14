@@ -2,6 +2,8 @@
 
 This Feeds module adds a simple Feeds Participatory Space to hold a feed component.
 
+<img width="1170" height="2532" alt="IMG_4781" src="https://github.com/user-attachments/assets/9c941507-7e87-4a00-9f23-456ffc442494" />
+
 ## Usage
 
 Feeds will be available as a Participatory Space. This space is very simple and currently just a container for posts.
