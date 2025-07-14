@@ -1,6 +1,8 @@
 # Decidim::Feeds participatory space
 
 This Feeds module adds a simple Feeds Participatory Space to hold a feed component.
+![FeedsBild](https://github.com/user-attachments/assets/37a13dea-187d-4b48-9e80-5cfc04c462ed)
+
 
 ## Usage
 
